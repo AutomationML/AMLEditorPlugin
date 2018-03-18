@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpKI>
+  <HelpKINode Title="Activate enumeration member" Url="html/T_Aml_Editor_Plugin_Contracts_PluginCommandsEnum.htm" />
+  <HelpKINode Title="Activate method" Url="html/M_Aml_Editor_Plugin_Contracts_INotifyViewActivation_Activate.htm" />
+  <HelpKINode Title="ActivateCommandCanExecute method" Url="html/M_Aml_Editor_Plugin_Base_PluginBase_ActivateCommandCanExecute.htm" />
+  <HelpKINode Title="ActivateCommandExecute method" Url="html/M_Aml_Editor_Plugin_Base_PluginBase_ActivateCommandExecute.htm" />
+  <HelpKINode Title="ActivatePlugin property">
+    <HelpKINode Title="IAMLEditorPlugin.ActivatePlugin Property " Url="html/P_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin_ActivatePlugin.htm" />
+    <HelpKINode Title="PluginBase.ActivatePlugin Property " Url="html/P_Aml_Editor_Plugin_Base_PluginBase_ActivatePlugin.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Aml.Editor.Plugin.Base namespace" Url="html/N_Aml_Editor_Plugin_Base.htm" />
+  <HelpKINode Title="Aml.Editor.Plugin.Base.PluginBase class" Url="html/T_Aml_Editor_Plugin_Base_PluginBase.htm" />
+  <HelpKINode Title="Aml.Editor.Plugin.Contracts namespace" Url="html/N_Aml_Editor_Plugin_Contracts.htm" />
+  <HelpKINode Title="Aml.Editor.Plugin.Contracts.DockPositionEnum enumeration" Url="html/T_Aml_Editor_Plugin_Contracts_DockPositionEnum.htm" />
+  <HelpKINode Title="Aml.Editor.Plugin.Contracts.IAMLEditorExternalsPlugin interface" Url="html/T_Aml_Editor_Plugin_Contracts_IAMLEditorExternalsPlugin.htm" />
+  <HelpKINode Title="Aml.Editor.Plugin.Contracts.IAMLEditorPlugin interface" Url="html/T_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin.htm" />
+  <HelpKINode Title="Aml.Editor.Plugin.Contracts.IAMLEditorView interface" Url="html/T_Aml_Editor_Plugin_Contracts_IAMLEditorView.htm" />
+  <HelpKINode Title="Aml.Editor.Plugin.Contracts.IAMLEditorViewCollection interface" Url="html/T_Aml_Editor_Plugin_Contracts_IAMLEditorViewCollection.htm" />
+  <HelpKINode Title="Aml.Editor.Plugin.Contracts.INotifyAMLDocumentLoad interface" Url="html/T_Aml_Editor_Plugin_Contracts_INotifyAMLDocumentLoad.htm" />
+  <HelpKINode Title="Aml.Editor.Plugin.Contracts.INotifyViewActivation interface" Url="html/T_Aml_Editor_Plugin_Contracts_INotifyViewActivation.htm" />
+  <HelpKINode Title="Aml.Editor.Plugin.Contracts.ISupportsSelection interface" Url="html/T_Aml_Editor_Plugin_Contracts_ISupportsSelection.htm" />
+  <HelpKINode Title="Aml.Editor.Plugin.Contracts.IToolBarIntegration interface" Url="html/T_Aml_Editor_Plugin_Contracts_IToolBarIntegration.htm" />
+  <HelpKINode Title="Aml.Editor.Plugin.Contracts.PluginCommand class" Url="html/T_Aml_Editor_Plugin_Contracts_PluginCommand.htm" />
+  <HelpKINode Title="Aml.Editor.Plugin.Contracts.PluginCommandsEnum enumeration" Url="html/T_Aml_Editor_Plugin_Contracts_PluginCommandsEnum.htm" />
+  <HelpKINode Title="Aml.Editor.Plugin.Contracts.RelayCommand(Of T) class" Url="html/T_Aml_Editor_Plugin_Contracts_RelayCommand_1.htm" />
+  <HelpKINode Title="Aml.Editor.Plugin.Contracts.RelayCommand&lt;T&gt; class" Url="html/T_Aml_Editor_Plugin_Contracts_RelayCommand_1.htm" />
+  <HelpKINode Title="Aml.Editor.Plugin.Contracts.SelectionEventArgs class" Url="html/T_Aml_Editor_Plugin_Contracts_SelectionEventArgs.htm" />
+  <HelpKINode Title="ApplicationClose method" Url="html/M_Aml_Editor_Plugin_Contracts_INotifyAMLDocumentLoad_ApplicationClose.htm" />
+  <HelpKINode Title="CanClose property" Url="html/P_Aml_Editor_Plugin_Contracts_IAMLEditorView_CanClose.htm" />
+  <HelpKINode Title="CanExecute method" Url="html/M_Aml_Editor_Plugin_Contracts_RelayCommand_1_CanExecute.htm" />
+  <HelpKINode Title="CanExecuteChanged event" Url="html/E_Aml_Editor_Plugin_Contracts_RelayCommand_1_CanExecuteChanged.htm" />
+  <HelpKINode Title="ChangeAMLFilePath method">
+    <HelpKINode Title="IAMLEditorPlugin.ChangeAMLFilePath Method " Url="html/M_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin_ChangeAMLFilePath.htm" />
+    <HelpKINode Title="PluginBase.ChangeAMLFilePath Method " Url="html/M_Aml_Editor_Plugin_Base_PluginBase_ChangeAMLFilePath.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ChangeSelectedObject method">
+    <HelpKINode Title="IAMLEditorPlugin.ChangeSelectedObject Method " Url="html/M_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin_ChangeSelectedObject.htm" />
+    <HelpKINode Title="PluginBase.ChangeSelectedObject Method " Url="html/M_Aml_Editor_Plugin_Base_PluginBase_ChangeSelectedObject.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Command property" Url="html/P_Aml_Editor_Plugin_Contracts_PluginCommand_Command.htm" />
+  <HelpKINode Title="CommandIcon property" Url="html/P_Aml_Editor_Plugin_Contracts_PluginCommand_CommandIcon.htm" />
+  <HelpKINode Title="CommandName property" Url="html/P_Aml_Editor_Plugin_Contracts_PluginCommand_CommandName.htm" />
+  <HelpKINode Title="commands field" Url="html/F_Aml_Editor_Plugin_Base_PluginBase_commands.htm" />
+  <HelpKINode Title="Commands property">
+    <HelpKINode Title="IAMLEditorPlugin.Commands Property " Url="html/P_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin_Commands.htm" />
+    <HelpKINode Title="PluginBase.Commands Property " Url="html/P_Aml_Editor_Plugin_Base_PluginBase_Commands.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CommandToolTip property" Url="html/P_Aml_Editor_Plugin_Contracts_PluginCommand_CommandToolTip.htm" />
+  <HelpKINode Title="DisplayName property">
+    <HelpKINode Title="IAMLEditorPlugin.DisplayName Property " Url="html/P_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin_DisplayName.htm" />
+    <HelpKINode Title="PluginBase.DisplayName Property " Url="html/P_Aml_Editor_Plugin_Base_PluginBase_DisplayName.htm" />
+    <HelpKINode Title="PluginCommand.DisplayName Property " Url="html/P_Aml_Editor_Plugin_Contracts_PluginCommand_DisplayName.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DockBottom enumeration member" Url="html/T_Aml_Editor_Plugin_Contracts_DockPositionEnum.htm" />
+  <HelpKINode Title="DockContent enumeration member" Url="html/T_Aml_Editor_Plugin_Contracts_DockPositionEnum.htm" />
+  <HelpKINode Title="DockContentMaximized enumeration member" Url="html/T_Aml_Editor_Plugin_Contracts_DockPositionEnum.htm" />
+  <HelpKINode Title="DockLeft enumeration member" Url="html/T_Aml_Editor_Plugin_Contracts_DockPositionEnum.htm" />
+  <HelpKINode Title="DockPositionEnum enumeration" Url="html/T_Aml_Editor_Plugin_Contracts_DockPositionEnum.htm" />
+  <HelpKINode Title="DockRight enumeration member" Url="html/T_Aml_Editor_Plugin_Contracts_DockPositionEnum.htm" />
+  <HelpKINode Title="DockTop enumeration member" Url="html/T_Aml_Editor_Plugin_Contracts_DockPositionEnum.htm" />
+  <HelpKINode Title="DocumentLoaded method" Url="html/M_Aml_Editor_Plugin_Contracts_INotifyAMLDocumentLoad_DocumentLoaded.htm" />
+  <HelpKINode Title="DocumentUnLoaded method" Url="html/M_Aml_Editor_Plugin_Contracts_INotifyAMLDocumentLoad_DocumentUnLoaded.htm" />
+  <HelpKINode Title="Execute method" Url="html/M_Aml_Editor_Plugin_Contracts_RelayCommand_1_Execute.htm" />
+  <HelpKINode Title="ExecuteCommand method">
+    <HelpKINode Title="IAMLEditorPlugin.ExecuteCommand Method " Url="html/M_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin_ExecuteCommand.htm" />
+    <HelpKINode Title="PluginBase.ExecuteCommand Method " Url="html/M_Aml_Editor_Plugin_Base_PluginBase_ExecuteCommand.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Floating enumeration member" Url="html/T_Aml_Editor_Plugin_Contracts_DockPositionEnum.htm" />
+  <HelpKINode Title="IAMLEditorExternalsPlugin interface">
+    <HelpKINode Title="IAMLEditorExternalsPlugin Interface" Url="html/T_Aml_Editor_Plugin_Contracts_IAMLEditorExternalsPlugin.htm" />
+    <HelpKINode Title="events" Url="html/Events_T_Aml_Editor_Plugin_Contracts_IAMLEditorExternalsPlugin.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_Aml_Editor_Plugin_Contracts_IAMLEditorExternalsPlugin.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_Aml_Editor_Plugin_Contracts_IAMLEditorExternalsPlugin.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IAMLEditorExternalsPlugin.IsExternalsViewer property" Url="html/P_Aml_Editor_Plugin_Contracts_IAMLEditorExternalsPlugin_IsExternalsViewer.htm" />
+  <HelpKINode Title="IAMLEditorExternalsPlugin.MIMEType property" Url="html/P_Aml_Editor_Plugin_Contracts_IAMLEditorExternalsPlugin_MIMEType.htm" />
+  <HelpKINode Title="IAMLEditorExternalsPlugin.ViewExternal method" Url="html/Overload_Aml_Editor_Plugin_Contracts_IAMLEditorExternalsPlugin_ViewExternal.htm" />
+  <HelpKINode Title="IAMLEditorPlugin interface">
+    <HelpKINode Title="IAMLEditorPlugin Interface" Url="html/T_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin.htm" />
+    <HelpKINode Title="events" Url="html/Events_T_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IAMLEditorPlugin.ActivatePlugin property" Url="html/P_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin_ActivatePlugin.htm" />
+  <HelpKINode Title="IAMLEditorPlugin.ChangeAMLFilePath method" Url="html/M_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin_ChangeAMLFilePath.htm" />
+  <HelpKINode Title="IAMLEditorPlugin.ChangeSelectedObject method" Url="html/M_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin_ChangeSelectedObject.htm" />
+  <HelpKINode Title="IAMLEditorPlugin.Commands property" Url="html/P_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin_Commands.htm" />
+  <HelpKINode Title="IAMLEditorPlugin.DisplayName property" Url="html/P_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin_DisplayName.htm" />
+  <HelpKINode Title="IAMLEditorPlugin.ExecuteCommand method" Url="html/M_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin_ExecuteCommand.htm" />
+  <HelpKINode Title="IAMLEditorPlugin.IsActive property" Url="html/P_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin_IsActive.htm" />
+  <HelpKINode Title="IAMLEditorPlugin.IsAutoActive property" Url="html/P_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin_IsAutoActive.htm" />
+  <HelpKINode Title="IAMLEditorPlugin.IsReactive property" Url="html/P_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin_IsReactive.htm" />
+  <HelpKINode Title="IAMLEditorPlugin.IsReadonly property" Url="html/P_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin_IsReadonly.htm" />
+  <HelpKINode Title="IAMLEditorPlugin.PackageName property" Url="html/P_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin_PackageName.htm" />
+  <HelpKINode Title="IAMLEditorPlugin.PluginActivated event" Url="html/E_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin_PluginActivated.htm" />
+  <HelpKINode Title="IAMLEditorPlugin.PluginTerminated event" Url="html/E_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin_PluginTerminated.htm" />
+  <HelpKINode Title="IAMLEditorPlugin.PublishAutomationMLFileAndObject method" Url="html/M_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin_PublishAutomationMLFileAndObject.htm" />
+  <HelpKINode Title="IAMLEditorPlugin.TerminatePlugin property" Url="html/P_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin_TerminatePlugin.htm" />
+  <HelpKINode Title="IAMLEditorView interface">
+    <HelpKINode Title="IAMLEditorView Interface" Url="html/T_Aml_Editor_Plugin_Contracts_IAMLEditorView.htm" />
+    <HelpKINode Title="events" Url="html/Events_T_Aml_Editor_Plugin_Contracts_IAMLEditorView.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_Aml_Editor_Plugin_Contracts_IAMLEditorView.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_Aml_Editor_Plugin_Contracts_IAMLEditorView.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IAMLEditorView.CanClose property" Url="html/P_Aml_Editor_Plugin_Contracts_IAMLEditorView_CanClose.htm" />
+  <HelpKINode Title="IAMLEditorView.InitialDockPosition property" Url="html/P_Aml_Editor_Plugin_Contracts_IAMLEditorView_InitialDockPosition.htm" />
+  <HelpKINode Title="IAMLEditorView.PaneImage property" Url="html/P_Aml_Editor_Plugin_Contracts_IAMLEditorView_PaneImage.htm" />
+  <HelpKINode Title="IAMLEditorViewCollection interface">
+    <HelpKINode Title="IAMLEditorViewCollection Interface" Url="html/T_Aml_Editor_Plugin_Contracts_IAMLEditorViewCollection.htm" />
+    <HelpKINode Title="events" Url="html/Events_T_Aml_Editor_Plugin_Contracts_IAMLEditorViewCollection.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_Aml_Editor_Plugin_Contracts_IAMLEditorViewCollection.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_Aml_Editor_Plugin_Contracts_IAMLEditorViewCollection.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IAMLEditorViewCollection.ViewAdded event" Url="html/E_Aml_Editor_Plugin_Contracts_IAMLEditorViewCollection_ViewAdded.htm" />
+  <HelpKINode Title="Identifier property" Url="html/P_Aml_Editor_Plugin_Contracts_RelayCommand_1_Identifier.htm" />
+  <HelpKINode Title="InitialDockPosition property" Url="html/P_Aml_Editor_Plugin_Contracts_IAMLEditorView_InitialDockPosition.htm" />
+  <HelpKINode Title="INotifyAMLDocumentLoad interface">
+    <HelpKINode Title="INotifyAMLDocumentLoad Interface" Url="html/T_Aml_Editor_Plugin_Contracts_INotifyAMLDocumentLoad.htm" />
+    <HelpKINode Title="events" Url="html/Events_T_Aml_Editor_Plugin_Contracts_INotifyAMLDocumentLoad.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_Aml_Editor_Plugin_Contracts_INotifyAMLDocumentLoad.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_Aml_Editor_Plugin_Contracts_INotifyAMLDocumentLoad.htm" />
+  </HelpKINode>
+  <HelpKINode Title="INotifyAMLDocumentLoad.ApplicationClose method" Url="html/M_Aml_Editor_Plugin_Contracts_INotifyAMLDocumentLoad_ApplicationClose.htm" />
+  <HelpKINode Title="INotifyAMLDocumentLoad.DocumentLoaded method" Url="html/M_Aml_Editor_Plugin_Contracts_INotifyAMLDocumentLoad_DocumentLoaded.htm" />
+  <HelpKINode Title="INotifyAMLDocumentLoad.DocumentUnLoaded method" Url="html/M_Aml_Editor_Plugin_Contracts_INotifyAMLDocumentLoad_DocumentUnLoaded.htm" />
+  <HelpKINode Title="INotifyViewActivation interface">
+    <HelpKINode Title="INotifyViewActivation Interface" Url="html/T_Aml_Editor_Plugin_Contracts_INotifyViewActivation.htm" />
+    <HelpKINode Title="events" Url="html/Events_T_Aml_Editor_Plugin_Contracts_INotifyViewActivation.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_Aml_Editor_Plugin_Contracts_INotifyViewActivation.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_Aml_Editor_Plugin_Contracts_INotifyViewActivation.htm" />
+  </HelpKINode>
+  <HelpKINode Title="INotifyViewActivation.Activate method" Url="html/M_Aml_Editor_Plugin_Contracts_INotifyViewActivation_Activate.htm" />
+  <HelpKINode Title="IsActive property">
+    <HelpKINode Title="IAMLEditorPlugin.IsActive Property " Url="html/P_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin_IsActive.htm" />
+    <HelpKINode Title="PluginBase.IsActive Property " Url="html/P_Aml_Editor_Plugin_Base_PluginBase_IsActive.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IsAutoActive property">
+    <HelpKINode Title="IAMLEditorPlugin.IsAutoActive Property " Url="html/P_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin_IsAutoActive.htm" />
+    <HelpKINode Title="PluginBase.IsAutoActive Property " Url="html/P_Aml_Editor_Plugin_Base_PluginBase_IsAutoActive.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IsCheckable property" Url="html/P_Aml_Editor_Plugin_Contracts_PluginCommand_IsCheckable.htm" />
+  <HelpKINode Title="IsChecked property" Url="html/P_Aml_Editor_Plugin_Contracts_PluginCommand_IsChecked.htm" />
+  <HelpKINode Title="IsExternalsViewer property" Url="html/P_Aml_Editor_Plugin_Contracts_IAMLEditorExternalsPlugin_IsExternalsViewer.htm" />
+  <HelpKINode Title="IsReactive property">
+    <HelpKINode Title="IAMLEditorPlugin.IsReactive Property " Url="html/P_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin_IsReactive.htm" />
+    <HelpKINode Title="PluginBase.IsReactive Property " Url="html/P_Aml_Editor_Plugin_Base_PluginBase_IsReactive.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IsReadonly property">
+    <HelpKINode Title="IAMLEditorPlugin.IsReadonly Property " Url="html/P_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin_IsReadonly.htm" />
+    <HelpKINode Title="PluginBase.IsReadonly Property " Url="html/P_Aml_Editor_Plugin_Base_PluginBase_IsReadonly.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ISupportsSelection interface">
+    <HelpKINode Title="ISupportsSelection Interface" Url="html/T_Aml_Editor_Plugin_Contracts_ISupportsSelection.htm" />
+    <HelpKINode Title="events" Url="html/Events_T_Aml_Editor_Plugin_Contracts_ISupportsSelection.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_Aml_Editor_Plugin_Contracts_ISupportsSelection.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_Aml_Editor_Plugin_Contracts_ISupportsSelection.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ISupportsSelection.Selected event" Url="html/E_Aml_Editor_Plugin_Contracts_ISupportsSelection_Selected.htm" />
+  <HelpKINode Title="IToolBarIntegration interface">
+    <HelpKINode Title="IToolBarIntegration Interface" Url="html/T_Aml_Editor_Plugin_Contracts_IToolBarIntegration.htm" />
+    <HelpKINode Title="events" Url="html/Events_T_Aml_Editor_Plugin_Contracts_IToolBarIntegration.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_Aml_Editor_Plugin_Contracts_IToolBarIntegration.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_Aml_Editor_Plugin_Contracts_IToolBarIntegration.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IToolBarIntegration.ToolBarCommands property" Url="html/P_Aml_Editor_Plugin_Contracts_IToolBarIntegration_ToolBarCommands.htm" />
+  <HelpKINode Title="MIMEType property" Url="html/P_Aml_Editor_Plugin_Contracts_IAMLEditorExternalsPlugin_MIMEType.htm" />
+  <HelpKINode Title="PackageName property">
+    <HelpKINode Title="IAMLEditorPlugin.PackageName Property " Url="html/P_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin_PackageName.htm" />
+    <HelpKINode Title="PluginBase.PackageName Property " Url="html/P_Aml_Editor_Plugin_Base_PluginBase_PackageName.htm" />
+  </HelpKINode>
+  <HelpKINode Title="PaneImage property" Url="html/P_Aml_Editor_Plugin_Contracts_IAMLEditorView_PaneImage.htm" />
+  <HelpKINode Title="PluginActivated event">
+    <HelpKINode Title="IAMLEditorPlugin.PluginActivated Event" Url="html/E_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin_PluginActivated.htm" />
+    <HelpKINode Title="PluginBase.PluginActivated Event" Url="html/E_Aml_Editor_Plugin_Base_PluginBase_PluginActivated.htm" />
+  </HelpKINode>
+  <HelpKINode Title="PluginBase class">
+    <HelpKINode Title="PluginBase Class" Url="html/T_Aml_Editor_Plugin_Base_PluginBase.htm" />
+    <HelpKINode Title="constructor" Url="html/M_Aml_Editor_Plugin_Base_PluginBase__ctor.htm" />
+    <HelpKINode Title="events" Url="html/Events_T_Aml_Editor_Plugin_Base_PluginBase.htm" />
+    <HelpKINode Title="fields" Url="html/Fields_T_Aml_Editor_Plugin_Base_PluginBase.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_Aml_Editor_Plugin_Base_PluginBase.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_Aml_Editor_Plugin_Base_PluginBase.htm" />
+  </HelpKINode>
+  <HelpKINode Title="PluginBase.ActivateCommandCanExecute method" Url="html/M_Aml_Editor_Plugin_Base_PluginBase_ActivateCommandCanExecute.htm" />
+  <HelpKINode Title="PluginBase.ActivateCommandExecute method" Url="html/M_Aml_Editor_Plugin_Base_PluginBase_ActivateCommandExecute.htm" />
+  <HelpKINode Title="PluginBase.ActivatePlugin property" Url="html/P_Aml_Editor_Plugin_Base_PluginBase_ActivatePlugin.htm" />
+  <HelpKINode Title="PluginBase.ChangeAMLFilePath method" Url="html/M_Aml_Editor_Plugin_Base_PluginBase_ChangeAMLFilePath.htm" />
+  <HelpKINode Title="PluginBase.ChangeSelectedObject method" Url="html/M_Aml_Editor_Plugin_Base_PluginBase_ChangeSelectedObject.htm" />
+  <HelpKINode Title="PluginBase.commands field" Url="html/F_Aml_Editor_Plugin_Base_PluginBase_commands.htm" />
+  <HelpKINode Title="PluginBase.Commands property" Url="html/P_Aml_Editor_Plugin_Base_PluginBase_Commands.htm" />
+  <HelpKINode Title="PluginBase.DisplayName property" Url="html/P_Aml_Editor_Plugin_Base_PluginBase_DisplayName.htm" />
+  <HelpKINode Title="PluginBase.ExecuteCommand method" Url="html/M_Aml_Editor_Plugin_Base_PluginBase_ExecuteCommand.htm" />
+  <HelpKINode Title="PluginBase.IsActive property" Url="html/P_Aml_Editor_Plugin_Base_PluginBase_IsActive.htm" />
+  <HelpKINode Title="PluginBase.IsAutoActive property" Url="html/P_Aml_Editor_Plugin_Base_PluginBase_IsAutoActive.htm" />
+  <HelpKINode Title="PluginBase.IsReactive property" Url="html/P_Aml_Editor_Plugin_Base_PluginBase_IsReactive.htm" />
+  <HelpKINode Title="PluginBase.IsReadonly property" Url="html/P_Aml_Editor_Plugin_Base_PluginBase_IsReadonly.htm" />
+  <HelpKINode Title="PluginBase.PackageName property" Url="html/P_Aml_Editor_Plugin_Base_PluginBase_PackageName.htm" />
+  <HelpKINode Title="PluginBase.PluginActivated event" Url="html/E_Aml_Editor_Plugin_Base_PluginBase_PluginActivated.htm" />
+  <HelpKINode Title="PluginBase.PluginBase constructor" Url="html/M_Aml_Editor_Plugin_Base_PluginBase__ctor.htm" />
+  <HelpKINode Title="PluginBase.PluginTerminated event" Url="html/E_Aml_Editor_Plugin_Base_PluginBase_PluginTerminated.htm" />
+  <HelpKINode Title="PluginBase.PublishAutomationMLFileAndObject method" Url="html/M_Aml_Editor_Plugin_Base_PluginBase_PublishAutomationMLFileAndObject.htm" />
+  <HelpKINode Title="PluginBase.RaisePluginActivated method" Url="html/M_Aml_Editor_Plugin_Base_PluginBase_RaisePluginActivated.htm" />
+  <HelpKINode Title="PluginBase.RaisePluginTerminated method" Url="html/M_Aml_Editor_Plugin_Base_PluginBase_RaisePluginTerminated.htm" />
+  <HelpKINode Title="PluginBase.TerminateCommandCanExecute method" Url="html/M_Aml_Editor_Plugin_Base_PluginBase_TerminateCommandCanExecute.htm" />
+  <HelpKINode Title="PluginBase.TerminateCommandExecute method" Url="html/M_Aml_Editor_Plugin_Base_PluginBase_TerminateCommandExecute.htm" />
+  <HelpKINode Title="PluginBase.TerminatePlugin property" Url="html/P_Aml_Editor_Plugin_Base_PluginBase_TerminatePlugin.htm" />
+  <HelpKINode Title="PluginCommand class">
+    <HelpKINode Title="PluginCommand Class" Url="html/T_Aml_Editor_Plugin_Contracts_PluginCommand.htm" />
+    <HelpKINode Title="constructor" Url="html/M_Aml_Editor_Plugin_Contracts_PluginCommand__ctor.htm" />
+    <HelpKINode Title="events" Url="html/Events_T_Aml_Editor_Plugin_Contracts_PluginCommand.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_Aml_Editor_Plugin_Contracts_PluginCommand.htm" />
+  </HelpKINode>
+  <HelpKINode Title="PluginCommand.Command property" Url="html/P_Aml_Editor_Plugin_Contracts_PluginCommand_Command.htm" />
+  <HelpKINode Title="PluginCommand.CommandIcon property" Url="html/P_Aml_Editor_Plugin_Contracts_PluginCommand_CommandIcon.htm" />
+  <HelpKINode Title="PluginCommand.CommandName property" Url="html/P_Aml_Editor_Plugin_Contracts_PluginCommand_CommandName.htm" />
+  <HelpKINode Title="PluginCommand.CommandToolTip property" Url="html/P_Aml_Editor_Plugin_Contracts_PluginCommand_CommandToolTip.htm" />
+  <HelpKINode Title="PluginCommand.DisplayName property" Url="html/P_Aml_Editor_Plugin_Contracts_PluginCommand_DisplayName.htm" />
+  <HelpKINode Title="PluginCommand.IsCheckable property" Url="html/P_Aml_Editor_Plugin_Contracts_PluginCommand_IsCheckable.htm" />
+  <HelpKINode Title="PluginCommand.IsChecked property" Url="html/P_Aml_Editor_Plugin_Contracts_PluginCommand_IsChecked.htm" />
+  <HelpKINode Title="PluginCommand.PluginCommand constructor" Url="html/M_Aml_Editor_Plugin_Contracts_PluginCommand__ctor.htm" />
+  <HelpKINode Title="PluginCommand.PropertyChanged event" Url="html/E_Aml_Editor_Plugin_Contracts_PluginCommand_PropertyChanged.htm" />
+  <HelpKINode Title="PluginCommandsEnum enumeration" Url="html/T_Aml_Editor_Plugin_Contracts_PluginCommandsEnum.htm" />
+  <HelpKINode Title="PluginTerminated event">
+    <HelpKINode Title="IAMLEditorPlugin.PluginTerminated Event" Url="html/E_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin_PluginTerminated.htm" />
+    <HelpKINode Title="PluginBase.PluginTerminated Event" Url="html/E_Aml_Editor_Plugin_Base_PluginBase_PluginTerminated.htm" />
+  </HelpKINode>
+  <HelpKINode Title="PropertyChanged event" Url="html/E_Aml_Editor_Plugin_Contracts_PluginCommand_PropertyChanged.htm" />
+  <HelpKINode Title="PublishAutomationMLFileAndObject method">
+    <HelpKINode Title="IAMLEditorPlugin.PublishAutomationMLFileAndObject Method " Url="html/M_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin_PublishAutomationMLFileAndObject.htm" />
+    <HelpKINode Title="PluginBase.PublishAutomationMLFileAndObject Method " Url="html/M_Aml_Editor_Plugin_Base_PluginBase_PublishAutomationMLFileAndObject.htm" />
+  </HelpKINode>
+  <HelpKINode Title="RaisePluginActivated method" Url="html/M_Aml_Editor_Plugin_Base_PluginBase_RaisePluginActivated.htm" />
+  <HelpKINode Title="RaisePluginTerminated method" Url="html/M_Aml_Editor_Plugin_Base_PluginBase_RaisePluginTerminated.htm" />
+  <HelpKINode Title="RelayCommand(Of T) class">
+    <HelpKINode Title="RelayCommand(T) Class" Url="html/T_Aml_Editor_Plugin_Contracts_RelayCommand_1.htm" />
+    <HelpKINode Title="constructor" Url="html/Overload_Aml_Editor_Plugin_Contracts_RelayCommand_1__ctor.htm" />
+    <HelpKINode Title="events" Url="html/Events_T_Aml_Editor_Plugin_Contracts_RelayCommand_1.htm" />
+    <HelpKINode Title="fields" Url="html/Fields_T_Aml_Editor_Plugin_Contracts_RelayCommand_1.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_Aml_Editor_Plugin_Contracts_RelayCommand_1.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_Aml_Editor_Plugin_Contracts_RelayCommand_1.htm" />
+  </HelpKINode>
+  <HelpKINode Title="RelayCommand(Of T).CanExecute method" Url="html/M_Aml_Editor_Plugin_Contracts_RelayCommand_1_CanExecute.htm" />
+  <HelpKINode Title="RelayCommand(Of T).CanExecuteChanged event" Url="html/E_Aml_Editor_Plugin_Contracts_RelayCommand_1_CanExecuteChanged.htm" />
+  <HelpKINode Title="RelayCommand(Of T).Execute method" Url="html/M_Aml_Editor_Plugin_Contracts_RelayCommand_1_Execute.htm" />
+  <HelpKINode Title="RelayCommand(Of T).Identifier property" Url="html/P_Aml_Editor_Plugin_Contracts_RelayCommand_1_Identifier.htm" />
+  <HelpKINode Title="RelayCommand(Of T).RelayCommand constructor" Url="html/Overload_Aml_Editor_Plugin_Contracts_RelayCommand_1__ctor.htm" />
+  <HelpKINode Title="RelayCommand(Of T)._canExecute field" Url="html/F_Aml_Editor_Plugin_Contracts_RelayCommand_1__canExecute.htm" />
+  <HelpKINode Title="RelayCommand(Of T)._execute field" Url="html/F_Aml_Editor_Plugin_Contracts_RelayCommand_1__execute.htm" />
+  <HelpKINode Title="RelayCommand&lt;T&gt; class">
+    <HelpKINode Title="RelayCommand(T) Class" Url="html/T_Aml_Editor_Plugin_Contracts_RelayCommand_1.htm" />
+    <HelpKINode Title="constructor" Url="html/Overload_Aml_Editor_Plugin_Contracts_RelayCommand_1__ctor.htm" />
+    <HelpKINode Title="events" Url="html/Events_T_Aml_Editor_Plugin_Contracts_RelayCommand_1.htm" />
+    <HelpKINode Title="fields" Url="html/Fields_T_Aml_Editor_Plugin_Contracts_RelayCommand_1.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_Aml_Editor_Plugin_Contracts_RelayCommand_1.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_Aml_Editor_Plugin_Contracts_RelayCommand_1.htm" />
+  </HelpKINode>
+  <HelpKINode Title="RelayCommand&lt;T&gt;.CanExecute method" Url="html/M_Aml_Editor_Plugin_Contracts_RelayCommand_1_CanExecute.htm" />
+  <HelpKINode Title="RelayCommand&lt;T&gt;.CanExecuteChanged event" Url="html/E_Aml_Editor_Plugin_Contracts_RelayCommand_1_CanExecuteChanged.htm" />
+  <HelpKINode Title="RelayCommand&lt;T&gt;.Execute method" Url="html/M_Aml_Editor_Plugin_Contracts_RelayCommand_1_Execute.htm" />
+  <HelpKINode Title="RelayCommand&lt;T&gt;.Identifier property" Url="html/P_Aml_Editor_Plugin_Contracts_RelayCommand_1_Identifier.htm" />
+  <HelpKINode Title="RelayCommand&lt;T&gt;.RelayCommand constructor" Url="html/Overload_Aml_Editor_Plugin_Contracts_RelayCommand_1__ctor.htm" />
+  <HelpKINode Title="RelayCommand&lt;T&gt;._canExecute field" Url="html/F_Aml_Editor_Plugin_Contracts_RelayCommand_1__canExecute.htm" />
+  <HelpKINode Title="RelayCommand&lt;T&gt;._execute field" Url="html/F_Aml_Editor_Plugin_Contracts_RelayCommand_1__execute.htm" />
+  <HelpKINode Title="Selected event" Url="html/E_Aml_Editor_Plugin_Contracts_ISupportsSelection_Selected.htm" />
+  <HelpKINode Title="SelectedElement property" Url="html/P_Aml_Editor_Plugin_Contracts_SelectionEventArgs_SelectedElement.htm" />
+  <HelpKINode Title="SelectionEventArgs class">
+    <HelpKINode Title="SelectionEventArgs Class" Url="html/T_Aml_Editor_Plugin_Contracts_SelectionEventArgs.htm" />
+    <HelpKINode Title="constructor" Url="html/M_Aml_Editor_Plugin_Contracts_SelectionEventArgs__ctor.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_Aml_Editor_Plugin_Contracts_SelectionEventArgs.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SelectionEventArgs.SelectedElement property" Url="html/P_Aml_Editor_Plugin_Contracts_SelectionEventArgs_SelectedElement.htm" />
+  <HelpKINode Title="SelectionEventArgs.SelectionEventArgs constructor" Url="html/M_Aml_Editor_Plugin_Contracts_SelectionEventArgs__ctor.htm" />
+  <HelpKINode Title="Terminate enumeration member" Url="html/T_Aml_Editor_Plugin_Contracts_PluginCommandsEnum.htm" />
+  <HelpKINode Title="TerminateCommandCanExecute method" Url="html/M_Aml_Editor_Plugin_Base_PluginBase_TerminateCommandCanExecute.htm" />
+  <HelpKINode Title="TerminateCommandExecute method" Url="html/M_Aml_Editor_Plugin_Base_PluginBase_TerminateCommandExecute.htm" />
+  <HelpKINode Title="TerminatePlugin property">
+    <HelpKINode Title="IAMLEditorPlugin.TerminatePlugin Property " Url="html/P_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin_TerminatePlugin.htm" />
+    <HelpKINode Title="PluginBase.TerminatePlugin Property " Url="html/P_Aml_Editor_Plugin_Base_PluginBase_TerminatePlugin.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ToolBarCommands property" Url="html/P_Aml_Editor_Plugin_Contracts_IToolBarIntegration_ToolBarCommands.htm" />
+  <HelpKINode Title="version">
+    <HelpKINode Title="1.0.0.0" Url="html/18baa73c-20f8-4336-abdd-04623205ace1.htm" />
+    <HelpKINode Title="2.0.0.0" Url="html/18baa73c-20f8-4336-abdd-05623205ace1.htm" />
+    <HelpKINode Title="history" Url="html/a8934f88-1ee8-4608-b0b2-9a835c95edf7.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ViewAdded event" Url="html/E_Aml_Editor_Plugin_Contracts_IAMLEditorViewCollection_ViewAdded.htm" />
+  <HelpKINode Title="ViewExternal method" Url="html/Overload_Aml_Editor_Plugin_Contracts_IAMLEditorExternalsPlugin_ViewExternal.htm" />
+  <HelpKINode Title="Welcome" Url="html/3888aca7-dd3a-4d0f-b73b-c6701e9d8d8c.htm" />
+  <HelpKINode Title="_canExecute field" Url="html/F_Aml_Editor_Plugin_Contracts_RelayCommand_1__canExecute.htm" />
+  <HelpKINode Title="_execute field" Url="html/F_Aml_Editor_Plugin_Contracts_RelayCommand_1__execute.htm" />
+</HelpKI>
