@@ -4,7 +4,7 @@
 library
 C#
 .cs
-D:\GitHub\AMLEditorPlugin\Templates\SimpleWPFUserControl\obj\Debug\
+D:\GitHub\AutomationML\AMLEditorPlugin\Templates\SimpleWPFUserControl\obj\Debug\
 Aml.Editor.Plugin
 none
 false
@@ -12,8 +12,8 @@ DEBUG;TRACE
 
 2-665455942
 
-9884697313
-12-703313673
+91015130129
+12964877752
 About.xaml;HelloAml.xaml;
 
 False

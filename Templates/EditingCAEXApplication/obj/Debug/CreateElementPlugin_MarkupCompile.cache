@@ -4,7 +4,7 @@
 library
 C#
 .cs
-D:\GitHub\AMLEditorPlugin\Templates\EditingCAEXApplication\obj\Debug\
+D:\GitHub\AutomationML\AMLEditorPlugin\Templates\EditingCAEXApplication\obj\Debug\
 Aml.Editor.Plugin
 none
 false
@@ -13,7 +13,7 @@ DEBUG;TRACE
 2320438808
 
 8-1460624615
-161081116621
+16-1189062157
 About.xaml;CreateElementUI.xaml;
 
 False

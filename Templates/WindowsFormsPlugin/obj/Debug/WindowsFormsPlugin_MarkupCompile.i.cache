@@ -4,7 +4,7 @@
 library
 C#
 .cs
-D:\GitHub\AMLEditorPlugin\Templates\WindowsFormsPlugin\obj\Debug\
+D:\GitHub\AutomationML\AMLEditorPlugin\Templates\WindowsFormsPlugin\obj\Debug\
 Aml.Editor.Plugin
 none
 false
@@ -12,8 +12,8 @@ DEBUG;TRACE
 
 21235538626
 
-9-640364004
-201737492954
+9-509931188
+20-889282917
 About.xaml;InternalElementRelations.xaml;
 
 False
