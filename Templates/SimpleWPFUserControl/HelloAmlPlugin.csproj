@@ -21,7 +21,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>$(SolutionDir)\Plugins\</OutputPath>
+    <OutputPath>$(SolutionDir)\Plugins\HelloAml\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -30,7 +30,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>$(SolutionDir)\Plugins\</OutputPath>
+    <OutputPath>$(SolutionDir)\Plugins\HelloAml</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -42,11 +42,11 @@
     <Reference Include="AML.Editor.PluginContracts, Version=2.1.0.0, Culture=neutral, PublicKeyToken=60b97399e4e37abb, processorArchitecture=MSIL">
       <HintPath>..\AmlEditorPlugInSandbox\packages\Aml.Editor.Plugin.Contract.2.1.0\lib\net47\AML.Editor.PluginContracts.dll</HintPath>
     </Reference>
-    <Reference Include="AML.Engine, Version=1.2.0.0, Culture=neutral, PublicKeyToken=449e3551ddfecd2b, processorArchitecture=MSIL">
-      <HintPath>..\AmlEditorPlugInSandbox\packages\Aml.Engine.1.2.0\lib\net47\AML.Engine.dll</HintPath>
+    <Reference Include="AML.Engine, Version=1.2.2.0, Culture=neutral, PublicKeyToken=449e3551ddfecd2b, processorArchitecture=MSIL">
+      <HintPath>..\AmlEditorPlugInSandbox\packages\Aml.Engine.1.2.2\lib\net47\AML.Engine.dll</HintPath>
     </Reference>
-    <Reference Include="AML.Engine.Services, Version=1.2.0.0, Culture=neutral, PublicKeyToken=449e3551ddfecd2b, processorArchitecture=MSIL">
-      <HintPath>..\AmlEditorPlugInSandbox\packages\Aml.Engine.1.2.0\lib\net47\AML.Engine.Services.dll</HintPath>
+    <Reference Include="AML.Engine.Services, Version=1.2.2.0, Culture=neutral, PublicKeyToken=449e3551ddfecd2b, processorArchitecture=MSIL">
+      <HintPath>..\AmlEditorPlugInSandbox\packages\Aml.Engine.1.2.2\lib\net47\AML.Engine.Services.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />

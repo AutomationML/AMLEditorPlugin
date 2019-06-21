@@ -108,13 +108,11 @@ namespace Aml.Editor
         {
             try
             {
-                string pluginsPath = Path.Combine(AppDomain.CurrentDomain.SetupInformation.ApplicationBase, "Plugins");
+                string pluginsPath = Path.Combine(AppDomain.CurrentDomain.SetupInformation.ApplicationBase, "PlugIns");
+                SafeDirectoryCatalog pluginsCatalog = new SafeDirectoryCatalog(pluginsPath);
 
-                _pluginCatalog = new DirectoryCatalog(pluginsPath);
-                var catalog = new AggregateCatalog(_pluginCatalog);
 
-                // Create the CompositionContainer with the parts in the catalog
-                _container = new CompositionContainer(catalog);
+                _container = new CompositionContainer(pluginsCatalog);
                 _container.ComposeParts(this);
             }
             catch (CompositionException compositionException)

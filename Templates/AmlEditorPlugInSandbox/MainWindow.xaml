@@ -7,7 +7,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:Aml.Editor.Plugin.Sandbox.ViewModel"
     xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock"
-    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
     Title="AutomationML Editor Plugin Sandbox"
     Icon="AMLIcon.ico"
     mc:Ignorable="d">
@@ -27,6 +26,10 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
             <Menu Grid.Row="0">
                 <MenuItem Command="{Binding OpenFileCommand}" Header="Open File" />
@@ -54,9 +57,23 @@
                 </MenuItem>
             </Menu>
 
+            <ToolBarTray
+                x:Name="ToolBarTray"
+                Grid.Column="1"
+                Margin="10,0"
+                HorizontalAlignment="Stretch">
+                <ToolBarTray.Resources>
+                    <Style TargetType="{x:Type Image}">
+                        <Setter Property="Height" Value="24" />
+                        <Setter Property="Width" Value="Auto" />
+                    </Style>
+                </ToolBarTray.Resources>
+            </ToolBarTray>
+
             <xcad:DockingManager
                 Name="DockingManager"
                 Grid.Row="1"
+                Grid.ColumnSpan="2"
                 AllowMixedOrientation="True"
                 BorderBrush="Black"
                 BorderThickness="1">

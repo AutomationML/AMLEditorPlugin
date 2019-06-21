@@ -1,6 +1,7 @@
 ﻿using Aml.Editor.Plugin.Contracts;
 using Aml.Engine.AmlObjects;
 using Aml.Engine.CAEX;
+using Aml.Engine.CAEX.Extensions;
 using Aml.Toolkit.ViewModel;
 using GalaSoft.MvvmLight;
 using Microsoft.Win32;
@@ -63,7 +64,7 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModel
         {
             Plugins = new ObservableCollection<IAMLEditorPlugin>();
 
-            GenerateSomeAutomationMLTestData();
+            GenerateSomeAutomationMLTestData("My test hierarchy");
             BuildTreeViewModel();
         }
 
@@ -75,6 +76,29 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModel
         /// Gets the singleton instance of the view model
         /// </summary>
         public static MainViewModel Instance { get; private set; }
+
+        internal void Select(ICAEXWrapper caexObject, bool activate)
+        { 
+            var lib = caexObject.Library();
+            if (lib is InstanceHierarchyType)
+            {
+                AMLDocumentTreeViewModel?.SelectCaexNode(caexObject.Node, true, true);
+                if (activate)
+                    AMLDocumentTreeViewModel.RaisePropertyChanged("Activate");
+            }
+        }
+
+
+
+        internal static string PluginName(string name)
+        {
+            var varName = name.Replace(' ', '_');
+            varName = varName.Replace('-', '_');
+
+            return varName;
+        }
+
+
 
         /// <summary>
         ///  Gets and sets the AMLDocumentTreeViewModel which holds the data for the AML document tree view
@@ -175,6 +199,23 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModel
             return documentBaseURI;
         }
 
+        internal void Close()
+        {
+            AMLDocumentTreeViewModel?.ClearAll();
+            Document = null;
+        }
+
+        internal void New()
+        {
+            AMLDocumentTreeViewModel?.ClearAll();
+            Document = null;
+
+            GenerateSomeAutomationMLTestData("My new hierarchy");
+            BuildTreeViewModel();
+        }
+
+
+
         /// <summary>
         /// Utility method to get the Files path from an URI attribute value which can be relative to the document URI
         /// </summary>
@@ -202,6 +243,7 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModel
             return string.Empty;
         }
 
+
         /// <summary>
         /// Propagates the file open event to PlugIns. This method is called by the AutomationML editor if an AML file is opened.
         /// </summary>
@@ -215,6 +257,17 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModel
                     plugin.ChangeAMLFilePath(amlFilePath);
                 }
             }
+        }
+
+        internal void Open(string filePath)
+        {
+            AMLDocumentTreeViewModel?.ClearAll();
+            Document = null;
+
+            FilePath = filePath;
+            Document = CAEXDocument.LoadFromFile(filePath);
+            AMLDocumentTreeViewModel = new AMLTreeViewModel(Document.CAEXFile.Node, AMLTreeViewTemplate.CompleteInstanceHierarchyTree);
+            PropagateFileOpenEventToPlugins(FilePath);
         }
 
         /// <summary>
@@ -293,13 +346,13 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModel
         /// <summary>
         /// Generates some automationML test data to be viewed in the tree
         /// </summary>
-        private void GenerateSomeAutomationMLTestData()
+        private void GenerateSomeAutomationMLTestData(string file)
         {
             // we want unique names for the created elements
             Engine.Services.UniqueNameService.Register();
 
             Document = CAEXDocument.New_CAEXDocument();
-            var ih = Document.CAEXFile.InstanceHierarchy.Append("My Instance Hierarchy");
+            var ih = Document.CAEXFile.InstanceHierarchy.Append(file);
             var slib = Document.CAEXFile.SystemUnitClassLib.Append("SLib");
             var rand = new Random(DateTime.Now.Millisecond);
             for (int i=0; i< 10; i++)

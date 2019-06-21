@@ -249,7 +249,6 @@ namespace Aml.Editor.Plugin
         /// </value>
         public string PackageName => "";
 
-
         /// <summary>
         /// Gets the image which should be used in the Header of the PlugIn window.
         /// If no image is defined the editor uses a default image.

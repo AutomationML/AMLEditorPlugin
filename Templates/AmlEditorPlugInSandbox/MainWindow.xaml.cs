@@ -1,8 +1,12 @@
 ﻿using Aml.Editor.Plugin.Contracts;
+using Aml.Editor.Plugin.Contracts.Commanding;
 using Aml.Editor.Plugin.Sandbox.ViewModel;
+using Aml.Engine.CAEX.Extensions;
 using System;
 using System.IO;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Threading;
 using Xceed.Wpf.AvalonDock.Layout;
 
@@ -42,6 +46,10 @@ namespace Aml.Editor.Plugin.Sandbox
                     DocumentPane.Children.Add(plugin);
                     break;
 
+                case DockPositionEnum.DockContentMaximized:
+                    DocumentPane.Children.Add(plugin);
+                    break;
+
                 case DockPositionEnum.DockLeft:
                     LeftTabSide.Children.Add(plugin);
                     break;
@@ -73,8 +81,23 @@ namespace Aml.Editor.Plugin.Sandbox
                 plugin.Closed += PluginClosed;
             }
 
+
+            if (view is ISupportsSelection iSelection)
+            {
+                iSelection.Selected += PlugInSelectionHandler;
+            }
+
             return plugin;
         }
+
+        private void PlugInSelectionHandler(object sender, SelectionEventArgs e)
+        {
+            if (e.SelectedElement.CAEXDocument() == MainViewModel.Instance.Document)
+            {
+                MainViewModel.Instance.Select(e.SelectedElement, true);
+            }
+        }
+
 
         /// <summary>
         /// When the main window is loaded, the plugins are loaded with the plugin loader.
@@ -122,6 +145,23 @@ namespace Aml.Editor.Plugin.Sandbox
                     multipleView.ViewAdded += MultipleView_ViewAdded;
                 }
 
+
+                if (view is IEditorCommanding commanding)
+                {
+                    commanding.EditorCommand = ExecuteEditorCommandInvokedFromPlugIn;
+                }
+
+
+                if (view is IToolBarIntegration toolBarIntegration)
+                {
+                    Dispatcher.BeginInvoke(DispatcherPriority.Background, new Action(() =>
+                    {
+                        AddToolBar(toolBarIntegration);
+                    }));
+                }
+
+
+
                 if (view is IAMLEditorView editorView)
                 {
                     DockView(editorView);
@@ -138,6 +178,107 @@ namespace Aml.Editor.Plugin.Sandbox
                         view.PublishAutomationMLFileAndObject(MainViewModel.Instance.FilePath, MainViewModel.Instance.CurrentSelectedObject);
                 }
             }
+        }
+
+
+
+
+        private void AddToolBar(IToolBarIntegration toolBarIntegration)
+        {
+            ToolBar tb = new ToolBar { Name = MainViewModel.PluginName(toolBarIntegration.DisplayName), HorizontalAlignment = HorizontalAlignment.Left };
+            tb.BandIndex = 2;
+            tb.ToolTip = toolBarIntegration.DisplayName;
+            foreach (var command in toolBarIntegration.ToolBarCommands)
+            {
+                var button = new Button { ToolTip = command.CommandToolTip, Content = new Image { Source = command.CommandIcon } };
+                Binding bd = new Binding("Command") { Source = command };
+                button.SetBinding(Button.CommandProperty, bd);
+
+                ToolTipService.SetShowOnDisabled(button, true);
+
+                tb.Items.Add(button);
+
+            }
+
+            ToolBarTray.ToolBars.Add(tb);
+        }
+
+
+        private bool ExecuteEditorCommandInvokedFromPlugIn(IAMLEditorPlugin source, AMLEditorCommandEnum command, EditorCommandArguments args)
+        {
+            bool success = false;
+            args.Cancelled = false;
+
+            Dispatcher.Invoke(new Action(() =>
+            {
+                try
+                {
+                    switch (command)
+                    {
+                        case AMLEditorCommandEnum.CloseFileCommand:
+                            MessageBoxResult result = MessageBox.Show("Close File", "AMLEditor Command Execution", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+
+                            success = result == MessageBoxResult.Yes;
+                            args.Cancelled = result == MessageBoxResult.Cancel;
+
+                            if (success)
+                            {
+                                MainViewModel.Instance.Close();
+                            }
+                           
+                            break;
+
+                        case AMLEditorCommandEnum.GetCAEXFileCommand:
+                            if (MainViewModel.Instance.Document != null && args is GetCAEXFileCommandArguments cfarg)
+                            {
+                                cfarg.CaexFile = MainViewModel.Instance.Document.CAEXFile;
+                            }
+                            break;
+
+                        case AMLEditorCommandEnum.NewFileCommand:
+                            result = MessageBox.Show("New File", "AMLEditor Command Execution", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+
+                            success = result == MessageBoxResult.Yes;
+                            args.Cancelled = result == MessageBoxResult.Cancel;
+
+                            if (success)
+                            {
+                                MainViewModel.Instance.Close();
+                                MainViewModel.Instance.New();
+                            }
+
+                            break;
+
+                        case AMLEditorCommandEnum.OpenFileCommand:
+                            result = MessageBox.Show("Open File", "AMLEditor Command Execution", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+
+                            success = result == MessageBoxResult.Yes;
+                            args.Cancelled = result == MessageBoxResult.Cancel;
+
+                            if (success && args is OpenFileCommandArguments ofarg)
+                            {
+                                MainViewModel.Instance.Close();
+                                MainViewModel.Instance.Open(ofarg.FilePath);
+                            }
+                            break;
+
+
+                        case AMLEditorCommandEnum.ImportLibrariesCommand:
+                            result = MessageBox.Show("Import from File not implemented in SandBox", "AMLEditor Command Execution", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+
+                            success = result == MessageBoxResult.Yes;
+                            args.Cancelled = result == MessageBoxResult.Cancel;
+                          
+                            break;
+                    }
+                }
+                catch (Exception exp)
+                {
+                    args.Error = exp;
+                }
+            }));
+
+            return success;
         }
 
         /// <summary>

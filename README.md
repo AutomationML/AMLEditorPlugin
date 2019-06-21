@@ -1,5 +1,5 @@
-AMLEditorPluginContract
-=======================
+Aml.Editor.Plugin
+=================
 
 Contract DLL for Plugin Development for the AutomationML Editor with example Implementations and some already published PlugIns.
 
