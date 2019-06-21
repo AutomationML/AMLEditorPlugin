@@ -1,17 +1,18 @@
 AMLEditorPluginContract
 =======================
 
-Contract DLL for Plugin Development for the AutomationML Editor with example Implementations.
+Contract DLL for Plugin Development for the AutomationML Editor with example Implementations and some already published PlugIns.
 
-This Contract DLL defines Interface Classes which have to be implemented by AutomationML Editor - Plugin Developers. 
-When implemented, the Plugin Classes should EXPORT its Interface with Microsoft Extencibility Framework (MEF).
-The Plugin DLL has to be located under the Plugins Directory in the Installation Folder of the AutomationML Editor.
+The included contract DLL defines interface classes for the implementation of AutomationML Editor - PlugIns. 
+The implementation is based on the Microsoft Extencibility Framework (MEF). A new PlugIn class must implement one 
+of the interface classes defined in the contract and export it for use in the AutomationML Editor. The PlugIn Manager
+of the AutomationML Editor allows the installation of the PlugIns that implement the contract correctly. 
 
-The Example Implementations can be used as Templates for Plugin Development. Currently four Templates are available.
-The Template named 'SimpleWPFUserControl' implements a WPF Control Plugin, which is directly integrated 
-in the UI of the AutomationML Editor. The Template, named 'EditingCAEXApplication' is an example for a Plugin, 
-which has its own UI-Thread. The Implementation shows, how the Thread Synchronisation between the AMLEditor 
-and the plugin can be implemented. The Template 'PluginWithToolBar' shows, how a PlugIn can add its own Toolbar to the Editors Toolbar.
+The sample implementations can be used as templates for plugin development. Four templates are currently available.
+The template named 'SimpleWPFUserControl' implements a WPF Control Plugin which is inserted directly into the user 
+interface of the AutomationML Editor. The template named 'EditingCAEXApplication' is an example of a plugin that creates
+its own UI thread. The implementation shows how thread synchronization between the AutomationML editor and a plug-in works. 
+The 'PluginWithToolBar' template implements a plug-in that adds its own toolbar to the editor toolbar.
 
 PlugIn developers can make a new PlugIn available for the Editor with the help of the PlugIn Manager of the
 AutomationML Editor (menu item PlugIn). To do this, the directory in which the PlugIn DLL is contained must
