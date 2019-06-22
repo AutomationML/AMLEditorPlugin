@@ -11,6 +11,9 @@ namespace Aml.Editor.PlugIn.WithToolBar
     /// <summary>
     /// Interaktionslogik für PlugIn.xaml
     /// </summary>
+    [ExportMetadata("Author", "Josef Prinz, AutomationML e.V.")]
+    [ExportMetadata("DisplayName", "With ToolBar")]
+    [ExportMetadata("Description", "The 'With ToolBar' is an AutomationML Editor plugin which serves as an implementation example. This plugin creates a toolbar which is attached to the toolbar of the editor.")]
     [Export(typeof(IAMLEditorView))]
     public partial class PlugIn : UserControl, IAMLEditorView, IToolBarIntegration
     {
@@ -102,7 +105,7 @@ namespace Aml.Editor.PlugIn.WithToolBar
 
         public PluginCommand CountSubCommand { get; }
 
-        public string DisplayName => "WithToolBar";
+        public string DisplayName => "With ToolBar";
 
         public DockPositionEnum InitialDockPosition => DockPositionEnum.DockLeft;
 

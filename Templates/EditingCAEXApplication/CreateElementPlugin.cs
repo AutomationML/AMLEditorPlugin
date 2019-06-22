@@ -22,7 +22,7 @@ using Aml.Engine.CAEX;
 /// <summary>
 /// The AutomationML.Plugin.Examples namespace.
 /// </summary>
-namespace Aml.Editor.Plugin
+namespace Aml.Editor.Plugin.CreateElement
 {
     /// <summary>
     /// The Class CreateElementPlugin is an example for a PlugIn, which has it's own User Interface
@@ -36,6 +36,9 @@ namespace Aml.Editor.Plugin
     /// AMLEditors Thread and the UI Thread is managed via a synchronization Context. The Context is
     /// needed for sending events back to the AMLEditor from the PlugIn UI
     /// </summary>
+    [ExportMetadata("Author", "Josef Prinz, AutomationML e.V.")]
+    [ExportMetadata("DisplayName", "InternalElement Generator")]
+    [ExportMetadata("Description", "The InternalElement-Generator is an AutomationML Editor plugin which serves as an implementation example. This plugin contains an editing function.")]
     [Export(typeof(IAMLEditorPlugin))]
     public class CreateElementPlugin : Base.PluginBase
     {

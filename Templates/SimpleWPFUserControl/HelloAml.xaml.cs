@@ -21,7 +21,7 @@ using System.Windows.Media.Imaging;
 /// <summary>
 /// The AMLEditorPlugin namespace.
 /// </summary>
-namespace Aml.Editor.Plugin
+namespace Aml.Editor.Plugin.HelloAML
 {
     /// <summary>
     /// HelloAml is an example PlugIn, which implements the IAMLEditorView Interface. The PlugIn is
@@ -33,6 +33,9 @@ namespace Aml.Editor.Plugin
     /// to change the string from lower- to uppercase and vice versa and an About Command which
     /// displays the Disclaimer
     /// </summary>
+    [ExportMetadata("Author", "Josef Prinz, AutomationML e.V.")]
+    [ExportMetadata("DisplayName", "Hello AML")]
+    [ExportMetadata("Description", "The 'Hello AML' is an AutomationML Editor plugin which serves as an implementation example. This plugin is reactive whenever an element is selected in AutomationML editor.")]
     [Export(typeof(IAMLEditorView))]
     public partial class HelloAml : UserControl, IAMLEditorView
     {

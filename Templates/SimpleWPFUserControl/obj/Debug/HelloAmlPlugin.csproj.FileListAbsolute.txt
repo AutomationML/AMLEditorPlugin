@@ -1,0 +1,15 @@
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\SimpleWPFUserControl\obj\Debug\About.baml
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\SimpleWPFUserControl\obj\Debug\HelloAml.baml
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\SimpleWPFUserControl\obj\Debug\About.g.cs
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\SimpleWPFUserControl\obj\Debug\HelloAml.g.cs
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\SimpleWPFUserControl\obj\Debug\HelloAMLPlugIn_MarkupCompile.cache
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\SimpleWPFUserControl\obj\Debug\HelloAMLPlugIn.g.resources
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\SimpleWPFUserControl\obj\Debug\Aml.Editor.Plugin.Properties.Resources.resources
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\SimpleWPFUserControl\obj\Debug\HelloAmlPlugin.csproj.GenerateResource.cache
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\SimpleWPFUserControl\obj\Debug\HelloAmlPlugin.csproj.CoreCompileInputs.cache
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\AmlEditorPlugInSandbox\Plugins\HelloAml\HelloAMLPlugIn.dll.config
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\AmlEditorPlugInSandbox\Plugins\HelloAml\HelloAMLPlugIn.dll
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\AmlEditorPlugInSandbox\Plugins\HelloAml\HelloAMLPlugIn.pdb
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\SimpleWPFUserControl\obj\Debug\HelloAmlPlugin.csproj.CopyComplete
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\SimpleWPFUserControl\obj\Debug\HelloAMLPlugIn.dll
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\SimpleWPFUserControl\obj\Debug\HelloAMLPlugIn.pdb

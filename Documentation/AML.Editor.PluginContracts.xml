@@ -361,6 +361,26 @@
             Gets the Terminate command for the PlugIn.
             </summary>
     </member>
+    <member name="T:Aml.Editor.Plugin.Contracts.IAMLEditorPluginMetadata">
+      <summary>
+            Interface which defines Metadata for an exportet PlugIn.
+            </summary>
+    </member>
+    <member name="P:Aml.Editor.Plugin.Contracts.IAMLEditorPluginMetadata.Author">
+      <summary>
+            Gets the name of the author.
+            </summary>
+    </member>
+    <member name="P:Aml.Editor.Plugin.Contracts.IAMLEditorPluginMetadata.Description">
+      <summary>
+            Gets the description of the PlugIn.
+            </summary>
+    </member>
+    <member name="P:Aml.Editor.Plugin.Contracts.IAMLEditorPluginMetadata.DisplayName">
+      <summary>
+            Gets the display name of the PlugIn.
+            </summary>
+    </member>
     <member name="T:Aml.Editor.Plugin.Contracts.IAMLEditorView">
       <summary>
              The Interface IAMLEditorView is used for a PlugIn, which can be embedded in
@@ -392,7 +412,7 @@
              The Interface IAMLEditorViewCollection is used for a PlugIn, which can be embedded in
              the AutomationML Editor's Window- and Docking-Manager. This PlugIn can provide
              multiple independent views, to be embedded at different positions in the AML Editor where
-             each of the views shall implement the <see cref="T:Aml.Editor.Plugin.Contracts.IAMLEditorView" /> interface.    /// 
+             each of the views shall implement the <see cref="T:Aml.Editor.Plugin.Contracts.IAMLEditorView" /> interface.    
              It is possible to dynamically add and remove views from the collection while the PlugIn is
              active.
              </summary>
@@ -400,7 +420,7 @@
     <member name="E:Aml.Editor.Plugin.Contracts.IAMLEditorViewCollection.ViewAdded">
       <summary>
             The Event occurs when a view has been added to this collection. The AML editor will handle this event and
-            will dock the added view at the dock position, defined by the view. 
+            will dock the added view at the dock position, defined by the view.
             </summary>
     </member>
     <member name="T:Aml.Editor.Plugin.Contracts.INotifyAMLDocumentLoad">
@@ -425,21 +445,27 @@
             Method called by the AutomationML editor, when the current document is unloaded.
             </summary>
     </member>
+    <member name="E:Aml.Editor.Plugin.Contracts.INotifyAMLDocumentLoad.IsDocumentLoaded">
+      <summary>
+            Occurs when the PlugIn has loaded a new document, which should be loaded into the AutomationML editor for editing.
+            </summary>
+    </member>
     <member name="T:Aml.Editor.Plugin.Contracts.INotifyViewActivation">
       <summary>
-            This interfaces is used to implement a PlugIn which will receive a notification, when the AMLEditor activates a view.
+            This interfaces is used to implement a PlugIn which will receive a notification with the <see cref="M:Aml.Editor.Plugin.Contracts.INotifyViewActivation.Activate(System.String)" />
+            method called, when the AMLEditor activates a view.
             </summary>
     </member>
     <member name="M:Aml.Editor.Plugin.Contracts.INotifyViewActivation.Activate(System.String)">
       <summary>
-            Is called, when the AMLEditor activates a view. 
+            Is called, when the AMLEditor activates a view.
             </summary>
       <param name="viewName">Name of the activated view. This is the display name shown in the view tab header.</param>
     </member>
     <member name="T:Aml.Editor.Plugin.Contracts.ISupportsSelection">
       <summary>
             This interface can be implemented by a PlugIn to get the AutomationML editor to select a
-            CAEX element in a tree view. 
+            CAEX element in a tree view when the <see cref="E:Aml.Editor.Plugin.Contracts.ISupportsSelection.Selected" /> event is raised.
             </summary>
     </member>
     <member name="E:Aml.Editor.Plugin.Contracts.ISupportsSelection.Selected">
@@ -449,7 +475,7 @@
     </member>
     <member name="T:Aml.Editor.Plugin.Contracts.IToolBarIntegration">
       <summary>
-            This interface can be implemented by PlugIns which provide commands, integrated into the AMLEditors tool bar.
+            This interface can be implemented by PlugIns which provide <see cref="P:Aml.Editor.Plugin.Contracts.IToolBarIntegration.ToolBarCommands" />, integrated into the AMLEditors tool bar.
             </summary>
     </member>
     <member name="P:Aml.Editor.Plugin.Contracts.IToolBarIntegration.ToolBarCommands">
@@ -474,6 +500,13 @@
             otherwise it is null or empty.
             </summary>
     </member>
+    <member name="P:Aml.Editor.Plugin.Contracts.PluginCommand.CommandButtonContent">
+      <summary>
+            Gets or sets the button content which should be used, if the command is bound to a button control.
+            This is an alternative to the <see cref="P:Aml.Editor.Plugin.Contracts.PluginCommand.CommandIcon" /> property if the button content is not an icon 
+            but any content. The content will be loaded to the Button using a content presenter.
+            </summary>
+    </member>
     <member name="P:Aml.Editor.Plugin.Contracts.PluginCommand.CommandIcon">
       <summary>
             Gets or sets the command icon which should be used, if the command is bound to a button control.
@@ -492,7 +525,7 @@
     </member>
     <member name="P:Aml.Editor.Plugin.Contracts.PluginCommand.DisplayName">
       <summary>
-            Gets the display name (This returns only the <see cref="P:Aml.Editor.Plugin.Contracts.PluginCommand.CommandName" />). 
+            Gets the display name (This returns only the <see cref="P:Aml.Editor.Plugin.Contracts.PluginCommand.CommandName" />).
             A DisplayName Property is needed to bind the CommandName to UI controls.
             </summary>
     </member>
@@ -515,7 +548,7 @@
     </member>
     <member name="T:Aml.Editor.Plugin.Contracts.PluginCommandsEnum">
       <summary>
-            Enumeration Constants for Plugin Commands. This Constants are used in the Host AutomationML Editor Application 
+            Enumeration Constants for Plugin Commands. This Constants are used in the Host AutomationML Editor Application
             to Execute a Plugin internal command. The Plugin should at least publish these commands to the Host via its command list.
             </summary>
     </member>
@@ -533,7 +566,7 @@
       <summary>
             Class RelayCommand as it was defined in an MSDN Article <a href="http://msdn.microsoft.com/en-us/magazine/dd419663.aspx#id0090030">by Josh Smith.</a>
             This class is an implementation pattern for a plugin command, which the AutomationML Editor
-            can bind to a plugin Menu. This Implementation provides the UI with the state information, to enabled or disable a command, and with the 
+            can bind to a plugin Menu. This Implementation provides the UI with the state information, to enabled or disable a command, and with the
             invocation Method.
             </summary>
       <typeparam name="T">Type of Command Data (this may be the Systemtype 'object')</typeparam>
@@ -606,6 +639,294 @@
       <summary>
             The element to select.
             </summary>
+    </member>
+    <member name="T:Aml.Editor.Plugin.Contracts.Commanding.AMLEditorCommandEnum">
+      <summary>
+            The available commands of the AMLEditor, which can be invoked by a PlugIn, implementing the <see cref="T:Aml.Editor.Plugin.Contracts.Commanding.IEditorCommanding" /> interface.
+            </summary>
+    </member>
+    <member name="F:Aml.Editor.Plugin.Contracts.Commanding.AMLEditorCommandEnum.CloseFileCommand">
+      <summary>
+            The close file command. Use this command with the <see cref="T:Aml.Editor.Plugin.Contracts.Commanding.CloseCAEXFileCommandArguments" /> callback arguments.
+            The command executes identical to the close command invoked from the File/Close menu item of the AutomationML Editor.
+            </summary>
+    </member>
+    <member name="F:Aml.Editor.Plugin.Contracts.Commanding.AMLEditorCommandEnum.SaveFileCommand">
+      <summary>
+            The save file command. Use this command with the <see cref="T:Aml.Editor.Plugin.Contracts.Commanding.SaveCAEXFileCommandArguments" /> callback arguments.
+            The command executes identical to the save command invoked from the File/Save menu item of the AutomationML Editor.
+            </summary>
+    </member>
+    <member name="F:Aml.Editor.Plugin.Contracts.Commanding.AMLEditorCommandEnum.OpenFileCommand">
+      <summary>
+            The open file command. Use this command with the <see cref="T:Aml.Editor.Plugin.Contracts.Commanding.OpenFileCommandArguments" /> callback arguments.
+            The command executes nearly identical to the open command invoked from the File/Open menu item, except that
+            no open file browser dialog is presented to the user.
+            </summary>
+    </member>
+    <member name="F:Aml.Editor.Plugin.Contracts.Commanding.AMLEditorCommandEnum.NewFileCommand">
+      <summary>
+            The new file command. Use this command with the <see cref="T:Aml.Editor.Plugin.Contracts.Commanding.NewCAEXFileCommandArguments" /> callback arguments.
+            The command executes identical to the close command invoked from the File/New menu item. The new file's CAEX schema is set to the currently selected schema.
+            </summary>
+    </member>
+    <member name="F:Aml.Editor.Plugin.Contracts.Commanding.AMLEditorCommandEnum.GetCAEXFileCommand">
+      <summary>
+            The get current CAEX file command. Use this command with the <see cref="T:Aml.Editor.Plugin.Contracts.Commanding.GetCAEXFileCommandArguments" /> callback arguments.
+            </summary>
+    </member>
+    <member name="F:Aml.Editor.Plugin.Contracts.Commanding.AMLEditorCommandEnum.ImportLibrariesCommand">
+      <summary>
+            The command to insert AML libraries from an external file into the current document. Use this command with the <see cref="T:Aml.Editor.Plugin.Contracts.Commanding.ImportLibrariesCommandArguments" /> callback arguments.
+            The command executes nearly identical to the import from file command invoked from the File/ImportFromFile menu item, except that
+            no selection dialog is presented to the user, if the command mode is set to silent. In silent mode, libraries are automatically transformed if a schema transformation is needed.
+            </summary>
+    </member>
+    <member name="T:Aml.Editor.Plugin.Contracts.Commanding.CloseCAEXFileCommandArguments">
+      <summary>
+            The command arguments for the <see cref="F:Aml.Editor.Plugin.Contracts.Commanding.AMLEditorCommandEnum.CloseFileCommand" /></summary>
+    </member>
+    <member name="M:Aml.Editor.Plugin.Contracts.Commanding.CloseCAEXFileCommandArguments.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>Aml.Editor.Plugin.Contracts.Commanding.CloseCAEXFileCommandArguments</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="T:Aml.Editor.Plugin.Contracts.Commanding.CommandExecution">
+      <summary>
+            This delegate type defines the callback function, provided by the AMLEditor to a PlugIn, implementing the <see cref="T:Aml.Editor.Plugin.Contracts.Commanding.IEditorCommanding" /> interface.
+            </summary>
+      <param name="source">The source PlugIn which calls the delegate.</param>
+      <param name="command">The command which should be executed.</param>
+      <param name="args">The command arguments.</param>
+      <returns></returns>
+    </member>
+    <member name="T:Aml.Editor.Plugin.Contracts.Commanding.EditorCommandArguments">
+      <summary>
+            This class defines the base command properties for an AMLEditor command.
+            </summary>
+    </member>
+    <member name="M:Aml.Editor.Plugin.Contracts.Commanding.EditorCommandArguments.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>Aml.Editor.Plugin.Contracts.Commanding.EditorCommandArguments</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:Aml.Editor.Plugin.Contracts.Commanding.EditorCommandArguments.Arguments">
+      <summary>
+            Gets or sets the input arguments for a command. Specific access properties to the arguments array are provided by the derived classes.
+            </summary>
+    </member>
+    <member name="P:Aml.Editor.Plugin.Contracts.Commanding.EditorCommandArguments.Cancelled">
+      <summary>
+            Gets or sets a value indicating whether an interactive operation has been canceled by the user.
+            </summary>
+    </member>
+    <member name="P:Aml.Editor.Plugin.Contracts.Commanding.EditorCommandArguments.Error">
+      <summary>
+            Gets a value indicating which error occurred during the operation.
+            </summary>
+    </member>
+    <member name="P:Aml.Editor.Plugin.Contracts.Commanding.EditorCommandArguments.Result">
+      <summary>
+            Gets the result of the command. Specific type conversions for this property are provided by the derived classes.
+            </summary>
+    </member>
+    <member name="T:Aml.Editor.Plugin.Contracts.Commanding.EditorCommandBase">
+      <summary>
+            Some extension methods, which can be used to get access to the commanding interface of a PlugIn
+            </summary>
+    </member>
+    <member name="M:Aml.Editor.Plugin.Contracts.Commanding.EditorCommandBase.CloseCAEXFile(Aml.Editor.Plugin.Contracts.Commanding.IEditorCommanding,Aml.Editor.Plugin.Contracts.Commanding.CloseCAEXFileCommandArguments@)">
+      <summary>
+            Calls the command, to close the CAEX file.
+            </summary>
+      <param name="plugIn">The plug in.</param>
+      <param name="result">The result.</param>
+      <returns>
+        <c>true</c>, if the operation has been executed successfully; <c>false</c>
+            if an Error exists or the operation has been canceled. Interpret the result output for details.</returns>
+    </member>
+    <member name="M:Aml.Editor.Plugin.Contracts.Commanding.EditorCommandBase.GetCAEXFileCommand(Aml.Editor.Plugin.Contracts.Commanding.IEditorCommanding,Aml.Editor.Plugin.Contracts.Commanding.GetCAEXFileCommandArguments@)">
+      <summary>
+            Calls the command, to get the currently edited CAEX file from the AutomationML editor.
+            </summary>
+      <param name="plugIn">The plug in.</param>
+      <param name="result">The result.</param>
+      <returns>
+        <c>true</c>, if the operation has been executed successfully; <c>false</c>
+            if an Error exists or no current file is loaded. Interpret the result output for details.</returns>
+    </member>
+    <member name="M:Aml.Editor.Plugin.Contracts.Commanding.EditorCommandBase.ImportLibraries(Aml.Editor.Plugin.Contracts.Commanding.IEditorCommanding,System.String,System.Collections.Generic.List{System.String},System.Boolean,Aml.Editor.Plugin.Contracts.Commanding.ImportLibrariesCommandArguments@)">
+      <summary>
+            Calls the command, to open the CAEX file.
+            </summary>
+      <param name="plugIn">The plug in.</param>
+      <param name="filePath">The file path.</param>
+      <param name="libraryNames">The library names.</param>
+      <param name="isSilent">if set to <c>true</c> no user interaction is required.</param>
+      <param name="result">The result.</param>
+      <returns>
+        <c>true</c>, if the operation has been executed successfully; <c>false</c>
+            if an Error exists or the operation has been canceled. Interpret the result output for details.
+            </returns>
+    </member>
+    <member name="M:Aml.Editor.Plugin.Contracts.Commanding.EditorCommandBase.NewCAEXFile(Aml.Editor.Plugin.Contracts.Commanding.IEditorCommanding,Aml.Editor.Plugin.Contracts.Commanding.NewCAEXFileCommandArguments@)">
+      <summary>
+            Calls the command, to create a new CAEX file.
+            </summary>
+      <param name="plugIn">The plug in.</param>
+      <param name="result">The result.</param>
+      <returns>
+        <c>true</c>, if the operation has been executed successfully; <c>false</c>
+            if an Error exists or the operation has been canceled. Interpret the result output for details.</returns>
+    </member>
+    <member name="M:Aml.Editor.Plugin.Contracts.Commanding.EditorCommandBase.OpenCAEXFile(Aml.Editor.Plugin.Contracts.Commanding.IEditorCommanding,System.IO.Stream,Aml.Editor.Plugin.Contracts.Commanding.OpenFileCommandArguments@)">
+      <summary>
+            Calls the command, to open the CAEX file from a stream.
+            </summary>
+      <param name="plugIn">The plug in.</param>
+      <param name="fileContent">The file content stream.</param>
+      <param name="result">The result.</param>
+      <returns>
+        <c>true</c>, if the operation has been executed successfully; <c>false</c>
+            if an Error exists or the operation has been canceled. Interpret the result output for details.</returns>
+    </member>
+    <member name="M:Aml.Editor.Plugin.Contracts.Commanding.EditorCommandBase.OpenCAEXFile(Aml.Editor.Plugin.Contracts.Commanding.IEditorCommanding,System.String,Aml.Editor.Plugin.Contracts.Commanding.OpenFileCommandArguments@)">
+      <summary>
+            Calls the command, to open the CAEX file.
+            </summary>
+      <param name="plugIn">The plug in.</param>
+      <param name="filePath">The file path.</param>
+      <param name="result">The result.</param>
+      <returns>
+        <c>true</c>, if the operation has been executed successfully; <c>false</c>
+            if an Error exists or the operation has been canceled. Interpret the result output for details.</returns>
+    </member>
+    <member name="M:Aml.Editor.Plugin.Contracts.Commanding.EditorCommandBase.SaveCAEXFile(Aml.Editor.Plugin.Contracts.Commanding.IEditorCommanding,Aml.Editor.Plugin.Contracts.Commanding.SaveCAEXFileCommandArguments@)">
+      <summary>
+            Calls the command, to save the CAEX file.
+            </summary>
+      <param name="plugIn">The plug in.</param>
+      <param name="result">The result.</param>
+      <returns>
+        <c>true</c>, if the operation has been executed successfully; <c>false</c>
+            if an Error exists or the operation has been canceled. Interpret the result output for details.</returns>
+    </member>
+    <member name="T:Aml.Editor.Plugin.Contracts.Commanding.GetCAEXFileCommandArguments">
+      <summary>
+            The command arguments for the <see cref="F:Aml.Editor.Plugin.Contracts.Commanding.AMLEditorCommandEnum.GetCAEXFileCommand" /></summary>
+    </member>
+    <member name="M:Aml.Editor.Plugin.Contracts.Commanding.GetCAEXFileCommandArguments.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>Aml.Editor.Plugin.Contracts.Commanding.GetCAEXFileCommandArguments</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:Aml.Editor.Plugin.Contracts.Commanding.GetCAEXFileCommandArguments.CaexFile">
+      <summary>
+            Gets the CAEX file of the current opened AML file. If no file is currently edited, the value is <c>null</c>.
+            </summary>
+    </member>
+    <member name="T:Aml.Editor.Plugin.Contracts.Commanding.IEditorCommanding">
+      <summary>
+            This interface is a PlugIn interface, that provides a callback function, which can be used to execute commands provided by the AMLEditor.
+            </summary>
+    </member>
+    <member name="P:Aml.Editor.Plugin.Contracts.Commanding.IEditorCommanding.EditorCommand">
+      <summary>
+            Property set by the AMLEditor to provide a callback function to a PlugIn, which can be used to execute an editor command.
+            All available commands are listed in <see cref="T:Aml.Editor.Plugin.Contracts.Commanding.AMLEditorCommandEnum" />. The current implementation only supports synchronous
+            execution of commands.
+            </summary>
+    </member>
+    <member name="T:Aml.Editor.Plugin.Contracts.Commanding.ImportLibrariesCommandArguments">
+      <summary>
+            The command arguments for the <see cref="F:Aml.Editor.Plugin.Contracts.Commanding.AMLEditorCommandEnum.ImportLibrariesCommand" /></summary>
+    </member>
+    <member name="M:Aml.Editor.Plugin.Contracts.Commanding.ImportLibrariesCommandArguments.#ctor(System.String,System.Collections.Generic.List{System.String},System.Boolean)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Aml.Editor.Plugin.Contracts.Commanding.ImportLibrariesCommandArguments" /> class.
+            </summary>
+      <param name="fileName">Name of the file.</param>
+      <param name="libraryNames">The library names.</param>
+      <param name="silent">if set to <c>true</c> the import command doesn't require a user interaction.</param>
+    </member>
+    <member name="P:Aml.Editor.Plugin.Contracts.Commanding.ImportLibrariesCommandArguments.FilePath">
+      <summary>
+            Gets the file path of the AML file, containing the libraries.
+            </summary>
+    </member>
+    <member name="P:Aml.Editor.Plugin.Contracts.Commanding.ImportLibrariesCommandArguments.IsSilent">
+      <summary>
+            Gets a value indicating whether the import command requires a user interaction.
+            </summary>
+    </member>
+    <member name="P:Aml.Editor.Plugin.Contracts.Commanding.ImportLibrariesCommandArguments.LibraryNames">
+      <summary>
+            Gets the library names, which should be imported
+            </summary>
+    </member>
+    <member name="T:Aml.Editor.Plugin.Contracts.Commanding.NewCAEXFileCommandArguments">
+      <summary>
+            The command arguments for the <see cref="F:Aml.Editor.Plugin.Contracts.Commanding.AMLEditorCommandEnum.NewFileCommand" /></summary>
+    </member>
+    <member name="M:Aml.Editor.Plugin.Contracts.Commanding.NewCAEXFileCommandArguments.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>Aml.Editor.Plugin.Contracts.Commanding.NewCAEXFileCommandArguments</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="T:Aml.Editor.Plugin.Contracts.Commanding.OpenFileCommandArguments">
+      <summary>
+            The command arguments for the <see cref="F:Aml.Editor.Plugin.Contracts.Commanding.AMLEditorCommandEnum.OpenFileCommand" /></summary>
+    </member>
+    <member name="M:Aml.Editor.Plugin.Contracts.Commanding.OpenFileCommandArguments.#ctor(System.IO.Stream)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Aml.Editor.Plugin.Contracts.Commanding.OpenFileCommandArguments" /> class.
+            </summary>
+      <param name="fileContent">The file path, which defines the path to the file which should be opened in the editor.</param>
+    </member>
+    <member name="M:Aml.Editor.Plugin.Contracts.Commanding.OpenFileCommandArguments.#ctor(System.String)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Aml.Editor.Plugin.Contracts.Commanding.OpenFileCommandArguments" /> class.
+            </summary>
+      <param name="filePath">The file path, which defines the path to the file which should be opened in the editor.</param>
+    </member>
+    <member name="P:Aml.Editor.Plugin.Contracts.Commanding.OpenFileCommandArguments.FileContent">
+      <summary>
+            Gets the file content as a stream for the Opened file.
+            </summary>
+    </member>
+    <member name="P:Aml.Editor.Plugin.Contracts.Commanding.OpenFileCommandArguments.FilePath">
+      <summary>
+            Gets the file path for the Opened file.
+            </summary>
+    </member>
+    <member name="T:Aml.Editor.Plugin.Contracts.Commanding.SaveCAEXFileCommandArguments">
+      <summary>
+            The command arguments for the <see cref="F:Aml.Editor.Plugin.Contracts.Commanding.AMLEditorCommandEnum.SaveFileCommand" /></summary>
+    </member>
+    <member name="M:Aml.Editor.Plugin.Contracts.Commanding.SaveCAEXFileCommandArguments.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>Aml.Editor.Plugin.Contracts.Commanding.SaveCAEXFileCommandArguments</parameter>
+          </include>
+        </markup>
+      </summary>
     </member>
   </members>
 </doc>

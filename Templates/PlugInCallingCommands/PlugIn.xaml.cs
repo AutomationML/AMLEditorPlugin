@@ -16,6 +16,9 @@ namespace Aml.Editor.PlugIn.CallingCommands
     /// <summary>
     /// Interaktionslogik für PlugIn.xaml
     /// </summary>
+    [ExportMetadata("Author", "Josef Prinz, AutomationML e.V.")]
+    [ExportMetadata("DisplayName", "Commanding PlugIn")]
+    [ExportMetadata("Description", "The 'Commanding PlugIn' is an AutomationML Editor plugin which serves as an implementation example. This plugin is able to invoke commands, implemented in the AutomationML editor, such as loading a document")]
     [Export(typeof(IAMLEditorView))]
     public partial class PlugIn : UserControl, IAMLEditorView, IEditorCommanding, INotifyPropertyChanged
     {
@@ -76,7 +79,7 @@ namespace Aml.Editor.PlugIn.CallingCommands
 
         public List<PluginCommand> Commands { get; private set; }
 
-        public string DisplayName => "CommandingPlugIn";
+        public string DisplayName => "Commanding PlugIn";
         public CommandExecution EditorCommand { get; set; }
         public DockPositionEnum InitialDockPosition => DockPositionEnum.DockLeft;
 

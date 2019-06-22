@@ -2,15 +2,18 @@
 <HelpTOC>
 
   <HelpTOCNode Title="AutomationML Editor API Reference Guide" Url="html/3888aca7-dd3a-4d0f-b73b-c6701e9d8d8c.htm" />
-  <HelpTOCNode Id="27c05392-e071-4d9f-8043-9586e1d3a21b" Title="Version History" Url="html/a8934f88-1ee8-4608-b0b2-9a835c95edf7.htm">
+  <HelpTOCNode Id="a7f57cb6-1008-468f-ac5b-c097d02541b1" Title="Version History" Url="html/a8934f88-1ee8-4608-b0b2-9a835c95edf7.htm">
     <HelpTOCNode Title="Version 1.0.0.0" Url="html/18baa73c-20f8-4336-abdd-04623205ace1.htm" />
     <HelpTOCNode Title="Version 2.0.0.0" Url="html/18baa73c-20f8-4336-abdd-05623205ace1.htm" />
+    <HelpTOCNode Title="Version 2.0.2.0" Url="html/E0016C12-8C1F-4807-A5DC-C1B50F9C8713.htm" />
+    <HelpTOCNode Title="Version 2.1.0.0" Url="html/3783A8F4-AE2C-4B0D-B432-2281ABCB7F77.htm" />
+    <HelpTOCNode Title="Version 2.1.1.0" Url="html/47FF387A-0F2C-4A5D-9C19-7442163876BC.htm" />
   </HelpTOCNode>
-  <HelpTOCNode Id="11f224fa-d71f-46c0-9663-9be09d2dee73" Title="AutomationML Editor Plugin Development" Url="html/R_Project_AMLEditorPluginDocumentation.htm">
-    <HelpTOCNode Id="b2a3e691-341e-48b3-a84b-60bf03432723" Title="Aml.Editor.Plugin.Base" Url="html/N_Aml_Editor_Plugin_Base.htm">
-      <HelpTOCNode Id="de455b50-93bc-4979-9232-6c7a508cec95" Title="PluginBase Class" Url="html/T_Aml_Editor_Plugin_Base_PluginBase.htm">
+  <HelpTOCNode Id="1959d179-dbd1-42e8-a55d-9e6b74542d93" Title="AutomationML Editor Plugin Development" Url="html/R_Project_AMLEditorPluginDocumentation.htm">
+    <HelpTOCNode Id="eb955f53-d645-4eec-9ac4-5963ecbec486" Title="Aml.Editor.Plugin.Base" Url="html/N_Aml_Editor_Plugin_Base.htm">
+      <HelpTOCNode Id="5fce4e55-f335-45dd-a08c-a98f19d4cc0b" Title="PluginBase Class" Url="html/T_Aml_Editor_Plugin_Base_PluginBase.htm">
         <HelpTOCNode Title="PluginBase Constructor " Url="html/M_Aml_Editor_Plugin_Base_PluginBase__ctor.htm" />
-        <HelpTOCNode Id="568bddec-324a-4c2e-b39c-b690fa1609fe" Title="PluginBase Properties" Url="html/Properties_T_Aml_Editor_Plugin_Base_PluginBase.htm">
+        <HelpTOCNode Id="8f4e247e-4a2e-4074-9530-64010fd4de0e" Title="PluginBase Properties" Url="html/Properties_T_Aml_Editor_Plugin_Base_PluginBase.htm">
           <HelpTOCNode Title="ActivatePlugin Property " Url="html/P_Aml_Editor_Plugin_Base_PluginBase_ActivatePlugin.htm" />
           <HelpTOCNode Title="Commands Property " Url="html/P_Aml_Editor_Plugin_Base_PluginBase_Commands.htm" />
           <HelpTOCNode Title="DisplayName Property " Url="html/P_Aml_Editor_Plugin_Base_PluginBase_DisplayName.htm" />
@@ -21,7 +24,7 @@
           <HelpTOCNode Title="PackageName Property " Url="html/P_Aml_Editor_Plugin_Base_PluginBase_PackageName.htm" />
           <HelpTOCNode Title="TerminatePlugin Property " Url="html/P_Aml_Editor_Plugin_Base_PluginBase_TerminatePlugin.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="3c6d45af-0309-4d7f-83de-47eeb76bcb89" Title="PluginBase Methods" Url="html/Methods_T_Aml_Editor_Plugin_Base_PluginBase.htm">
+        <HelpTOCNode Id="a2b814e6-702b-4d58-9478-3aa4e6a63cb5" Title="PluginBase Methods" Url="html/Methods_T_Aml_Editor_Plugin_Base_PluginBase.htm">
           <HelpTOCNode Title="ActivateCommandCanExecute Method " Url="html/M_Aml_Editor_Plugin_Base_PluginBase_ActivateCommandCanExecute.htm" />
           <HelpTOCNode Title="ActivateCommandExecute Method " Url="html/M_Aml_Editor_Plugin_Base_PluginBase_ActivateCommandExecute.htm" />
           <HelpTOCNode Title="ChangeAMLFilePath Method " Url="html/M_Aml_Editor_Plugin_Base_PluginBase_ChangeAMLFilePath.htm" />
@@ -33,32 +36,32 @@
           <HelpTOCNode Title="TerminateCommandCanExecute Method " Url="html/M_Aml_Editor_Plugin_Base_PluginBase_TerminateCommandCanExecute.htm" />
           <HelpTOCNode Title="TerminateCommandExecute Method " Url="html/M_Aml_Editor_Plugin_Base_PluginBase_TerminateCommandExecute.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="2451c022-db5e-489b-85b1-0fa44f3c352a" Title="PluginBase Events" Url="html/Events_T_Aml_Editor_Plugin_Base_PluginBase.htm">
+        <HelpTOCNode Id="05d81d54-df21-41ec-9bfd-e02a972997ad" Title="PluginBase Events" Url="html/Events_T_Aml_Editor_Plugin_Base_PluginBase.htm">
           <HelpTOCNode Title="PluginActivated Event" Url="html/E_Aml_Editor_Plugin_Base_PluginBase_PluginActivated.htm" />
           <HelpTOCNode Title="PluginTerminated Event" Url="html/E_Aml_Editor_Plugin_Base_PluginBase_PluginTerminated.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="5d2c612e-06a5-4062-8e16-29262fea51c1" Title="PluginBase Fields" Url="html/Fields_T_Aml_Editor_Plugin_Base_PluginBase.htm">
+        <HelpTOCNode Id="c011524e-79ec-4e17-b68b-c7bb8442fa7c" Title="PluginBase Fields" Url="html/Fields_T_Aml_Editor_Plugin_Base_PluginBase.htm">
           <HelpTOCNode Title="commands Field" Url="html/F_Aml_Editor_Plugin_Base_PluginBase_commands.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="7ff83dfa-d33c-4d3a-ae64-2b376cf989bc" Title="Aml.Editor.Plugin.Contracts" Url="html/N_Aml_Editor_Plugin_Contracts.htm">
+    <HelpTOCNode Id="bfaa421f-63ba-4dac-b769-365f1f0ec8be" Title="Aml.Editor.Plugin.Contracts" Url="html/N_Aml_Editor_Plugin_Contracts.htm">
       <HelpTOCNode Title="DockPositionEnum Enumeration" Url="html/T_Aml_Editor_Plugin_Contracts_DockPositionEnum.htm" />
-      <HelpTOCNode Id="b725360f-70fb-41e5-830e-79f6e1456aa6" Title="IAMLEditorExternalsPlugin Interface" Url="html/T_Aml_Editor_Plugin_Contracts_IAMLEditorExternalsPlugin.htm">
-        <HelpTOCNode Id="6dfaad33-89f9-492b-92b8-77c65365b99d" Title="IAMLEditorExternalsPlugin Properties" Url="html/Properties_T_Aml_Editor_Plugin_Contracts_IAMLEditorExternalsPlugin.htm">
+      <HelpTOCNode Id="f79fbb4b-8ec8-498b-84bd-74458b7451a0" Title="IAMLEditorExternalsPlugin Interface" Url="html/T_Aml_Editor_Plugin_Contracts_IAMLEditorExternalsPlugin.htm">
+        <HelpTOCNode Id="e3cf5d8b-2d6e-494d-a9a2-7487208df8d0" Title="IAMLEditorExternalsPlugin Properties" Url="html/Properties_T_Aml_Editor_Plugin_Contracts_IAMLEditorExternalsPlugin.htm">
           <HelpTOCNode Title="IsExternalsViewer Property " Url="html/P_Aml_Editor_Plugin_Contracts_IAMLEditorExternalsPlugin_IsExternalsViewer.htm" />
           <HelpTOCNode Title="MIMEType Property " Url="html/P_Aml_Editor_Plugin_Contracts_IAMLEditorExternalsPlugin_MIMEType.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="baa3b7e8-0611-4fea-9d99-72f4865be6a9" Title="IAMLEditorExternalsPlugin Methods" Url="html/Methods_T_Aml_Editor_Plugin_Contracts_IAMLEditorExternalsPlugin.htm">
-          <HelpTOCNode Id="30dd643a-9cf4-4eec-844a-bf447c969274" Title="ViewExternal Method " Url="html/Overload_Aml_Editor_Plugin_Contracts_IAMLEditorExternalsPlugin_ViewExternal.htm">
+        <HelpTOCNode Id="bcac1a38-6eab-48d6-95bf-2c611755bd08" Title="IAMLEditorExternalsPlugin Methods" Url="html/Methods_T_Aml_Editor_Plugin_Contracts_IAMLEditorExternalsPlugin.htm">
+          <HelpTOCNode Id="bce0093f-b96d-4920-80bb-b7f88482a2c7" Title="ViewExternal Method " Url="html/Overload_Aml_Editor_Plugin_Contracts_IAMLEditorExternalsPlugin_ViewExternal.htm">
             <HelpTOCNode Title="ViewExternal Method (RefURIAttributeType, Stream)" Url="html/M_Aml_Editor_Plugin_Contracts_IAMLEditorExternalsPlugin_ViewExternal.htm" />
             <HelpTOCNode Title="ViewExternal Method (RefURIAttributeType, String)" Url="html/M_Aml_Editor_Plugin_Contracts_IAMLEditorExternalsPlugin_ViewExternal_1.htm" />
           </HelpTOCNode>
         </HelpTOCNode>
         <HelpTOCNode Title="IAMLEditorExternalsPlugin Events" Url="html/Events_T_Aml_Editor_Plugin_Contracts_IAMLEditorExternalsPlugin.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="096bdad8-d2a8-4f31-846f-c6f8bb797c8d" Title="IAMLEditorPlugin Interface" Url="html/T_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin.htm">
-        <HelpTOCNode Id="41a5470e-5f3d-4a86-a4d1-517cd96f6909" Title="IAMLEditorPlugin Properties" Url="html/Properties_T_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin.htm">
+      <HelpTOCNode Id="bcfe8508-3d90-4a33-9dec-55892064ec60" Title="IAMLEditorPlugin Interface" Url="html/T_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin.htm">
+        <HelpTOCNode Id="977234d0-afb3-43a5-9b50-d7260dbff9cb" Title="IAMLEditorPlugin Properties" Url="html/Properties_T_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin.htm">
           <HelpTOCNode Title="ActivatePlugin Property " Url="html/P_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin_ActivatePlugin.htm" />
           <HelpTOCNode Title="Commands Property " Url="html/P_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin_Commands.htm" />
           <HelpTOCNode Title="DisplayName Property " Url="html/P_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin_DisplayName.htm" />
@@ -69,19 +72,26 @@
           <HelpTOCNode Title="PackageName Property " Url="html/P_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin_PackageName.htm" />
           <HelpTOCNode Title="TerminatePlugin Property " Url="html/P_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin_TerminatePlugin.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="4974277f-c65a-45d2-88e5-fcd9916c5381" Title="IAMLEditorPlugin Methods" Url="html/Methods_T_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin.htm">
+        <HelpTOCNode Id="fe696139-d15f-4ae5-b3b4-a6e95b15d34c" Title="IAMLEditorPlugin Methods" Url="html/Methods_T_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin.htm">
           <HelpTOCNode Title="ChangeAMLFilePath Method " Url="html/M_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin_ChangeAMLFilePath.htm" />
           <HelpTOCNode Title="ChangeSelectedObject Method " Url="html/M_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin_ChangeSelectedObject.htm" />
           <HelpTOCNode Title="ExecuteCommand Method " Url="html/M_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin_ExecuteCommand.htm" />
           <HelpTOCNode Title="PublishAutomationMLFileAndObject Method " Url="html/M_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin_PublishAutomationMLFileAndObject.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="99e53361-665a-4b71-8080-ff4e985c18be" Title="IAMLEditorPlugin Events" Url="html/Events_T_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin.htm">
+        <HelpTOCNode Id="5fda3177-67d5-471c-ae46-f8bfbe4bc9e2" Title="IAMLEditorPlugin Events" Url="html/Events_T_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin.htm">
           <HelpTOCNode Title="PluginActivated Event" Url="html/E_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin_PluginActivated.htm" />
           <HelpTOCNode Title="PluginTerminated Event" Url="html/E_Aml_Editor_Plugin_Contracts_IAMLEditorPlugin_PluginTerminated.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="da4aa4bc-5461-456e-816e-e00e40c2b172" Title="IAMLEditorView Interface" Url="html/T_Aml_Editor_Plugin_Contracts_IAMLEditorView.htm">
-        <HelpTOCNode Id="d6d1af0e-d632-4078-9d0b-d72705bc9807" Title="IAMLEditorView Properties" Url="html/Properties_T_Aml_Editor_Plugin_Contracts_IAMLEditorView.htm">
+      <HelpTOCNode Id="3bebe172-e872-468b-93c5-86edbb628a1b" Title="IAMLEditorPluginMetadata Interface" Url="html/T_Aml_Editor_Plugin_Contracts_IAMLEditorPluginMetadata.htm">
+        <HelpTOCNode Id="080c71a5-8c0c-4502-946f-f625d59add2b" Title="IAMLEditorPluginMetadata Properties" Url="html/Properties_T_Aml_Editor_Plugin_Contracts_IAMLEditorPluginMetadata.htm">
+          <HelpTOCNode Title="Author Property " Url="html/P_Aml_Editor_Plugin_Contracts_IAMLEditorPluginMetadata_Author.htm" />
+          <HelpTOCNode Title="Description Property " Url="html/P_Aml_Editor_Plugin_Contracts_IAMLEditorPluginMetadata_Description.htm" />
+          <HelpTOCNode Title="DisplayName Property " Url="html/P_Aml_Editor_Plugin_Contracts_IAMLEditorPluginMetadata_DisplayName.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+      <HelpTOCNode Id="239c5882-b045-4567-a14d-cfb8c7dae4a6" Title="IAMLEditorView Interface" Url="html/T_Aml_Editor_Plugin_Contracts_IAMLEditorView.htm">
+        <HelpTOCNode Id="6ea6bba6-acde-4ec5-a489-2f05356104eb" Title="IAMLEditorView Properties" Url="html/Properties_T_Aml_Editor_Plugin_Contracts_IAMLEditorView.htm">
           <HelpTOCNode Title="CanClose Property " Url="html/P_Aml_Editor_Plugin_Contracts_IAMLEditorView_CanClose.htm" />
           <HelpTOCNode Title="InitialDockPosition Property " Url="html/P_Aml_Editor_Plugin_Contracts_IAMLEditorView_InitialDockPosition.htm" />
           <HelpTOCNode Title="PaneImage Property " Url="html/P_Aml_Editor_Plugin_Contracts_IAMLEditorView_PaneImage.htm" />
@@ -89,47 +99,50 @@
         <HelpTOCNode Title="IAMLEditorView Methods" Url="html/Methods_T_Aml_Editor_Plugin_Contracts_IAMLEditorView.htm" />
         <HelpTOCNode Title="IAMLEditorView Events" Url="html/Events_T_Aml_Editor_Plugin_Contracts_IAMLEditorView.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="f4a6281a-ca9c-4e52-9016-a85007fb4563" Title="IAMLEditorViewCollection Interface" Url="html/T_Aml_Editor_Plugin_Contracts_IAMLEditorViewCollection.htm">
+      <HelpTOCNode Id="36d6bcfc-5b8d-4ecc-9a32-d331b0f769bf" Title="IAMLEditorViewCollection Interface" Url="html/T_Aml_Editor_Plugin_Contracts_IAMLEditorViewCollection.htm">
         <HelpTOCNode Title="IAMLEditorViewCollection Properties" Url="html/Properties_T_Aml_Editor_Plugin_Contracts_IAMLEditorViewCollection.htm" />
         <HelpTOCNode Title="IAMLEditorViewCollection Methods" Url="html/Methods_T_Aml_Editor_Plugin_Contracts_IAMLEditorViewCollection.htm" />
-        <HelpTOCNode Id="b8d75a17-344b-437b-90ab-b8a7d154786b" Title="IAMLEditorViewCollection Events" Url="html/Events_T_Aml_Editor_Plugin_Contracts_IAMLEditorViewCollection.htm">
+        <HelpTOCNode Id="81daeef3-882e-4079-a2e4-5ab50d2c8e9e" Title="IAMLEditorViewCollection Events" Url="html/Events_T_Aml_Editor_Plugin_Contracts_IAMLEditorViewCollection.htm">
           <HelpTOCNode Title="ViewAdded Event" Url="html/E_Aml_Editor_Plugin_Contracts_IAMLEditorViewCollection_ViewAdded.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="32504839-0a81-4289-a347-f5ff1b89a438" Title="INotifyAMLDocumentLoad Interface" Url="html/T_Aml_Editor_Plugin_Contracts_INotifyAMLDocumentLoad.htm">
+      <HelpTOCNode Id="9ac2485d-c078-40af-9b75-c0a3f7f614af" Title="INotifyAMLDocumentLoad Interface" Url="html/T_Aml_Editor_Plugin_Contracts_INotifyAMLDocumentLoad.htm">
         <HelpTOCNode Title="INotifyAMLDocumentLoad Properties" Url="html/Properties_T_Aml_Editor_Plugin_Contracts_INotifyAMLDocumentLoad.htm" />
-        <HelpTOCNode Id="74901e87-fe52-4a58-a194-b6cda4509ebc" Title="INotifyAMLDocumentLoad Methods" Url="html/Methods_T_Aml_Editor_Plugin_Contracts_INotifyAMLDocumentLoad.htm">
+        <HelpTOCNode Id="f1f43f54-0c6e-43e4-b681-9e05b8a3c93b" Title="INotifyAMLDocumentLoad Methods" Url="html/Methods_T_Aml_Editor_Plugin_Contracts_INotifyAMLDocumentLoad.htm">
           <HelpTOCNode Title="ApplicationClose Method " Url="html/M_Aml_Editor_Plugin_Contracts_INotifyAMLDocumentLoad_ApplicationClose.htm" />
           <HelpTOCNode Title="DocumentLoaded Method " Url="html/M_Aml_Editor_Plugin_Contracts_INotifyAMLDocumentLoad_DocumentLoaded.htm" />
           <HelpTOCNode Title="DocumentUnLoaded Method " Url="html/M_Aml_Editor_Plugin_Contracts_INotifyAMLDocumentLoad_DocumentUnLoaded.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Title="INotifyAMLDocumentLoad Events" Url="html/Events_T_Aml_Editor_Plugin_Contracts_INotifyAMLDocumentLoad.htm" />
+        <HelpTOCNode Id="f358b4c7-4a0e-4bf1-afe7-ded944863136" Title="INotifyAMLDocumentLoad Events" Url="html/Events_T_Aml_Editor_Plugin_Contracts_INotifyAMLDocumentLoad.htm">
+          <HelpTOCNode Title="IsDocumentLoaded Event" Url="html/E_Aml_Editor_Plugin_Contracts_INotifyAMLDocumentLoad_IsDocumentLoaded.htm" />
+        </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="cfbd9f4c-da3d-4622-965e-50597c48997f" Title="INotifyViewActivation Interface" Url="html/T_Aml_Editor_Plugin_Contracts_INotifyViewActivation.htm">
+      <HelpTOCNode Id="4f772d27-3c2e-4b85-bcba-d8ff03d698bd" Title="INotifyViewActivation Interface" Url="html/T_Aml_Editor_Plugin_Contracts_INotifyViewActivation.htm">
         <HelpTOCNode Title="INotifyViewActivation Properties" Url="html/Properties_T_Aml_Editor_Plugin_Contracts_INotifyViewActivation.htm" />
-        <HelpTOCNode Id="d720f158-4824-4286-ac6c-5c0515c40561" Title="INotifyViewActivation Methods" Url="html/Methods_T_Aml_Editor_Plugin_Contracts_INotifyViewActivation.htm">
+        <HelpTOCNode Id="2fb27c99-3648-4b37-ad4e-345431c86133" Title="INotifyViewActivation Methods" Url="html/Methods_T_Aml_Editor_Plugin_Contracts_INotifyViewActivation.htm">
           <HelpTOCNode Title="Activate Method " Url="html/M_Aml_Editor_Plugin_Contracts_INotifyViewActivation_Activate.htm" />
         </HelpTOCNode>
         <HelpTOCNode Title="INotifyViewActivation Events" Url="html/Events_T_Aml_Editor_Plugin_Contracts_INotifyViewActivation.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="fece5214-afa2-482c-8509-c4b3fe34aa89" Title="ISupportsSelection Interface" Url="html/T_Aml_Editor_Plugin_Contracts_ISupportsSelection.htm">
+      <HelpTOCNode Id="932a1840-a93b-48f6-8b7d-1fec7a2881b6" Title="ISupportsSelection Interface" Url="html/T_Aml_Editor_Plugin_Contracts_ISupportsSelection.htm">
         <HelpTOCNode Title="ISupportsSelection Properties" Url="html/Properties_T_Aml_Editor_Plugin_Contracts_ISupportsSelection.htm" />
         <HelpTOCNode Title="ISupportsSelection Methods" Url="html/Methods_T_Aml_Editor_Plugin_Contracts_ISupportsSelection.htm" />
-        <HelpTOCNode Id="a93dba86-1ed3-44b8-b016-0f1e23777e3f" Title="ISupportsSelection Events" Url="html/Events_T_Aml_Editor_Plugin_Contracts_ISupportsSelection.htm">
+        <HelpTOCNode Id="0bfd0751-0c89-48b4-ab76-4e3995bbda5c" Title="ISupportsSelection Events" Url="html/Events_T_Aml_Editor_Plugin_Contracts_ISupportsSelection.htm">
           <HelpTOCNode Title="Selected Event" Url="html/E_Aml_Editor_Plugin_Contracts_ISupportsSelection_Selected.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="738cc547-b974-4a6e-a681-4b4e16f571b4" Title="IToolBarIntegration Interface" Url="html/T_Aml_Editor_Plugin_Contracts_IToolBarIntegration.htm">
-        <HelpTOCNode Id="847dd1ec-4e6d-42e2-a785-cc2eecef6d26" Title="IToolBarIntegration Properties" Url="html/Properties_T_Aml_Editor_Plugin_Contracts_IToolBarIntegration.htm">
+      <HelpTOCNode Id="2909db20-fa57-4840-ae29-9ef41ba65758" Title="IToolBarIntegration Interface" Url="html/T_Aml_Editor_Plugin_Contracts_IToolBarIntegration.htm">
+        <HelpTOCNode Id="7e7f26dd-c6de-40f2-844d-9a3fdd38e4fa" Title="IToolBarIntegration Properties" Url="html/Properties_T_Aml_Editor_Plugin_Contracts_IToolBarIntegration.htm">
           <HelpTOCNode Title="ToolBarCommands Property " Url="html/P_Aml_Editor_Plugin_Contracts_IToolBarIntegration_ToolBarCommands.htm" />
         </HelpTOCNode>
         <HelpTOCNode Title="IToolBarIntegration Methods" Url="html/Methods_T_Aml_Editor_Plugin_Contracts_IToolBarIntegration.htm" />
         <HelpTOCNode Title="IToolBarIntegration Events" Url="html/Events_T_Aml_Editor_Plugin_Contracts_IToolBarIntegration.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="1104233b-9dd9-419b-969b-1d93869e6001" Title="PluginCommand Class" Url="html/T_Aml_Editor_Plugin_Contracts_PluginCommand.htm">
+      <HelpTOCNode Id="0261e24b-be92-43af-91df-bc5242975790" Title="PluginCommand Class" Url="html/T_Aml_Editor_Plugin_Contracts_PluginCommand.htm">
         <HelpTOCNode Title="PluginCommand Constructor " Url="html/M_Aml_Editor_Plugin_Contracts_PluginCommand__ctor.htm" />
-        <HelpTOCNode Id="9c1ca0a1-e606-4af5-8632-7994655ea9f7" Title="PluginCommand Properties" Url="html/Properties_T_Aml_Editor_Plugin_Contracts_PluginCommand.htm">
+        <HelpTOCNode Id="ceb27428-7a9b-411f-a40e-3c875777bbbe" Title="PluginCommand Properties" Url="html/Properties_T_Aml_Editor_Plugin_Contracts_PluginCommand.htm">
           <HelpTOCNode Title="Command Property " Url="html/P_Aml_Editor_Plugin_Contracts_PluginCommand_Command.htm" />
+          <HelpTOCNode Title="CommandButtonContent Property " Url="html/P_Aml_Editor_Plugin_Contracts_PluginCommand_CommandButtonContent.htm" />
           <HelpTOCNode Title="CommandIcon Property " Url="html/P_Aml_Editor_Plugin_Contracts_PluginCommand_CommandIcon.htm" />
           <HelpTOCNode Title="CommandName Property " Url="html/P_Aml_Editor_Plugin_Contracts_PluginCommand_CommandName.htm" />
           <HelpTOCNode Title="CommandToolTip Property " Url="html/P_Aml_Editor_Plugin_Contracts_PluginCommand_CommandToolTip.htm" />
@@ -137,36 +150,105 @@
           <HelpTOCNode Title="IsCheckable Property " Url="html/P_Aml_Editor_Plugin_Contracts_PluginCommand_IsCheckable.htm" />
           <HelpTOCNode Title="IsChecked Property " Url="html/P_Aml_Editor_Plugin_Contracts_PluginCommand_IsChecked.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="963c2052-5acd-40bd-a186-451f82e94753" Title="PluginCommand Events" Url="html/Events_T_Aml_Editor_Plugin_Contracts_PluginCommand.htm">
+        <HelpTOCNode Id="7577e5ff-5a15-41df-8295-37d9fa2310a4" Title="PluginCommand Events" Url="html/Events_T_Aml_Editor_Plugin_Contracts_PluginCommand.htm">
           <HelpTOCNode Title="PropertyChanged Event" Url="html/E_Aml_Editor_Plugin_Contracts_PluginCommand_PropertyChanged.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
       <HelpTOCNode Title="PluginCommandsEnum Enumeration" Url="html/T_Aml_Editor_Plugin_Contracts_PluginCommandsEnum.htm" />
-      <HelpTOCNode Id="fd7fcf18-1dff-493e-8837-b95aaad4c90d" Title="RelayCommand(T) Class" Url="html/T_Aml_Editor_Plugin_Contracts_RelayCommand_1.htm">
-        <HelpTOCNode Id="956b2efe-0ff0-4e9c-926b-c05acb4d2e80" Title="RelayCommand(T) Constructor " Url="html/Overload_Aml_Editor_Plugin_Contracts_RelayCommand_1__ctor.htm">
+      <HelpTOCNode Id="28c6da8a-3d47-4da6-a94d-153c75949827" Title="RelayCommand(T) Class" Url="html/T_Aml_Editor_Plugin_Contracts_RelayCommand_1.htm">
+        <HelpTOCNode Id="631c1209-d1ae-4a89-8601-1ade9be984f1" Title="RelayCommand(T) Constructor " Url="html/Overload_Aml_Editor_Plugin_Contracts_RelayCommand_1__ctor.htm">
           <HelpTOCNode Title="RelayCommand(T) Constructor " Url="html/M_Aml_Editor_Plugin_Contracts_RelayCommand_1__ctor.htm" />
           <HelpTOCNode Title="RelayCommand(T) Constructor (Action(T), Predicate(T))" Url="html/M_Aml_Editor_Plugin_Contracts_RelayCommand_1__ctor_1.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="f62e9da5-76a2-4386-b438-dc30e60cce1e" Title="RelayCommand(T) Properties" Url="html/Properties_T_Aml_Editor_Plugin_Contracts_RelayCommand_1.htm">
+        <HelpTOCNode Id="5a9e19ee-8f3e-49b7-b021-dae759b2e572" Title="RelayCommand(T) Properties" Url="html/Properties_T_Aml_Editor_Plugin_Contracts_RelayCommand_1.htm">
           <HelpTOCNode Title="Identifier Property " Url="html/P_Aml_Editor_Plugin_Contracts_RelayCommand_1_Identifier.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="9d3585b5-713f-4b8b-9ca9-c60fe49bdef4" Title="RelayCommand(T) Methods" Url="html/Methods_T_Aml_Editor_Plugin_Contracts_RelayCommand_1.htm">
+        <HelpTOCNode Id="6adc7cfb-e896-4b31-8151-15a17a7ccb22" Title="RelayCommand(T) Methods" Url="html/Methods_T_Aml_Editor_Plugin_Contracts_RelayCommand_1.htm">
           <HelpTOCNode Title="CanExecute Method " Url="html/M_Aml_Editor_Plugin_Contracts_RelayCommand_1_CanExecute.htm" />
           <HelpTOCNode Title="Execute Method " Url="html/M_Aml_Editor_Plugin_Contracts_RelayCommand_1_Execute.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="8224dc7f-e778-4558-b507-eca82bd805f9" Title="RelayCommand(T) Events" Url="html/Events_T_Aml_Editor_Plugin_Contracts_RelayCommand_1.htm">
+        <HelpTOCNode Id="640a8968-71b7-4066-8743-da2135bc3676" Title="RelayCommand(T) Events" Url="html/Events_T_Aml_Editor_Plugin_Contracts_RelayCommand_1.htm">
           <HelpTOCNode Title="CanExecuteChanged Event" Url="html/E_Aml_Editor_Plugin_Contracts_RelayCommand_1_CanExecuteChanged.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="afa55345-43a5-4d56-8721-b02696e4a8fb" Title="RelayCommand(T) Fields" Url="html/Fields_T_Aml_Editor_Plugin_Contracts_RelayCommand_1.htm">
+        <HelpTOCNode Id="5c50a178-68ab-4bb1-b152-1608b916c2cb" Title="RelayCommand(T) Fields" Url="html/Fields_T_Aml_Editor_Plugin_Contracts_RelayCommand_1.htm">
           <HelpTOCNode Title="_canExecute Field" Url="html/F_Aml_Editor_Plugin_Contracts_RelayCommand_1__canExecute.htm" />
           <HelpTOCNode Title="_execute Field" Url="html/F_Aml_Editor_Plugin_Contracts_RelayCommand_1__execute.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="de0664db-c388-4d5b-9661-731977657a4d" Title="SelectionEventArgs Class" Url="html/T_Aml_Editor_Plugin_Contracts_SelectionEventArgs.htm">
+      <HelpTOCNode Id="67ea4290-aa37-4855-978b-2841b4bd5b97" Title="SelectionEventArgs Class" Url="html/T_Aml_Editor_Plugin_Contracts_SelectionEventArgs.htm">
         <HelpTOCNode Title="SelectionEventArgs Constructor " Url="html/M_Aml_Editor_Plugin_Contracts_SelectionEventArgs__ctor.htm" />
-        <HelpTOCNode Id="f91eb5c7-0520-4ef4-a872-b9c54d499fdb" Title="SelectionEventArgs Properties" Url="html/Properties_T_Aml_Editor_Plugin_Contracts_SelectionEventArgs.htm">
+        <HelpTOCNode Id="1967dcdb-787f-47fe-9ca4-3d0738c063fc" Title="SelectionEventArgs Properties" Url="html/Properties_T_Aml_Editor_Plugin_Contracts_SelectionEventArgs.htm">
           <HelpTOCNode Title="SelectedElement Property " Url="html/P_Aml_Editor_Plugin_Contracts_SelectionEventArgs_SelectedElement.htm" />
         </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="66e2b4ff-9893-4ae4-a731-215b9f27f46a" Title="Aml.Editor.Plugin.Contracts.Commanding" Url="html/N_Aml_Editor_Plugin_Contracts_Commanding.htm">
+      <HelpTOCNode Title="AMLEditorCommandEnum Enumeration" Url="html/T_Aml_Editor_Plugin_Contracts_Commanding_AMLEditorCommandEnum.htm" />
+      <HelpTOCNode Id="e4c5a750-9618-4cca-9a71-41dc27396293" Title="CloseCAEXFileCommandArguments Class" Url="html/T_Aml_Editor_Plugin_Contracts_Commanding_CloseCAEXFileCommandArguments.htm">
+        <HelpTOCNode Title="CloseCAEXFileCommandArguments Constructor " Url="html/M_Aml_Editor_Plugin_Contracts_Commanding_CloseCAEXFileCommandArguments__ctor.htm" />
+        <HelpTOCNode Title="CloseCAEXFileCommandArguments Properties" Url="html/Properties_T_Aml_Editor_Plugin_Contracts_Commanding_CloseCAEXFileCommandArguments.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="CommandExecution Delegate" Url="html/T_Aml_Editor_Plugin_Contracts_Commanding_CommandExecution.htm" />
+      <HelpTOCNode Id="43f349b0-7a8c-43ca-92a3-a2efa043e44d" Title="EditorCommandArguments Class" Url="html/T_Aml_Editor_Plugin_Contracts_Commanding_EditorCommandArguments.htm">
+        <HelpTOCNode Title="EditorCommandArguments Constructor " Url="html/M_Aml_Editor_Plugin_Contracts_Commanding_EditorCommandArguments__ctor.htm" />
+        <HelpTOCNode Id="9f9281d1-ea0e-42e0-8bf4-c56a9dfe7bc3" Title="EditorCommandArguments Properties" Url="html/Properties_T_Aml_Editor_Plugin_Contracts_Commanding_EditorCommandArguments.htm">
+          <HelpTOCNode Title="Arguments Property " Url="html/P_Aml_Editor_Plugin_Contracts_Commanding_EditorCommandArguments_Arguments.htm" />
+          <HelpTOCNode Title="Cancelled Property " Url="html/P_Aml_Editor_Plugin_Contracts_Commanding_EditorCommandArguments_Cancelled.htm" />
+          <HelpTOCNode Title="Error Property " Url="html/P_Aml_Editor_Plugin_Contracts_Commanding_EditorCommandArguments_Error.htm" />
+          <HelpTOCNode Title="Result Property " Url="html/P_Aml_Editor_Plugin_Contracts_Commanding_EditorCommandArguments_Result.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+      <HelpTOCNode Id="7c27901b-0491-4f1d-b8a4-df6907d34dee" Title="EditorCommandBase Class" Url="html/T_Aml_Editor_Plugin_Contracts_Commanding_EditorCommandBase.htm">
+        <HelpTOCNode Id="57fd956a-292d-48b5-a859-9c9ab2912fbb" Title="EditorCommandBase Methods" Url="html/Methods_T_Aml_Editor_Plugin_Contracts_Commanding_EditorCommandBase.htm">
+          <HelpTOCNode Title="CloseCAEXFile Method " Url="html/M_Aml_Editor_Plugin_Contracts_Commanding_EditorCommandBase_CloseCAEXFile.htm" />
+          <HelpTOCNode Title="GetCAEXFileCommand Method " Url="html/M_Aml_Editor_Plugin_Contracts_Commanding_EditorCommandBase_GetCAEXFileCommand.htm" />
+          <HelpTOCNode Title="ImportLibraries Method " Url="html/M_Aml_Editor_Plugin_Contracts_Commanding_EditorCommandBase_ImportLibraries.htm" />
+          <HelpTOCNode Title="NewCAEXFile Method " Url="html/M_Aml_Editor_Plugin_Contracts_Commanding_EditorCommandBase_NewCAEXFile.htm" />
+          <HelpTOCNode Id="058d0c11-9388-4f52-8d86-13703b83cf35" Title="OpenCAEXFile Method " Url="html/Overload_Aml_Editor_Plugin_Contracts_Commanding_EditorCommandBase_OpenCAEXFile.htm">
+            <HelpTOCNode Title="OpenCAEXFile Method (IEditorCommanding, Stream, OpenFileCommandArguments)" Url="html/M_Aml_Editor_Plugin_Contracts_Commanding_EditorCommandBase_OpenCAEXFile.htm" />
+            <HelpTOCNode Title="OpenCAEXFile Method (IEditorCommanding, String, OpenFileCommandArguments)" Url="html/M_Aml_Editor_Plugin_Contracts_Commanding_EditorCommandBase_OpenCAEXFile_1.htm" />
+          </HelpTOCNode>
+          <HelpTOCNode Title="SaveCAEXFile Method " Url="html/M_Aml_Editor_Plugin_Contracts_Commanding_EditorCommandBase_SaveCAEXFile.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+      <HelpTOCNode Id="0d356245-76f8-40bd-a107-420b76b150df" Title="GetCAEXFileCommandArguments Class" Url="html/T_Aml_Editor_Plugin_Contracts_Commanding_GetCAEXFileCommandArguments.htm">
+        <HelpTOCNode Title="GetCAEXFileCommandArguments Constructor " Url="html/M_Aml_Editor_Plugin_Contracts_Commanding_GetCAEXFileCommandArguments__ctor.htm" />
+        <HelpTOCNode Id="eb6cdc6c-ae42-4903-b78d-b2fa901cb496" Title="GetCAEXFileCommandArguments Properties" Url="html/Properties_T_Aml_Editor_Plugin_Contracts_Commanding_GetCAEXFileCommandArguments.htm">
+          <HelpTOCNode Title="CaexFile Property " Url="html/P_Aml_Editor_Plugin_Contracts_Commanding_GetCAEXFileCommandArguments_CaexFile.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+      <HelpTOCNode Id="c1053f05-90ee-43f1-8c89-55e50f97ef94" Title="IEditorCommanding Interface" Url="html/T_Aml_Editor_Plugin_Contracts_Commanding_IEditorCommanding.htm">
+        <HelpTOCNode Id="98bb84ea-bc99-4681-915e-96cdabc178b8" Title="IEditorCommanding Properties" Url="html/Properties_T_Aml_Editor_Plugin_Contracts_Commanding_IEditorCommanding.htm">
+          <HelpTOCNode Title="EditorCommand Property " Url="html/P_Aml_Editor_Plugin_Contracts_Commanding_IEditorCommanding_EditorCommand.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="IEditorCommanding Methods" Url="html/Methods_T_Aml_Editor_Plugin_Contracts_Commanding_IEditorCommanding.htm" />
+        <HelpTOCNode Title="IEditorCommanding Events" Url="html/Events_T_Aml_Editor_Plugin_Contracts_Commanding_IEditorCommanding.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="7fec61aa-b530-43d5-a2b5-f2f0b9943122" Title="ImportLibrariesCommandArguments Class" Url="html/T_Aml_Editor_Plugin_Contracts_Commanding_ImportLibrariesCommandArguments.htm">
+        <HelpTOCNode Title="ImportLibrariesCommandArguments Constructor " Url="html/M_Aml_Editor_Plugin_Contracts_Commanding_ImportLibrariesCommandArguments__ctor.htm" />
+        <HelpTOCNode Id="10242ca6-03c8-4b16-b46e-8ed541622532" Title="ImportLibrariesCommandArguments Properties" Url="html/Properties_T_Aml_Editor_Plugin_Contracts_Commanding_ImportLibrariesCommandArguments.htm">
+          <HelpTOCNode Title="FilePath Property " Url="html/P_Aml_Editor_Plugin_Contracts_Commanding_ImportLibrariesCommandArguments_FilePath.htm" />
+          <HelpTOCNode Title="IsSilent Property " Url="html/P_Aml_Editor_Plugin_Contracts_Commanding_ImportLibrariesCommandArguments_IsSilent.htm" />
+          <HelpTOCNode Title="LibraryNames Property " Url="html/P_Aml_Editor_Plugin_Contracts_Commanding_ImportLibrariesCommandArguments_LibraryNames.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+      <HelpTOCNode Id="4d179e8f-f327-4ec7-994a-842b523e32e3" Title="NewCAEXFileCommandArguments Class" Url="html/T_Aml_Editor_Plugin_Contracts_Commanding_NewCAEXFileCommandArguments.htm">
+        <HelpTOCNode Title="NewCAEXFileCommandArguments Constructor " Url="html/M_Aml_Editor_Plugin_Contracts_Commanding_NewCAEXFileCommandArguments__ctor.htm" />
+        <HelpTOCNode Title="NewCAEXFileCommandArguments Properties" Url="html/Properties_T_Aml_Editor_Plugin_Contracts_Commanding_NewCAEXFileCommandArguments.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="c59543bb-71ee-450b-b859-29616310d954" Title="OpenFileCommandArguments Class" Url="html/T_Aml_Editor_Plugin_Contracts_Commanding_OpenFileCommandArguments.htm">
+        <HelpTOCNode Id="6a2d4c1c-8353-49b0-acb8-6cf4f6f7b90f" Title="OpenFileCommandArguments Constructor " Url="html/Overload_Aml_Editor_Plugin_Contracts_Commanding_OpenFileCommandArguments__ctor.htm">
+          <HelpTOCNode Title="OpenFileCommandArguments Constructor (Stream)" Url="html/M_Aml_Editor_Plugin_Contracts_Commanding_OpenFileCommandArguments__ctor.htm" />
+          <HelpTOCNode Title="OpenFileCommandArguments Constructor (String)" Url="html/M_Aml_Editor_Plugin_Contracts_Commanding_OpenFileCommandArguments__ctor_1.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="72488985-3b03-4ccf-a977-cdff6e27b600" Title="OpenFileCommandArguments Properties" Url="html/Properties_T_Aml_Editor_Plugin_Contracts_Commanding_OpenFileCommandArguments.htm">
+          <HelpTOCNode Title="FileContent Property " Url="html/P_Aml_Editor_Plugin_Contracts_Commanding_OpenFileCommandArguments_FileContent.htm" />
+          <HelpTOCNode Title="FilePath Property " Url="html/P_Aml_Editor_Plugin_Contracts_Commanding_OpenFileCommandArguments_FilePath.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+      <HelpTOCNode Id="27ba6f2f-e190-42f4-b68b-66a50e2e5bbb" Title="SaveCAEXFileCommandArguments Class" Url="html/T_Aml_Editor_Plugin_Contracts_Commanding_SaveCAEXFileCommandArguments.htm">
+        <HelpTOCNode Title="SaveCAEXFileCommandArguments Constructor " Url="html/M_Aml_Editor_Plugin_Contracts_Commanding_SaveCAEXFileCommandArguments__ctor.htm" />
+        <HelpTOCNode Title="SaveCAEXFileCommandArguments Properties" Url="html/Properties_T_Aml_Editor_Plugin_Contracts_Commanding_SaveCAEXFileCommandArguments.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
   </HelpTOCNode>

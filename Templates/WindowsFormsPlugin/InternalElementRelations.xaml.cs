@@ -33,6 +33,10 @@ namespace Aml.Editor.Plugin
     /// to change the string from lower- to uppercase and vice versa and an About Command which
     /// displays the Disclaimer
     /// </summary>
+
+    [ExportMetadata("Author", "Josef Prinz, AutomationML e.V.")]
+    [ExportMetadata("DisplayName", "Show Internal Element Relations")]
+    [ExportMetadata("Description", "The 'Show Internal Element Relations' is an AutomationML Editor plugin which serves as an implementation example. This plugin has its own UI based on Windows Forms.")]
     [Export(typeof(IAMLEditorView))]
     public partial class InternalLinkRelations : UserControl, IAMLEditorView
     {
