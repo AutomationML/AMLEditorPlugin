@@ -14,8 +14,7 @@ interface of the AutomationML Editor. The template named 'EditingCAEXApplication
 its own UI thread. The implementation shows how thread synchronization between the AutomationML editor and a plug-in works. 
 The 'PluginWithToolBar' template implements a plug-in that adds its own toolbar to the editor toolbar.
 
-PlugIn developers can make a new PlugIn available for the Editor with the help of the PlugIn Manager of the
-AutomationML Editor (menu item PlugIn). To do this, the directory in which the PlugIn DLL is contained must
+Since version 5.1.3. of the AutomationML editor, PlugIn developers can make a new PlugIn available for the Editor with the help of its PlugIn Manager (menu item PlugIn). To do this, the directory in which the PlugIn DLL is contained must
 be specified as the PlugIn source. If the PlugIn has implemented the PlugIn Contract correctly, the PlugIn 
 Manager lists the new PlugIn which can then be installed.
 
