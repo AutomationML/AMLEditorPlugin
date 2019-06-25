@@ -1,0 +1,5 @@
+<PluginViewModel xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/Aml.Editor.ViewModels.Items">
+      <Name>AML2OPCUA</Name>
+	  <Description>This AutomationML Editor plugin called 'AML2OPCUA' performs the mapping between AUTOMATIONML and OPC UA via a web interface to the online website of an existing implementation of FRAUNHOFER IOSB. A valid account is necessary.</Description>
+	  <Author>Kathrin Bott, Pascal Habiger and Armin Karle (Supervision: Prof. Rainer Drath) Hochschule Pforzheim <Author>
+</PluginViewModel>
