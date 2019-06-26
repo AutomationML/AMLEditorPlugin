@@ -1,6 +1,6 @@
 <PluginViewModel xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/Aml.Editor.PlugInManager.ViewModels">
-      <Name>Explore OPC—UA Server</Name>  
-      <Version>v1.0.0.0</Version>
-	  <Description>This AutomationML Editor plugin called 'Explore OPC—UA Server' is used to ﬁnd any number of OPC UA servers in a local network. It is possible to discover OPC UA servers to get their live status and relevant information.</Description>
-	  <Author>Kathrin Bott, Pascal Habiger and Armin Karle (Supervision: Prof. Rainer Drath) Hochschule Pforzheim </Author>
+<Name>Explore OPC—UA Server</Name>  
+<Author>Kathrin Bott, Pascal Habiger and Armin Karle (Supervision: Prof. Rainer Drath) Hochschule Pforzheim </Author>
+<Description>This AutomationML Editor plugin called 'Explore OPC—UA Server' is used to ﬁnd any number of OPC UA servers in a local network. It is possible to discover OPC UA servers to get their live status and relevant information.</Description> 
+<Version>v1.0.0.0</Version>
 </PluginViewModel>
