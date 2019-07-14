@@ -178,8 +178,8 @@
             <summary>
             Updates all name references, which use the provided "oldName" to reference an element.
             </summary>
-            <param name="oldName">The old name.</param>
-            <param name="newName">The new name.</param>
+            <param name="oldKey">The old name.</param>
+            <param name="newKey">The new name.</param>
             <param name="element">The referenced element, which will change its name from oldName to newName.</param>
         </member>
         <member name="M:Aml.Engine.Services.CAEXNameReferenceTable.ElementReferences(System.Collections.Generic.IEnumerable{System.Xml.Linq.XAttribute},System.Xml.Linq.XElement)">
@@ -459,7 +459,7 @@
         <member name="M:Aml.Engine.Services.CAEXLookupTables.AddElementAndDescandants(Aml.Engine.Services.LookupService,System.Xml.Linq.XElement)">
             <summary>
             Adds the specified XML element and all its descendants to the table. An element is added
-            if it is a CAEXClass <see cref="M:Aml.Engine.Xml.Extensions.XmlCAEXSchema.IsCAEXClass(System.Xml.Linq.XElement)" />,
+            if it is a CAEXClass <see cref="M:Aml.Engine.Xml.Extensions.XmlCAEXSchema.IsCAEXClass(System.Xml.Linq.XElement,System.Boolean)" />,
             an element with an identifier <see cref="M:Aml.Engine.Xml.Extensions.XmlCAEXSchema.IsElementWithID(System.Xml.Linq.XElement)" />,
             an element with an ID reference <see cref="M:Aml.Engine.Xml.Extensions.XmlCAEXSchema.IsElementWithIDReference(System.Xml.Linq.XElement)" /> or
             an element with a Path reference <see cref="M:Aml.Engine.Xml.Extensions.XmlCAEXSchema.IsElementWithPathReference(System.Xml.Linq.XElement)" />.
@@ -817,6 +817,13 @@
         <member name="M:Aml.Engine.Services.LookupService.AddDocument(Aml.Engine.CAEX.CAEXDocument)">
             <summary>
             Adds the document to the query service. All tables for the document will be created.
+            </summary>
+            <param name="doc">The document.</param>
+            <exception cref="T:System.ArgumentNullException">doc</exception>
+        </member>
+        <member name="M:Aml.Engine.Services.LookupService.RemoveDocument(Aml.Engine.XML.XDocumentWrapper)">
+            <summary>
+            Removes the document from the query service. All tables for the document will be unloaded.
             </summary>
             <param name="doc">The document.</param>
             <exception cref="T:System.ArgumentNullException">doc</exception>
@@ -1223,6 +1230,16 @@
             <param name="key">The key.</param>
             <param name="reference">The node.</param>
         </member>
+        <member name="M:Aml.Engine.Services.CAEXPathReferenceTable.UpdateReferences(Aml.Engine.Services.CAEXPathReferenceCollection,System.Xml.Linq.XElement,System.String,System.Boolean,System.String)">
+            <summary>
+            TODO: There is a big confusion in this method because the parameter order is not same with the base newValue/oldValue  
+            </summary>
+            <param name="collection"></param>
+            <param name="element"></param>
+            <param name="oldValue"></param>
+            <param name="elementIsDeleted"></param>
+            <param name="newValue"></param>
+        </member>
         <member name="M:Aml.Engine.Services.CAEXPathReferenceTable.AddElement(System.String[],System.Xml.Linq.XElement)">
             <summary>
             Adds all nodes, which are identifiable with the given node and the path parts
@@ -1343,6 +1360,12 @@
             Removes the split point for the provided CAEX object.
             </summary>
             <param name="caexObject">The CAEX object.</param>
+        </member>
+        <member name="M:Aml.Engine.Services.SplitService.RemoveDocument(Aml.Engine.XML.XDocumentWrapper)">
+            <summary>
+            Removes the document from the internal registry of the split service. All registered split points for this document will be removed.
+            </summary>
+            <param name="doc">The document.</param>
         </member>
         <member name="M:Aml.Engine.Services.SplitService.SetSplitPoint(Aml.Engine.Services.Interfaces.ISplitPoint)">
             <summary>
@@ -1618,6 +1641,13 @@
             <summary>
             Occurs when a property value changes.
             </summary>
+        </member>
+        <member name="M:Aml.Engine.Services.UndoRedoService.RemoveDocument(Aml.Engine.XML.XDocumentWrapper)">
+            <summary>
+            Removes the XML document from the internal registry of the service. 
+            Undo- and Redo Stacks for this document will be deleted.
+            </summary>
+            <param name="doc">The document.</param>
         </member>
         <member name="M:Aml.Engine.Services.UndoRedoService.Pause(Aml.Engine.CAEX.CAEXDocument)">
             <summary>
@@ -2431,6 +2461,36 @@
             occurrences with different validation issues in this collection.
             </returns>
         </member>
+        <member name="M:Aml.Engine.Services.ValidatorService.ValidateAll(Aml.Engine.CAEX.CAEXDocument,Aml.Engine.AmlObjects.AutomationMLContainer,System.Boolean)">
+            <summary>
+            Get Validation Information for all elements in the specified document, which have validation issues. The
+            <see cref="T:Aml.Engine.Services.Interfaces.IValidationResult" /> provides detailed information about available Repair
+            Options and an additional Information Text. This method should be used, if the Document is loaded from an
+            AutomationML container. The Validation service will check validity of external references which are packed
+            parts of the container.
+            </summary>
+            <param name="document">The CAEX document.</param>
+            <param name="container">The AutomationML container, containing the document source.</param>
+            <param name="generateLongDescription">if set to <c>true</c> generate long description for each validation issue.</param>
+            <returns>
+            A collection of validation information for CAEX objects. One CAEX object may have multiple
+            occurrences with different validation issues in this collection.
+            </returns>
+        </member>
+        <member name="M:Aml.Engine.Services.ValidatorService.ValidateAllWithoutStrictID(Aml.Engine.CAEX.CAEXDocument,Aml.Engine.AmlObjects.AutomationMLContainer,System.Boolean)">
+            <summary>
+            Get Validation Information for all elements in the specified document, which have validation issues. The
+            <see cref="T:Aml.Engine.Services.ValidationElement" /> provides detailed information about available Repair
+            Options and an additional Information Text.
+            </summary>
+            <param name="document">The CAEX document.</param>
+            <param name="container">If set, the associated parts, defined in the AutomationML container are used to validate external references.</param>
+            <param name="generateLongDescription">if set to <c>true</c> [generate long description].</param>
+            <returns>
+            An enumeration of validation information for CAEX objects. One CAEX object may have multiple
+            occurrences with different validation issues in this collection.
+            </returns>
+        </member>
         <member name="M:Aml.Engine.Services.ValidatorService.ValidateAliasReferences(Aml.Engine.CAEX.CAEXDocument,System.Boolean)">
             <summary>
             Validates the alias references and returns the validation result describing possible repair options.  The
@@ -2451,19 +2511,31 @@
             a normalized file path string
             </returns>
         </member>
-        <member name="M:Aml.Engine.Services.ValidatorService.GetAliasReferenceValidationIssues(Aml.Engine.CAEX.CAEXDocument)">
+        <member name="M:Aml.Engine.Services.ValidatorService.GetAliasReferenceValidationIssues(Aml.Engine.CAEX.CAEXDocument,System.Boolean)">
             <summary>
             Gets the alias reference validation issues for the specified document.
             </summary>
             <param name="doc">The document.</param>
+            <param name="generateLongDescription">set, if a validation long description shoul be added to the result</param>
             <returns></returns>
         </member>
-        <member name="M:Aml.Engine.Services.ValidatorService.GetAllValidationIssues(Aml.Engine.CAEX.CAEXDocument,System.Boolean)">
+        <member name="M:Aml.Engine.Services.ValidatorService.GetAllValidationIssues(Aml.Engine.CAEX.CAEXDocument,Aml.Engine.AmlObjects.AutomationMLContainer,System.Boolean)">
             <summary>
             Gets all validation issues for the specified document.
             </summary>
             <param name="doc">The document</param>
+            <param name="container"></param>
             <param name="generateLongDescription">if set to <c>true</c> [generate long description].</param>
+            <returns></returns>
+        </member>
+        <member name="M:Aml.Engine.Services.ValidatorService.GetAllValidationIssues(Aml.Engine.CAEX.CAEXDocument,Aml.Engine.AmlObjects.AutomationMLContainer,System.Boolean,System.Boolean)">
+            <summary>
+            Gets all validation issues for the specified document.
+            </summary>
+            <param name="doc">The document</param>
+            <param name="container"></param>
+            <param name="generateLongDescription">if set to <c>true</c> [generate long description].</param>
+            <param name="strictIDValidation"></param>
             <returns></returns>
         </member>
         <member name="M:Aml.Engine.Services.ValidatorService.GetAutomationMLVersionValidationIssues(Aml.Engine.CAEX.CAEXDocument,System.Boolean)">
@@ -2482,11 +2554,12 @@
             <param name="generateLongDescription">if set to <c>true</c> [generate long description].</param>
             <returns></returns>
         </member>
-        <member name="M:Aml.Engine.Services.ValidatorService.GetExternalReferenceValidationIssues(Aml.Engine.CAEX.CAEXDocument,System.Boolean)">
+        <member name="M:Aml.Engine.Services.ValidatorService.GetExternalReferenceValidationIssues(Aml.Engine.CAEX.CAEXDocument,Aml.Engine.AmlObjects.AutomationMLContainer,System.Boolean)">
             <summary>
             Gets the external reference validation issues.
             </summary>
             <param name="doc">The document.</param>
+            <param name="container"></param>
             <param name="generateLongDescription">if set to <c>true</c> [generate long description].</param>
             <returns></returns>
         </member>
@@ -2498,15 +2571,24 @@
             <param name="generateLongDescription">if set to <c>true</c> [generate long description].</param>
             <returns></returns>
         </member>
-        <member name="M:Aml.Engine.Services.ValidatorService.GetIDValidationIssues(Aml.Engine.CAEX.CAEXDocument)">
+        <member name="M:Aml.Engine.Services.ValidatorService.GetIDValidationIssues(Aml.Engine.CAEX.CAEXDocument,System.Boolean,System.Boolean)">
             <summary>
             Gets all ID validation issues for the provided document
             </summary>
             <param name="doc">The document.</param>
+            <param name="generateLongDescription"></param>
+            <param name="strictIDValidation">if set to <c>false</c> [only warning will be issued during troubleshooting of ID of InternalElement in SUCLIB.</param>
             <returns></returns>
             <seealso cref="F:Aml.Engine.Services.RepairTypeEnum.GenerateUniqueIDWhenEmpty" />
             <seealso cref="F:Aml.Engine.Services.RepairTypeEnum.GenerateValidGUID" />
             <seealso cref="F:Aml.Engine.Services.RepairTypeEnum.GenerateUniqueIDForDoubles" />
+        </member>
+        <member name="M:Aml.Engine.Services.ValidatorService.IsInstanceInClass(Aml.Engine.CAEX.CAEXBasicObject)">
+            <summary>
+            Determine if IE is under SystemUnitClassLib 
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
         </member>
         <member name="M:Aml.Engine.Services.ValidatorService.GetMetaDataValidationIssues(Aml.Engine.CAEX.CAEXDocument,System.Boolean)">
             <summary>
@@ -2524,11 +2606,12 @@
             <param name="generateLongDescription">if set to <c>true</c> [generate long description].</param>
             <returns></returns>
         </member>
-        <member name="M:Aml.Engine.Services.ValidatorService.GetPathValidationIssues(Aml.Engine.CAEX.CAEXDocument)">
+        <member name="M:Aml.Engine.Services.ValidatorService.GetPathValidationIssues(Aml.Engine.CAEX.CAEXDocument,System.Boolean)">
             <summary>
             Gets the validation issues for elements which should be identifiable with a CAEXPath.
             </summary>
             <param name="doc">the document</param>
+            <param name="generateLongDescription">set, if a validation long description shoul be added to the result</param>
             <returns>
             a collection of validated elements.
             </returns>
@@ -2544,22 +2627,24 @@
             a collection of validated elements.
             </returns>
         </member>
-        <member name="M:Aml.Engine.Services.ValidatorService.ValidateAliasReference(Aml.Engine.CAEX.CAEXDocument,System.String,System.Collections.Generic.IEnumerable{Aml.Engine.Services.Interfaces.ICAEXReference})">
+        <member name="M:Aml.Engine.Services.ValidatorService.ValidateAliasReference(Aml.Engine.CAEX.CAEXDocument,System.String,System.Collections.Generic.IEnumerable{Aml.Engine.Services.Interfaces.ICAEXReference},System.Boolean)">
             <summary>
             Validates the alias reference of the specified document and the provided path and item.
             </summary>
             <param name="doc">The document.</param>
             <param name="alias">The path which contains an alias.</param>
             <param name="items">The alias reference item.</param>
+            <param name="generateLongDescription">set, if a validation long description shoul be added to the result</param>
             <returns>
             a collection of validated elements.
             </returns>
         </member>
-        <member name="M:Aml.Engine.Services.ValidatorService.ValidateExternalReference(Aml.Engine.CAEX.CAEXFileType,System.String,System.Boolean)">
+        <member name="M:Aml.Engine.Services.ValidatorService.ValidateExternalReference(Aml.Engine.CAEX.CAEXFileType,Aml.Engine.AmlObjects.AutomationMLContainer,System.String,System.Boolean)">
             <summary>
             Validates the external reference.
             </summary>
             <param name="caexFile">The CAEX file.</param>
+            <param name="container"></param>
             <param name="alias">The alias.</param>
             <param name="generateLongDescription">if set to <c>true</c> [generate long description].</param>
             <returns>

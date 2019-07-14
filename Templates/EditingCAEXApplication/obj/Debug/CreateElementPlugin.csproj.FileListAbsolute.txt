@@ -1,0 +1,16 @@
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\AmlEditorPlugInSandbox\Plugins\CreateElement\CreateElementPlugin.dll.config
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\AmlEditorPlugInSandbox\Plugins\CreateElement\CreateElementPlugin.dll
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\AmlEditorPlugInSandbox\Plugins\CreateElement\CreateElementPlugin.pdb
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\EditingCAEXApplication\obj\Debug\About.baml
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\EditingCAEXApplication\obj\Debug\CreateElementUI.baml
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\EditingCAEXApplication\obj\Debug\About.g.cs
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\EditingCAEXApplication\obj\Debug\CreateElementUI.g.cs
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\EditingCAEXApplication\obj\Debug\CreateElementPlugin_MarkupCompile.cache
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\EditingCAEXApplication\obj\Debug\CreateElementPlugin.g.resources
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\EditingCAEXApplication\obj\Debug\Aml.Editor.Plugin.Properties.Resources.resources
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\EditingCAEXApplication\obj\Debug\CreateElementPlugin.csproj.GenerateResource.cache
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\EditingCAEXApplication\obj\Debug\CreateElementPlugin.csproj.CoreCompileInputs.cache
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\EditingCAEXApplication\obj\Debug\CreateElementPlugin.csproj.CopyComplete
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\EditingCAEXApplication\obj\Debug\CreateElementPlugin.dll
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\EditingCAEXApplication\obj\Debug\CreateElementPlugin.pdb
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\EditingCAEXApplication\obj\Debug\CreateElementPlugin.csprojAssemblyReference.cache

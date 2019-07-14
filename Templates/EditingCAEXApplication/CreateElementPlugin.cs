@@ -205,10 +205,12 @@ namespace Aml.Editor.Plugin.CreateElement
                             Dispatcher.CurrentDispatcher));
 
                     // create the UI
-                    this.ui = new CreateElementUI();                   
+                    this.ui = new CreateElementUI
+                    {
 
-                    // set the Data Context to the View Model
-                    this.ui.DataContext = this.viewModel;
+                        // set the Data Context to the View Model
+                        DataContext = this.viewModel
+                    };
 
                     // close event needs to be caught
                     this.ui.Closed += (s, e) =>

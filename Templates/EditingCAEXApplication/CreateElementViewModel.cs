@@ -265,9 +265,8 @@ namespace Aml.Editor.Plugin
         {
             if (this.ElementCount > 0)
             {
-                var ie = this.InternalElements.CurrentItem as ElementViewModel;
 
-                if (ie != null)
+                if (InternalElements.CurrentItem is ElementViewModel ie)
                 {
                     int index = this.InternalElementCollection.IndexOf(ie);
 
@@ -408,8 +407,7 @@ namespace Aml.Editor.Plugin
         /// <param name="propertyName">Name of the property.</param>
         private void OnPropertyChanged(string propertyName)
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         #endregion INotifyPropertyChanged Member

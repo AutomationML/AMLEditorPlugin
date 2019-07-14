@@ -28,7 +28,7 @@ namespace Aml.Editor
         /// <summary>
         /// The current
         /// </summary>
-        private Brush _current;
+        private readonly Brush _current;
 
         /// <summary>
         /// The main
@@ -43,7 +43,7 @@ namespace Aml.Editor
         /// <summary>
         /// The screen
         /// </summary>
-        private SplashScreen _screen;
+        private readonly SplashScreen _screen;
 
         private bool _updateMessage;
 
@@ -150,22 +150,28 @@ namespace Aml.Editor
         {
             _main.Dispatcher.BeginInvoke(DispatcherPriority.Background, new Action(() =>
             {
-                if (this.Plugins != null)
+                try
                 {
-                    foreach (var plugin in this.Plugins)
-                        Plugin.Sandbox.ViewModel.MainViewModel.Instance.Plugins.Add(plugin.Value);
-                }
+                    if (this.Plugins != null)
+                    {
+                        foreach (var plugin in this.Plugins)
+                            Plugin.Sandbox.ViewModel.MainViewModel.Instance.Plugins.Add(plugin.Value);
+                    }
 
-                if (this.UIPlugins != null)
-                {
-                    foreach (var plugin in this.UIPlugins)
-                        Plugin.Sandbox.ViewModel.MainViewModel.Instance.Plugins.Add(plugin.Value);
-                }
+                    if (this.UIPlugins != null)
+                    {
+                        foreach (var plugin in this.UIPlugins)
+                            Plugin.Sandbox.ViewModel.MainViewModel.Instance.Plugins.Add(plugin.Value);
+                    }
 
-                if (this.MultipleViewPlugins != null)
+                    if (this.MultipleViewPlugins != null)
+                    {
+                        foreach (var plugin in this.MultipleViewPlugins)
+                            Plugin.Sandbox.ViewModel.MainViewModel.Instance.Plugins.Add(plugin.Value);
+                    }
+                }
+                catch
                 {
-                    foreach (var plugin in this.MultipleViewPlugins)
-                        Plugin.Sandbox.ViewModel.MainViewModel.Instance.Plugins.Add(plugin.Value);
                 }
 
                 Plugin.Sandbox.ViewModel.MainViewModel.Instance.HasPlugins = Plugin.Sandbox.ViewModel.MainViewModel.Instance.Plugins.Count > 0;

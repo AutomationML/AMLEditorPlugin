@@ -396,12 +396,15 @@
              </summary>
              <example>
             <code>
+            [ExportMetadata("Author", "...")]
+            [ExportMetadata("DisplayName", "HelloAml")]
+            [ExportMetadata("Description", "The 'HelloAml' is an AutomationML Editor plugin, which ....")]
             [Export(typeof(IAMLEditorPlugin))]
             public class HelloAml : IAMLEditorPlugin
             {
             }
             </code>
-            </example>
+            </example>    
         </member>
         <member name="E:Aml.Editor.Plugin.Contracts.IAMLEditorPlugin.PluginActivated">
             <summary>
@@ -551,6 +554,31 @@
             </code>
             </example>
         </member>
+        <member name="T:Aml.Editor.Plugin.Contracts.IAMLEditorPluginMetadata">
+            <summary>
+            Interface which defines Metadata for an exportet PlugIn.
+            </summary>
+        </member>
+        <member name="P:Aml.Editor.Plugin.Contracts.IAMLEditorPluginMetadata.Author">
+            <summary>
+            Gets the name of the author.
+            </summary>
+        </member>
+        <member name="P:Aml.Editor.Plugin.Contracts.IAMLEditorPluginMetadata.Owner">
+            <summary>
+            Gets the name of the owner.
+            </summary>
+        </member>
+        <member name="P:Aml.Editor.Plugin.Contracts.IAMLEditorPluginMetadata.Description">
+            <summary>
+            Gets the description of the PlugIn.
+            </summary>
+        </member>
+        <member name="P:Aml.Editor.Plugin.Contracts.IAMLEditorPluginMetadata.DisplayName">
+            <summary>
+            Gets the display name of the PlugIn.
+            </summary>
+        </member>
         <member name="T:Aml.Editor.Plugin.Contracts.IAMLEditorView">
              <summary>
              The Interface IAMLEditorView is used for a PlugIn, which can be embedded in
@@ -561,6 +589,9 @@
              </summary>
              <example>
             <code>
+            [ExportMetadata("Author", "...")]
+            [ExportMetadata("DisplayName", "HelloAml")]
+            [ExportMetadata("Description", "The 'HelloAml' is an AutomationML Editor plugin, which ....")]
             [Export(typeof(IAMLEditorView))]
              public partial class HelloAml : System.Windows.Control.UserControl, IAMLEditorView
             {
@@ -591,7 +622,7 @@
              The Interface IAMLEditorViewCollection is used for a PlugIn, which can be embedded in
              the AutomationML Editor's Window- and Docking-Manager. This PlugIn can provide
              multiple independent views, to be embedded at different positions in the AML Editor where
-             each of the views shall implement the <see cref="T:Aml.Editor.Plugin.Contracts.IAMLEditorView"/> interface.    ///
+             each of the views shall implement the <see cref="T:Aml.Editor.Plugin.Contracts.IAMLEditorView"/> interface.    
              It is possible to dynamically add and remove views from the collection while the PlugIn is
              active.
              </summary>
@@ -602,6 +633,9 @@
              </remarks>
              <example>
             <code>
+            [ExportMetadata("Author", "...")]
+            [ExportMetadata("DisplayName", "MultiWindowPlugin")]
+            [ExportMetadata("Description", "The 'MultiWindowPlugin' is an AutomationML Editor plugin, which ....")]
             [Export(typeof(IAMLEditorViewCollection))]
              public partial class MultiWindowPlugin : List&lt;IAMLEditorView&gt;
             {

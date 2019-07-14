@@ -6,6 +6,7 @@ using Aml.Toolkit.ViewModel;
 using GalaSoft.MvvmLight;
 using Microsoft.Win32;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.IO;
@@ -261,12 +262,18 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModel
 
         internal void Open(string filePath)
         {
+            var template = new HashSet<string> ( AMLTreeViewTemplate.CompleteInstanceHierarchyTree
+                .Concat(AMLTreeViewTemplate.CompleteSystemUnitClassLibTree)
+                .Concat(AMLTreeViewTemplate.ExtendedRoleClassLibTree)
+                .Concat(AMLTreeViewTemplate.InterfaceClassLibTree   )
+                .Concat(AMLTreeViewTemplate.AttributeTypeLibTree).Distinct());
+
             AMLDocumentTreeViewModel?.ClearAll();
             Document = null;
 
             FilePath = filePath;
             Document = CAEXDocument.LoadFromFile(filePath);
-            AMLDocumentTreeViewModel = new AMLTreeViewModel(Document.CAEXFile.Node, AMLTreeViewTemplate.CompleteInstanceHierarchyTree);
+            AMLDocumentTreeViewModel = new AMLTreeViewModel(Document.CAEXFile.Node, template);
             PropagateFileOpenEventToPlugins(FilePath);
         }
 
@@ -398,9 +405,15 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModel
             var result = ofd.ShowDialog();
             if (result.HasValue && (bool)result)
             {
+                var template = new HashSet<string>(AMLTreeViewTemplate.CompleteInstanceHierarchyTree
+               .Concat(AMLTreeViewTemplate.CompleteSystemUnitClassLibTree)
+               .Concat(AMLTreeViewTemplate.ExtendedRoleClassLibTree)
+               .Concat(AMLTreeViewTemplate.InterfaceClassLibTree)
+               .Concat(AMLTreeViewTemplate.AttributeTypeLibTree).Distinct());
+
                 FilePath = ofd.FileName;
                 Document = CAEXDocument.LoadFromFile(ofd.FileName);
-                AMLDocumentTreeViewModel = new AMLTreeViewModel(Document.CAEXFile.Node, AMLTreeViewTemplate.CompleteInstanceHierarchyTree);
+                AMLDocumentTreeViewModel = new AMLTreeViewModel(Document.CAEXFile.Node, template);
                 PropagateFileOpenEventToPlugins(FilePath);
             }
         }
@@ -413,7 +426,7 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModel
         /// <exception cref="System.NotImplementedException"></exception>
         private void SelectedElementsCollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
-            if (e.Action == NotifyCollectionChangedAction.Add)
+            if (e.Action == NotifyCollectionChangedAction.Add || e.Action== NotifyCollectionChangedAction.Replace)
             {
                 AMLNodeViewModel node = e.NewItems.OfType<AMLNodeViewModel>().FirstOrDefault();
                 if (node != null)

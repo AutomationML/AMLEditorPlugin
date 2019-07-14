@@ -1,0 +1,13 @@
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\AmlEditorPlugInSandbox\Plugins\CallCommands\PlugInCallingCommands.dll.config
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\AmlEditorPlugInSandbox\Plugins\CallCommands\PlugInCallingCommands.dll
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\AmlEditorPlugInSandbox\Plugins\CallCommands\PlugInCallingCommands.pdb
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\PlugInCallingCommands\obj\Debug\PlugIn.g.cs
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\PlugInCallingCommands\obj\Debug\PlugInCallingCommands_MarkupCompile.cache
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\PlugInCallingCommands\obj\Debug\PlugInCallingCommands_MarkupCompile.lref
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\PlugInCallingCommands\obj\Debug\PlugIn.baml
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\PlugInCallingCommands\obj\Debug\PlugInCallingCommands.g.resources
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\PlugInCallingCommands\obj\Debug\PlugInCallingCommands.csproj.CoreCompileInputs.cache
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\PlugInCallingCommands\obj\Debug\PlugInCallingCommands.csproj.CopyComplete
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\PlugInCallingCommands\obj\Debug\PlugInCallingCommands.dll
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\PlugInCallingCommands\obj\Debug\PlugInCallingCommands.pdb
+D:\Daten\inpro\GitHub\AMLEditorPlugin\Templates\PlugInCallingCommands\obj\Debug\PlugInCallingCommands.csprojAssemblyReference.cache

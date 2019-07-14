@@ -6,6 +6,7 @@ using System;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Threading;
 using Xceed.Wpf.AvalonDock.Layout;
@@ -190,13 +191,32 @@ namespace Aml.Editor.Plugin.Sandbox
             tb.ToolTip = toolBarIntegration.DisplayName;
             foreach (var command in toolBarIntegration.ToolBarCommands)
             {
-                var button = new Button { ToolTip = command.CommandToolTip, Content = new Image { Source = command.CommandIcon } };
-                Binding bd = new Binding("Command") { Source = command };
-                button.SetBinding(Button.CommandProperty, bd);
+                if (command.IsCheckable)
+                {
+                    var button = new ToggleButton { ToolTip = command.CommandToolTip, Content = new Image { Width=16, Height=16, Source = command.CommandIcon } };
+                    Binding bd = new Binding("Command") { Source = command };
+                    button.SetBinding(ToggleButton.CommandProperty, bd);
 
-                ToolTipService.SetShowOnDisabled(button, true);
+                    Binding bd2 = new Binding("IsChecked") { Source = command };
+                    button.SetBinding(ToggleButton.IsCheckedProperty, bd2);
 
-                tb.Items.Add(button);
+                    ToolTipService.SetShowOnDisabled(button, true);
+
+                    tb.Items.Add(button);
+                }
+                else
+                {
+
+                    var button = new Button { ToolTip = command.CommandToolTip, Content = new Image { Width = 16, Height = 16, Source = command.CommandIcon } };
+                    Binding bd = new Binding("Command") { Source = command };
+                    button.SetBinding(Button.CommandProperty, bd);
+
+                    ToolTipService.SetShowOnDisabled(button, true);
+
+                    tb.Items.Add(button);
+                }
+
+                
 
             }
 

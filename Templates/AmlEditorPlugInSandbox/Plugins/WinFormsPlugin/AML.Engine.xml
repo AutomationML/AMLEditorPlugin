@@ -297,8 +297,9 @@
             else is explicit defined.
             </summary>
             <param name="caexObject">The CAEX object.</param>
-            <param name="newInstanceObject">The instance of a class to be inserted at this object. The instance can be of type
-            <param name="asFirst">if <c>true</c>, inserted as first (default), otherwise at last</param><see cref="T:Aml.Engine.CAEX.InternalElementType" />, <see cref="T:Aml.Engine.CAEX.InterfaceClassType" /></param>
+            <param name="newInstanceObject">The instance of a class to be inserted at this object. The instance can be of type</param>
+            <param name="asFirst">if <c>true</c>, inserted as first (default), otherwise at last</param>
+            <see cref="T:Aml.Engine.CAEX.InternalElementType" />, <see cref="T:Aml.Engine.CAEX.InterfaceClassType" />
             <returns>
             True if insertion was successful, else false.
             </returns>
@@ -3922,7 +3923,8 @@
         </member>
         <member name="F:Aml.Engine.AmlObjects.FrameAttributeType.FormatInfo">
             <summary>
-            The format information for the Frame attribute (don't use this, because all frame values have to be saved as xs:double with standard format)
+            The format information for the Frame attribute 
+            (don't use this, because all frame values have to be saved as xs:double with standard format)
             If you want to save values with specific number format, do the string conversion
             </summary>
         </member>
@@ -6346,13 +6348,6 @@
             is registered.
             </remarks>
         </member>
-        <member name="M:Aml.Engine.CAEX.Extensions.CAEXFileTypeExtensions.GetFullNodePath(Aml.Engine.CAEX.CAEXObject)">
-            <summary>
-            Gets the full node path of the provided CAEX object.
-            </summary>
-            <param name="caexObject">The CAEX object.</param>
-            <returns>The path to the XML node.</returns>
-        </member>
         <member name="M:Aml.Engine.CAEX.Extensions.CAEXFileTypeExtensions.Import_AttributeTypeLib(Aml.Engine.CAEX.CAEXFileType,Aml.Engine.CAEX.AttributeTypeLibType)">
             <summary>
             Imports the provided library into the AttributeTypeLib collection of this CAEX file.
@@ -6508,6 +6503,18 @@
             </summary>
             <param name="caexObject">the CAEX object</param>
             <param name="description">the description</param>
+        </member>
+        <member name="M:Aml.Engine.CAEX.Extensions.CAEXObjectExtensions.GetFullNodePath(Aml.Engine.CAEX.CAEXObject)">
+            <summary>
+            Gets the full node path of the provided CAEX object, which includes the object names of all 
+            ancestor hierarchy levels and the name of the object itself.
+            </summary>
+            <param name="caexObject">The CAEX object.</param>
+            <remarks>
+            Please note that this method returns a different result than the <see cref="M:Aml.Engine.CAEX.CAEXObject.CAEXPath"/>  method, which returns 
+            the CAEX path used for referencing objects.
+            </remarks>
+            <returns>The path to the XML node.</returns>
         </member>
         <member name="M:Aml.Engine.CAEX.Extensions.CAEXObjectExtensions.New_AdditionalInformation(Aml.Engine.CAEX.CAEXBasicObject,System.Boolean)">
             <summary>
@@ -10738,17 +10745,17 @@
         </member>
         <member name="P:Aml.Engine.CAEX.CAEXWrapper.Document">
             <summary>
-            Gets the XDocument of the wrapped Xml-Element
+            Gets the XDocument of the wrapped XML-Element
             </summary>
         </member>
         <member name="P:Aml.Engine.CAEX.CAEXWrapper.Exists">
             <summary>
-            Determines if this is a wrapper around an existing Xml-Element
+            Determines if this is a wrapper around an existing XML-Element
             </summary>
         </member>
         <member name="P:Aml.Engine.CAEX.CAEXWrapper.Node">
             <summary>
-            Gets the wrapped Xml-Element
+            Gets the wrapped XML-Element
             </summary>
         </member>
         <member name="P:Aml.Engine.CAEX.CAEXWrapper.Owner">
@@ -11421,9 +11428,19 @@
         </member>
         <member name="M:Aml.Engine.CAEX.CAEXObject.CAEXPath">
             <summary>
-            Gets the CAEX path for this object. A CAEX path is build, using the names of all ancestors of the
-            CAEX object up to the library, separated by the object separator.
+            Gets the CAEX path for this object. A path can be used to uniquely reference an object, 
+            for example in inheritances and instances. The path syntax for an object is defined 
+            differently in CAEX 2.15 and CAEX 3.0. The engine uses the <see cref="T:Aml.Engine.CAEX.Extensions.CAEXPathBuilder"/> to generate
+            the CAEX path of an object.
             </summary>
+            <remarks>
+            Paths require the definition of separators between different path elements. CAEX 2.15 distinguishes
+            between 4 separator types: 
+            Alias separator, object separator, interface separator and attribute separator.
+            In CAEX 3.0 only the separator types Alias separator and object separator are used.
+            <para>Please note that this method returns a different result than the <see cref="M:Aml.Engine.CAEX.Extensions.CAEXObjectExtensions.GetFullNodePath(Aml.Engine.CAEX.CAEXObject)"/>  method, which always returns 
+            the path including the object names of all ancestor hierarchy levels.</para>
+            </remarks>
             <returns>
             The CAEX path.
             </returns>
@@ -13517,6 +13534,17 @@
             by any AML service
             </summary>
         </member>
+        <member name="T:Aml.Engine.Services.Interfaces.IXMLDocumentRegistry">
+            <summary>
+            This is a special interface for an AML service, which uses a registry to store data about an XML Document.
+            </summary>
+        </member>
+        <member name="M:Aml.Engine.Services.Interfaces.IXMLDocumentRegistry.RemoveDocument(Aml.Engine.XML.XDocumentWrapper)">
+            <summary>
+            Removes the document from the internal registry of the service.
+            </summary>
+            <param name="document">The XML document.</param>
+        </member>
         <member name="T:Aml.Engine.Services.Interfaces.IAutoUpdate">
             <summary>
             Interface defined for services, which support automatic updates of cross references between AutomationML objects.
@@ -13550,9 +13578,22 @@
             <param name="referencedElement">The referenced element.</param>
             <param name="reference">The reference.</param>
         </member>
+        <member name="M:Aml.Engine.Services.Interfaces.UpdateEventArgs.#ctor(System.Xml.Linq.XElement,System.Xml.Linq.XAttribute,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Aml.Engine.Services.Interfaces.UpdateEventArgs"/> class.
+            </summary>
+            <param name="referencedElement">The referenced element.</param>
+            <param name="reference">The reference.</param>
+            <param name="newValue">The updated new value for the reference</param>
+        </member>
         <member name="P:Aml.Engine.Services.Interfaces.UpdateEventArgs.Reference">
             <summary>
             Gets the updated reference.
+            </summary>
+        </member>
+        <member name="P:Aml.Engine.Services.Interfaces.UpdateEventArgs.UpdateValue">
+            <summary>
+            Gets the updated new value (used in changing event notifications, if the reference has not updated).
             </summary>
         </member>
         <member name="P:Aml.Engine.Services.Interfaces.UpdateEventArgs.ReferencedElement">
@@ -14137,7 +14178,6 @@
             <returns>
             <c>true</c> if the element has been repaired, <c>false</c> otherwise.
             </returns>
-            <seealso cref="M:Aml.Engine.Services.Interfaces.IValidator`1.ValidateAll(Aml.Engine.CAEX.CAEXDocument,System.Boolean)"/>
         </member>
         <member name="M:Aml.Engine.Services.Interfaces.IValidator`1.ValidateAll(Aml.Engine.CAEX.CAEXDocument,System.Boolean)">
             <summary>
@@ -14146,6 +14186,22 @@
             Options and an additional Information Text.
             </summary>
             <param name="document">The CAEX document.</param>
+            <param name="generateLongDescription">if set to <c>true</c> generate long description for each validation issue.</param>
+            <returns>
+            A collection of validation information for CAEX objects. One CAEX object may have multiple
+            occurrences with different validation issues in this collection.
+            </returns>
+        </member>
+        <member name="M:Aml.Engine.Services.Interfaces.IValidator`1.ValidateAll(Aml.Engine.CAEX.CAEXDocument,Aml.Engine.AmlObjects.AutomationMLContainer,System.Boolean)">
+            <summary>
+            Get Validation Information for all elements in the specified document, which have validation issues. The
+            <see cref="T:Aml.Engine.Services.Interfaces.IValidationResult" /> provides detailed information about available Repair
+            Options and an additional Information Text. This method should be used, if the Document is loaded from an
+            AutomationML container. The Validation service will check validity of external references which are packed
+            parts of the container.
+            </summary>
+            <param name="document">The CAEX document.</param>
+            <param name="container">The AutomationML container, containing the document source.</param>
             <param name="generateLongDescription">if set to <c>true</c> generate long description for each validation issue.</param>
             <returns>
             A collection of validation information for CAEX objects. One CAEX object may have multiple
@@ -15934,6 +15990,15 @@
             <param name="typeCode">Source</param>
             <returns>CLR-Type</returns>
         </member>
+        <member name="M:Aml.Engine.Schema.XmlTypeCodeExtensions.XmlTypeCodeFromSchemaType(System.String)">
+            <summary>
+            Gets the <see cref="T:System.Xml.Schema.XmlTypeCode"/> from the W3C XSD schematype string.
+            </summary>
+            <param name="schemaType">W3C XSD schematype, defined as xs:..., like xs:double and others.</param>
+            <returns>the XmlTypeCode. If the schemaType is not recognized, 
+            <see cref="F:System.Xml.Schema.XmlTypeCode.AnyAtomicType"/> is returned.
+            </returns>
+        </member>
         <member name="M:Aml.Engine.Schema.XmlTypeCodeExtensions.Default(System.Xml.Schema.XmlTypeCode)">
             <summary>
             Returns the default value for XmlTypeCode
@@ -16052,6 +16117,17 @@
             <returns>The generated XName.</returns>
             <exception cref="T:System.ArgumentNullException">tag name</exception>
         </member>
+        <member name="M:Aml.Engine.XML.XDocumentWrapper.Unload">
+            <summary>
+            Unloads this document instance.
+            </summary>
+            <remarks>
+            This method can be used to unload this instance of the CAEXDocument and remove 
+            it from all current tables of all registered services. The AMLEngine manages weak 
+            references to each created CAEXDocument instance, so explicit unload is 
+            normally not required.  
+            </remarks>
+        </member>
         <member name="M:Aml.Engine.Xml.Extensions.XmlCAEXAttributes.CAEXIDOfElement(System.Xml.Linq.XElement)">
             <summary>
             Returns the CAEX ID <see cref="F:Aml.Engine.CAEX.CAEX_CLASSModel_TagNames.ID_ATTRIBUTE"/> of a the XElement if such an Attribute exists.
@@ -16084,7 +16160,9 @@
             <param name="element">The element.</param>
             <returns>
                For classes, it returns the XML full Node Path. For Interface Instances, it
-               returns GUID:InterfaceName.
+               returns GUID:InterfaceName if your document is based on CAEX 2.15. For CAEX 3.0 new
+               Path specifications exist concerning Instances (only the ID is used) and Attributes.
+               Attribute Path are combined using the parents CAEX Path followed by the Attribute Name.
             </returns>
         </member>
         <member name="M:Aml.Engine.Xml.Extensions.XmlCAEXAttributes.GetDateTimeValue(System.Xml.Linq.XElement,System.Xml.Linq.XName)">
@@ -16098,6 +16176,16 @@
             </returns>
             <exception cref="T:System.ArgumentNullException">owner</exception>
         </member>
+        <member name="M:Aml.Engine.Xml.Extensions.XmlCAEXAttributes.GetFullNodeCAEXPath(System.Xml.Linq.XElement)">
+            <summary>
+            Getting the full path from document root to the specified XmlNode to build a CAEXPath.
+            As name of an XmlNode is the value of the contained attribute "name" taken.
+            Hierarchies are separated via the path separator (slash '/'). 
+            The name of the document root element CAEXFile is not contained in the path.
+            </summary>
+            <param name="xmlNode">The XmlNode to get the full path for</param>
+            <returns>The full path from the document root element to the given XmlNode. </returns>
+        </member>
         <member name="M:Aml.Engine.Xml.Extensions.XmlCAEXAttributes.GetFullNodePath(System.Xml.Linq.XElement)">
             <summary>
             Getting the full path from document root to the specified XmlNode.
@@ -16108,9 +16196,18 @@
             <param name="xmlNode">The XmlNode to get the full path for</param>
             <returns>The full path from the document root element to the given XmlNode. </returns>
         </member>
+        <member name="M:Aml.Engine.Xml.Extensions.XmlCAEXAttributes.IsInheritanceAttribute(System.Xml.Linq.XAttribute)">
+            <summary>
+            Determines whether Attribute is  an inheritance attribute.
+            </summary>
+            <param name="xmlAttribute">The XML attribute.</param>
+            <returns>
+              <c>true</c> if the attribute is an inheritance attribute; otherwise, <c>false</c>.
+            </returns>
+        </member>
         <member name="M:Aml.Engine.Xml.Extensions.XmlCAEXAttributes.GetFullNodePathNames(System.Xml.Linq.XElement,System.Boolean)">
             <summary>
-            Getting all path parts from document root to the specified XmlNode.
+            Getting all CAEX path parts from document root to the specified XmlNode.
             As name of an XmlNode is the value of the contained attribute "name" taken.
             Hierarchies are separated via the path separator (slash '/').
             The name of the document root element CAEXFile is not contained in the path.
@@ -16123,7 +16220,22 @@
             </returns>
             <exception cref="T:System.ArgumentNullException">xmlNode</exception>
         </member>
-        <member name="M:Aml.Engine.Xml.Extensions.XmlCAEXAttributes.GetPartialNodePath(System.Xml.Linq.XElement,System.Xml.Linq.XElement)">
+        <member name="M:Aml.Engine.Xml.Extensions.XmlCAEXAttributes.GetFullNodeCAEXPathNames(System.Xml.Linq.XElement,System.Boolean)">
+            <summary>
+            Getting all CAEX path parts from document root to the specified XmlNode.
+            As name of an XmlNode is the value of the contained attribute "name" taken.
+            Hierarchies are separated via the path separator (slash '/').
+            The name of the document root element CAEXFile is not contained in the path.
+            </summary>
+            <param name="xmlNode">The XmlNode to get the full path for</param>
+            <param name="withSeparator">if set to <c>true</c> separators are added to the path part names.</param>
+            <returns>
+            The full path from the document root element to the given XmlNode stored in an array of path part names.
+            The path contains values of the "name" attribute of the XmlNodes.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">xmlNode</exception>
+        </member>
+        <member name="M:Aml.Engine.Xml.Extensions.XmlCAEXAttributes.GetPartialNodeCAEXPath(System.Xml.Linq.XElement,System.Xml.Linq.XElement)">
             <summary>
             Getting the path from the defined root to the specified XmlNode. As name of an XmlNode is the value of the contained attribute "name" taken.
             Hierarchies are separated via the path separator (slash '/').
@@ -16415,12 +16527,13 @@
             <param name="element">XML-Element from a CAEX-Document</param>
             <returns><c>true</c>, if the XML-Element is an AttributeType</returns>
         </member>
-        <member name="M:Aml.Engine.Xml.Extensions.XmlCAEXSchema.IsCAEXClass(System.Xml.Linq.XElement)">
+        <member name="M:Aml.Engine.Xml.Extensions.XmlCAEXSchema.IsCAEXClass(System.Xml.Linq.XElement,System.Boolean)">
             <summary>
                Determines whether the Element is a CAEXClass: RoleClass, SystemUnitClass
                or InterfaceClass
             </summary>
             <param name="element">The element.</param>
+            <param name="includeLibraryType">if library types should be handled as classes</param>
             <returns>
                <c>true</c> if the specified element is a CAEXClass; otherwise, <c>false</c>.
             </returns>
