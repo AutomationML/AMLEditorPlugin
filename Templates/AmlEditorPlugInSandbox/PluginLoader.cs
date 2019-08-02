@@ -170,7 +170,7 @@ namespace Aml.Editor
                             Plugin.Sandbox.ViewModel.MainViewModel.Instance.Plugins.Add(plugin.Value);
                     }
                 }
-                catch
+                catch (Exception ex)
                 {
                 }
 

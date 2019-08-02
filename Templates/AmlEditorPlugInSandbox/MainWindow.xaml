@@ -44,7 +44,7 @@
                             <Setter Property="ItemContainerStyle">
                                 <Setter.Value>
                                     <Style TargetType="MenuItem">
-                                        <Setter Property="Command" Value="{Binding Command}" />
+                                        <Setter Property="Command" Value="{Binding}" />
                                         <Setter Property="CommandParameter" Value="{Binding Source={x:Static vm:MainViewModel.Instance}, Path=FilePath}" />
                                         <Setter Property="IsCheckable" Value="{Binding IsCheckable}" />
                                         <Setter Property="IsChecked" Value="{Binding IsChecked}" />
