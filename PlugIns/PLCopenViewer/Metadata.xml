@@ -2,5 +2,5 @@
 <Name>PLCopenXML-Viewer</Name>
 <Author>AutomationML e.V. (Adaption to AutomationML Editor Plugin: Josef Prinz)</Author>
 <Description>The PLCopenXML-Viewer is an AutomationML Editor plugin, which allows you to display the content of PLCOpenXML-documents, which are referenced from AutomationML objects.</Description>
-<Version>v1.0.5.0</Version>
+<Version>v1.3.1.0</Version>
 </PluginViewModel>

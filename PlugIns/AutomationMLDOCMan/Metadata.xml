@@ -1,6 +1,0 @@
-<PluginViewModel xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/Aml.Editor.PlugInManager.ViewModels">
-<Name>AutomationML DOCMan</Name>
-<Author>Josef Prinz, inpro mbH Berlin</Author>
-<Description>The 'AutomationML DOCMan' is an AutomationML Editor plugin, which can be used to generate readable documentations of AutomationML class libraries. Exports to Word, Html and RTF are supported.</Description>
-<Version>v1.0.0.0</Version>
-</PluginViewModel>
