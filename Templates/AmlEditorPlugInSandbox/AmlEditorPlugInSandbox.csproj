@@ -36,6 +36,16 @@
   <PropertyGroup>
     <ApplicationIcon>AMLIcon.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'NugetDeployment|AnyCPU'">
+    <OutputPath>bin\NugetDeployment\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AML.Editor.PluginContracts, Version=2.4.0.0, Culture=neutral, PublicKeyToken=60b97399e4e37abb, processorArchitecture=MSIL">
       <HintPath>packages\Aml.Editor.Plugin.Contract.2.4.0\lib\net47\AML.Editor.PluginContracts.dll</HintPath>
@@ -165,6 +175,7 @@
     <Resource Include="AMLIcon.ico" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="NugetDeployment\" />
     <Folder Include="Plugins\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

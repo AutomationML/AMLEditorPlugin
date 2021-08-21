@@ -341,10 +341,7 @@ namespace Aml.Editor.Plugin.Sandbox
                   try
                   {
                       if (sender is IAMLEditorPlugin)
-                      {
-                          foreach (var source in this.DockingManager.AnchorablesSource)
-                          {
-                          }
+                      { 
                           //var pluginWindow = this.DockingManager.AnchorablesSource .GetPanes(PaneNavigationOrder.ActivationOrder).OfType<PluginWindow>().Where(p => p.Plugin == view).FirstOrDefault();
                           //if (pluginWindow != null)
                           //{

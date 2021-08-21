@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2036
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31613.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmlEditorPlugInSandbox", "AmlEditorPlugInSandbox.csproj", "{B05D5441-9A3B-4D34-8A4D-42B11E4E36A4}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -24,9 +24,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlugInWithToolBar", "..\Plu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlugInCallingCommands", "..\PlugInCallingCommands\PlugInCallingCommands.csproj", "{52AAA374-987C-416E-8F06-2C1EBD4DB94B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{645118CA-E90A-4621-8235-EDB3DF4F37B8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		NugetDeployment|Any CPU = NugetDeployment|Any CPU
 		Release|Any CPU = Release|Any CPU
 		Release4.0|Any CPU = Release4.0|Any CPU
 		Release4.5|Any CPU = Release4.5|Any CPU
@@ -34,6 +37,8 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{B05D5441-9A3B-4D34-8A4D-42B11E4E36A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B05D5441-9A3B-4D34-8A4D-42B11E4E36A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B05D5441-9A3B-4D34-8A4D-42B11E4E36A4}.NugetDeployment|Any CPU.ActiveCfg = NugetDeployment|Any CPU
+		{B05D5441-9A3B-4D34-8A4D-42B11E4E36A4}.NugetDeployment|Any CPU.Build.0 = NugetDeployment|Any CPU
 		{B05D5441-9A3B-4D34-8A4D-42B11E4E36A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B05D5441-9A3B-4D34-8A4D-42B11E4E36A4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B05D5441-9A3B-4D34-8A4D-42B11E4E36A4}.Release4.0|Any CPU.ActiveCfg = Release|Any CPU
@@ -42,6 +47,8 @@ Global
 		{B05D5441-9A3B-4D34-8A4D-42B11E4E36A4}.Release4.5|Any CPU.Build.0 = Release|Any CPU
 		{6D810AEF-0A1A-4962-A040-D139F7F80659}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6D810AEF-0A1A-4962-A040-D139F7F80659}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D810AEF-0A1A-4962-A040-D139F7F80659}.NugetDeployment|Any CPU.ActiveCfg = NugetDeployment|Any CPU
+		{6D810AEF-0A1A-4962-A040-D139F7F80659}.NugetDeployment|Any CPU.Build.0 = NugetDeployment|Any CPU
 		{6D810AEF-0A1A-4962-A040-D139F7F80659}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D810AEF-0A1A-4962-A040-D139F7F80659}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6D810AEF-0A1A-4962-A040-D139F7F80659}.Release4.0|Any CPU.ActiveCfg = Release|Any CPU
@@ -50,6 +57,8 @@ Global
 		{6D810AEF-0A1A-4962-A040-D139F7F80659}.Release4.5|Any CPU.Build.0 = Release|Any CPU
 		{535F9554-2D89-46E6-835A-4BE32F3619A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{535F9554-2D89-46E6-835A-4BE32F3619A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{535F9554-2D89-46E6-835A-4BE32F3619A4}.NugetDeployment|Any CPU.ActiveCfg = NugetDeployment|Any CPU
+		{535F9554-2D89-46E6-835A-4BE32F3619A4}.NugetDeployment|Any CPU.Build.0 = NugetDeployment|Any CPU
 		{535F9554-2D89-46E6-835A-4BE32F3619A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{535F9554-2D89-46E6-835A-4BE32F3619A4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{535F9554-2D89-46E6-835A-4BE32F3619A4}.Release4.0|Any CPU.ActiveCfg = Release|Any CPU
@@ -58,6 +67,8 @@ Global
 		{535F9554-2D89-46E6-835A-4BE32F3619A4}.Release4.5|Any CPU.Build.0 = Release|Any CPU
 		{D617EC39-894B-4685-92C9-315CD69CA4B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D617EC39-894B-4685-92C9-315CD69CA4B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D617EC39-894B-4685-92C9-315CD69CA4B1}.NugetDeployment|Any CPU.ActiveCfg = NugetDeployment|Any CPU
+		{D617EC39-894B-4685-92C9-315CD69CA4B1}.NugetDeployment|Any CPU.Build.0 = NugetDeployment|Any CPU
 		{D617EC39-894B-4685-92C9-315CD69CA4B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D617EC39-894B-4685-92C9-315CD69CA4B1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D617EC39-894B-4685-92C9-315CD69CA4B1}.Release4.0|Any CPU.ActiveCfg = Release|Any CPU
@@ -66,6 +77,8 @@ Global
 		{D617EC39-894B-4685-92C9-315CD69CA4B1}.Release4.5|Any CPU.Build.0 = Release|Any CPU
 		{77D78700-1FFF-49FE-838A-CFA3198EE782}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{77D78700-1FFF-49FE-838A-CFA3198EE782}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77D78700-1FFF-49FE-838A-CFA3198EE782}.NugetDeployment|Any CPU.ActiveCfg = NugetDeployment|Any CPU
+		{77D78700-1FFF-49FE-838A-CFA3198EE782}.NugetDeployment|Any CPU.Build.0 = NugetDeployment|Any CPU
 		{77D78700-1FFF-49FE-838A-CFA3198EE782}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77D78700-1FFF-49FE-838A-CFA3198EE782}.Release|Any CPU.Build.0 = Release|Any CPU
 		{77D78700-1FFF-49FE-838A-CFA3198EE782}.Release4.0|Any CPU.ActiveCfg = Release|Any CPU
@@ -74,6 +87,8 @@ Global
 		{77D78700-1FFF-49FE-838A-CFA3198EE782}.Release4.5|Any CPU.Build.0 = Release|Any CPU
 		{52AAA374-987C-416E-8F06-2C1EBD4DB94B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{52AAA374-987C-416E-8F06-2C1EBD4DB94B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52AAA374-987C-416E-8F06-2C1EBD4DB94B}.NugetDeployment|Any CPU.ActiveCfg = NugetDeployment|Any CPU
+		{52AAA374-987C-416E-8F06-2C1EBD4DB94B}.NugetDeployment|Any CPU.Build.0 = NugetDeployment|Any CPU
 		{52AAA374-987C-416E-8F06-2C1EBD4DB94B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52AAA374-987C-416E-8F06-2C1EBD4DB94B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{52AAA374-987C-416E-8F06-2C1EBD4DB94B}.Release4.0|Any CPU.ActiveCfg = Release|Any CPU

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+	<metadata>
+		<id>Aml.Editor.Plugin.CallingComands</id>
+		<version>$version$</version>
+		<title>Calling Commands</title>
+		<authors>Josef Prinz, inpro Berlin</authors>
+		<owners>AutomationML e.V.</owners>
+		<icon>AMLPlugin.png</icon>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>The 'Calling Commands' is an AutomationML Editor plugIn, which can be used to invoke editor actions."</description>
+		<summary>Plugin, explaining how to invoke actions of the editor.</summary>
+		<releaseNotes>Published as a Plugin template.</releaseNotes>
+		<copyright>Copyright © AutomationML 2013</copyright>
+		<language>en-US</language>
+		<tags>AutomationML, AutomationMLEditor, AML, AMLEditor</tags>
+	</metadata>
+	<files>
+		<file src="..\..\AMLPlugin.png" target="" />
+		<file src="PlugInCallingCommands.dll"  target="lib\net47" />
+	</files>
+</package>

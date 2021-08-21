@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+	<metadata>
+		<id>Aml.Editor.Plugin.WithToolBar</id>
+		<version>$version$</version>
+		<title>Added Toolbar</title>
+		<authors>Josef Prinz, inpro Berlin</authors>
+		<owners>AutomationML e.V.</owners>
+		<icon>AMLPlugin.png</icon>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>The 'Plugin with toolbar' is an AutomationML Editor plugIn, which can be used to add a sepcial plugin tool bar to the Editor's UI."</description>
+		<summary>Plugin, explaining how to add a toolbar to the editor.</summary>
+		<releaseNotes>Published as a Plugin template.</releaseNotes>
+		<copyright>Copyright © AutomationML 2013</copyright>
+		<language>en-US</language>
+		<tags>AutomationML, AutomationMLEditor, AML, AMLEditor</tags>
+	</metadata>
+	<files>
+		<file src="..\..\AMLPlugin.png" target="" />
+		<file src="PlugInWithToolBar.dll"  target="lib\net47" />
+	</files>
+</package>
