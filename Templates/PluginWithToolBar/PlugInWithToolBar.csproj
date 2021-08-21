@@ -35,20 +35,35 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AML.Editor.PluginContracts, Version=2.2.0.0, Culture=neutral, PublicKeyToken=60b97399e4e37abb, processorArchitecture=MSIL">
-      <HintPath>..\AmlEditorPlugInSandbox\packages\Aml.Editor.Plugin.Contract.2.2.0\lib\net47\AML.Editor.PluginContracts.dll</HintPath>
+    <Reference Include="AML.Editor.PluginContracts, Version=2.4.0.0, Culture=neutral, PublicKeyToken=60b97399e4e37abb, processorArchitecture=MSIL">
+      <HintPath>..\AmlEditorPlugInSandbox\packages\Aml.Editor.Plugin.Contract.2.4.0\lib\net47\AML.Editor.PluginContracts.dll</HintPath>
     </Reference>
-    <Reference Include="AML.Engine, Version=1.3.0.0, Culture=neutral, PublicKeyToken=449e3551ddfecd2b, processorArchitecture=MSIL">
-      <HintPath>..\AmlEditorPlugInSandbox\packages\Aml.Engine.1.3.0\lib\net4.7\AML.Engine.dll</HintPath>
+    <Reference Include="AML.Engine, Version=1.6.3.0, Culture=neutral, PublicKeyToken=449e3551ddfecd2b, processorArchitecture=MSIL">
+      <HintPath>..\AmlEditorPlugInSandbox\packages\Aml.Engine.1.6.3\lib\net4.7\AML.Engine.dll</HintPath>
     </Reference>
-    <Reference Include="AML.Engine.Services, Version=1.3.0.0, Culture=neutral, PublicKeyToken=449e3551ddfecd2b, processorArchitecture=MSIL">
-      <HintPath>..\AmlEditorPlugInSandbox\packages\Aml.Engine.1.3.0\lib\net4.7\AML.Engine.Services.dll</HintPath>
+    <Reference Include="AML.Engine.Services, Version=1.6.3.0, Culture=neutral, PublicKeyToken=449e3551ddfecd2b, processorArchitecture=MSIL">
+      <HintPath>..\AmlEditorPlugInSandbox\packages\Aml.Engine.1.6.3\lib\net4.7\AML.Engine.Services.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.FileSystem.AccessControl, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\AmlEditorPlugInSandbox\packages\System.IO.FileSystem.AccessControl.5.0.0\lib\net461\System.IO.FileSystem.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\AmlEditorPlugInSandbox\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\AmlEditorPlugInSandbox\packages\System.IO.Packaging.5.0.0\lib\net46\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.AccessControl, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\AmlEditorPlugInSandbox\packages\System.Security.AccessControl.5.0.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\AmlEditorPlugInSandbox\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
