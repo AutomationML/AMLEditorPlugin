@@ -29,7 +29,7 @@ An AutomationML Editor PlugIn can be published to make it available to the Autom
 
 To create a NUGET package using the _NugetDeployment_ build configuration, a NUGET CLI has to be installed. You can download the CLI from [here](https://www.nuget.org/downloads). Ensure that the command is found by the build system.
 
-#### PlugIn Installarion
+#### PlugIn Installation
 
 The example plugins can be installed to your installed AutomationML editor. Deploy the PlugIns as NUGET packages as explained. Run the AutomationML editor and go to the PlugIn Manager. From the PlugIn Manager open the Settings dialog and add the PlugIn folder of the Sandbox project as an additional PlugIn source as shown in the image below.
 
