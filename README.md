@@ -1,11 +1,10 @@
-Aml.Editor.Plugin
-=================
-
 ---
 
 ![][1]
 
 ---
+
+# Aml.Editor.Plugin
 
 #### Overview
 This repository provides an implementation guide and sources which explain, how to develop PlugIns for the [AutomationML Editor](https://github.com/AutomationML/AutomationMLEditor/blob/main/README.md).
