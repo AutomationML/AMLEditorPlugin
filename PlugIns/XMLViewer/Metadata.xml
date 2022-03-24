@@ -1,6 +1,0 @@
-<PluginViewModel xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/Aml.Editor.PlugInManager.ViewModels">
-<Name>XML-Viewer</Name>
-<Author>Josef Prinz</Author>
-<Description>The XML-Viewer is an AutomationML Editor plugin, which allows you to display the XML text of AutomationML documents or individual AutomationML objects.</Description>
-<Version>v1.8.1.0</Version>
-</PluginViewModel>
