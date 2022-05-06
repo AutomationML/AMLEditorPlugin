@@ -9,18 +9,21 @@
 #### Overview
 This repository provides an implementation guide and sources which explain, how to develop PlugIns for the [AutomationML Editor](https://github.com/AutomationML/AutomationMLEditor/blob/main/README.md).
 
-The AutomationML Editor provides a contract DLL for PlugIn Development, published as a [NUGET package](https://www.nuget.org/packages/Aml.Editor.Plugin.Contract).  The contract DLL contains interface classes, defining the API to access data, edited by AutomationML Editor and to call commands to execute editor actions. 
+The AutomationML Editor provides a contract DLL for PlugIn Development, published in [NUGET package](https://www.nuget.org/packages/Aml.Editor.Plugin.Contract).  The contract DLL contains interface classes, defining the API to access data, edited by AutomationML Editor and to call commands to execute editor actions. 
 
-The API is based on the [Microsoft Extensibility Framework (MEF)](https://docs.microsoft.com/en-us/dotnet/framework/mef/). A new PlugIn class must implement one of the interface classes defined in the contract and export it for use in the AutomationML Editor. The PlugIn Manager of the AutomationML Editor allows the installation of the PlugIns that implement the contract correctly. A complete API reference documentation is published in the [Wiki](https://github.com/AutomationML/AMLEditorPlugin/wiki).
+The API is based on the [Microsoft Extensibility Framework (MEF)](https://docs.microsoft.com/en-us/dotnet/framework/mef/). A new PlugIn class must implement one of the interface classes defined in the contract and export it for use in the AutomationML Editor. The PlugIn Manager of the AutomationML Editor allows the installation of the PlugIns that implement the contract correctly. A complete API reference documentation is published in the [Wiki](https://github.com/AutomationML/AMLEditorPlugin/wiki). For PlugIn development additional resources are provided.
+1. [Aml.Toolkit](https://www.nuget.org/packages/Aml.Toolkit), a package which provides the AML Tree control to visualize AutomationML hierarchies.
+2. [Aml.Skins](https://www.nuget.org/packages/Aml.Skins), a package which provides the AML icon library and the colors used by the AutomationML editor for dark and light themes.
+3. [Aml.Editor.API](https://www.nuget.org/packages/Aml.Editor.API/), a package providing an Application programming interface to the AutomationML editor.
 
 #### Versions
 The plug-in development has been changed with the introduction of the AutomationML Editor in version 6.0. You will therefore find two different versions for plug-in development in this repository. An older version that applies to all editor versions up to version v5 and the newer version for the editor of version v6 and later.
 
-#### Example PlugIns defined for version v5
-The sample implementations can be used as templates for PlugIn development. Five templates are currently available. The template named **SimpleWPFUserControl** implements a WPF Control PlugIn which is inserted directly into the user interface of the AutomationML Editor. The template named **EditingCAEXApplication** is an example of a PlugIn that creates its own UI thread. The implementation shows how thread synchronization between the AutomationML editor and a plug-in works. The **PluginWithToolBar** template implements a PlugIn that adds its own toolbar to the editors toolbar. The PlugIn **PlugInCallingCommands** explains, how a PlugIn can invoke editor actions. The AutomationML editor's UI is based on the [Windows Presentation Foundation (WPF)](https://visualstudio.microsoft.com/de/vs/features/wpf/). Most example PlugIns are also based on WPF, but the use of WPF is not mandatory as shown with the **WindowsFormsPlugin**.
+#### Example PlugIns defined for AutomationML editor version v5
+The provided [sample implementations](PlugInDevelopment_V5) can be used as templates for PlugIn development. Five templates are currently available. The template named **SimpleWPFUserControl** implements a WPF Control PlugIn which is inserted directly into the user interface of the AutomationML Editor. The template named **EditingCAEXApplication** is an example of a PlugIn that creates its own UI thread. The implementation shows how thread synchronization between the AutomationML editor and a plug-in works. The **PluginWithToolBar** template implements a PlugIn that adds its own toolbar to the editors toolbar. The PlugIn **PlugInCallingCommands** explains, how a PlugIn can invoke editor actions. The AutomationML editor's UI is based on the [Windows Presentation Foundation (WPF)](https://visualstudio.microsoft.com/de/vs/features/wpf/). Most example PlugIns are also based on WPF, but the use of WPF is not mandatory as shown with the **WindowsFormsPlugin**.
 
-#### Example PlugIns defined for version v6
-Alread three examples are provided for version v6 of the editor. 
+#### Example PlugIns defined for AutomationML editor version v6
+This [sample implementations](PlugInDevelopment_V6) are provided for version v6 of the editor and later.  The Sandbox Project in this version provides a User Interface which comes close to the original AutomationML editor. The Sandbox uses [Dirkster.AvalonDock](http://nuget.org/packages/Dirkster.AvalonDock) as a Docking Manager and the [MahApps.Metro](https://mahapps.com/) UI library.
 
 To help to develop and test a new PlugIn before deployment, the **AmlEditorPlugInSandbox** sandbox project is provided. Here the interaction between the PlugIn and the editor can be tested using a small editor dummy. 
 
