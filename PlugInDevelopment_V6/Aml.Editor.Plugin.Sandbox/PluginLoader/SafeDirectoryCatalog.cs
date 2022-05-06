@@ -88,7 +88,6 @@ namespace Aml.Editor.PlugInManager.Loader
             typeof(Engine.CAEX.CAEXDocument).Assembly,
             typeof(Engine.Services.LookupService).Assembly,
             typeof(Skins.AMLApp).Assembly,
-            typeof(IPC.CommunicationChannel).Assembly,
             typeof(API.AMLEditor).Assembly,
             typeof(Engine.Resources.AMLLibraries).Assembly,
             typeof(PluginCommand).Assembly

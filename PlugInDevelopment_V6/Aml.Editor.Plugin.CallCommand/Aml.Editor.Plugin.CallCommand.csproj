@@ -15,37 +15,39 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="AML.png" />
     <None Remove="Plugin.png" />
   </ItemGroup>
 
   <ItemGroup>
-	  <PackageReference Include="Aml.Editor.Plugin.Contract" Version="3.0.5">
+	  <PackageReference Include="Aml.Editor.Plugin.Contract" Version="3.0.5" >
 		  <PrivateAssets>all</PrivateAssets>
 	  </PackageReference>
-    <PackageReference Include="Aml.Engine" Version="2.0.7">
+    <PackageReference Include="Aml.Engine" Version="2.0.7" >
 		<PrivateAssets>all</PrivateAssets>
 	  </PackageReference>
-    <PackageReference Include="Aml.Skins" Version="1.0.4">
+    <PackageReference Include="Aml.Skins" Version="1.0.4" >
 		<PrivateAssets>all</PrivateAssets>
 	  </PackageReference>
-    <PackageReference Include="Aml.Toolkit" Version="3.0.4">
+    <PackageReference Include="Aml.Toolkit" Version="3.0.4" >
 		<PrivateAssets>all</PrivateAssets>
 	  </PackageReference>
-    <PackageReference Include="MahApps.Metro" Version="2.4.9">
+    <PackageReference Include="MahApps.Metro" Version="2.4.9" >
 		<PrivateAssets>all</PrivateAssets>
 	  </PackageReference>
     <PackageReference Include="System.ComponentModel.Composition" Version="6.0.0">
 		<PrivateAssets>all</PrivateAssets>
-	  </PackageReference>
+	</PackageReference>
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="AML.png">
+    <Resource Include="Plugin.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="AML.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
-    </Resource>
-    <Resource Include="Plugin.png" />
+    </None>
   </ItemGroup>
 
 </Project>

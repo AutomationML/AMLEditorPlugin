@@ -14,15 +14,15 @@ using System.Windows.Media.Imaging;
 namespace Aml.Editor.Plugin.WithToolbar
 {
     /// <summary>
-    /// An example that shows how 
-    /// <seealso cref="ISupportsThemes"/>.
-    /// <see cref="OnThemeChanged(ApplicationTheme)"/>
+    /// An example that shows how plugin methods are bound to buttons added to the editors main
+    /// toolbar.  
+    /// <seealso cref="IToolBarIntegration"/>.
     /// </summary>
     [ExportMetadata("Author", "Josef Prinz")]
     [ExportMetadata("Owner", "AutomationML")]
-    [ExportMetadata("DisplayName", "Theming")]
+    [ExportMetadata("DisplayName", "Toolbar Integration")]
     [ExportMetadata("Description",
-        "This plugin responds to the change of theme in AutomationML editor. This requires the use of a UI library that supports dark and light themes like Mahapps.Metro.")]
+        "This plugin binds methods to buttons which are added to the editors main toolbar.")]
     [Export(typeof(IAMLEditorView))]
     public partial class PluginView : PluginViewBase, ISupportsThemes, IToolBarIntegration
     {

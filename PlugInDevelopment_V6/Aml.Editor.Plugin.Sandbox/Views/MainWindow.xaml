@@ -52,6 +52,7 @@
                         <MenuItem Command="{Binding SaveCommand}" Header="Save" />
                         <MenuItem Command="{Binding SaveAsCommand}" Header="Save As..." />
                         <MenuItem Command="{Binding CloseCommand}" Header="Close" />
+                        <MenuItem Command="{Binding ExitCommand}" Header="Exit" />
                     </MenuItem>
 
 

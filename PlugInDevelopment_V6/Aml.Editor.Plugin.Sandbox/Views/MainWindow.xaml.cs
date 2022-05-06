@@ -205,6 +205,11 @@ namespace Aml.Editor.Plugin.Sandbox
                             if (_mainModel.ActiveDocument.Document != null && args is GetCAEXFileCommandArguments cfarg)
                             {
                                 cfarg.CaexFile = _mainModel.ActiveDocument.Document.CAEXFile;
+                                success = true;
+                            }
+                            else
+                            {
+                                success = false;
                             }
                             break;
 
@@ -235,11 +240,34 @@ namespace Aml.Editor.Plugin.Sandbox
                             }
                             break;
 
-                        case AMLEditorCommandEnum.ImportLibrariesCommand:
-                            result = MessageBox.Show("Import from File not implemented in SandBox", "AMLEditor Command Execution", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+                        case AMLEditorCommandEnum.SaveFileCommand:
+                            result = MessageBox.Show("Save File", "AMLEditor Command Execution", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
 
                             success = result == MessageBoxResult.Yes;
                             args.Cancelled = result == MessageBoxResult.Cancel;
+
+                            if (success && args is SaveCAEXFileCommandArguments sfarg)
+                            {
+                                if (_mainModel.SaveCommand.CanExecute(null))
+                                    _mainModel.SaveCommand.Execute(null);
+                                else
+                                    success = false;
+                            }
+                            break;
+
+                        case AMLEditorCommandEnum.ImportLibrariesCommand:
+                            result = MessageBox.Show("Import from File not implemented in SandBox", "AMLEditor Command Execution", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                            success = false;
+                            args.Cancelled = true;
+
+                            break;
+
+                        case AMLEditorCommandEnum.CaptureCommand:
+                            result = MessageBox.Show("Capture not implemented in SandBox", "AMLEditor Command Execution", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                            success = false;
+                            args.Cancelled = true;
 
                             break;
                     }
