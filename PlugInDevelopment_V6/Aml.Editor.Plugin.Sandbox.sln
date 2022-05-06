@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32421.90
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aml.Editor.Plugin.Sandbox", "Aml.Editor.Plugin.Sandbox\Aml.Editor.Plugin.Sandbox.csproj", "{1AA23146-F111-421A-8DEA-07CEBF206549}"
+	ProjectSection(ProjectDependencies) = postProject
+		{47333913-289B-495A-9410-BE68048CF603} = {47333913-289B-495A-9410-BE68048CF603}
+		{02CE7020-34AA-4E2F-B215-F2ADE16E5353} = {02CE7020-34AA-4E2F-B215-F2ADE16E5353}
+		{5DC32ED2-5C8E-4328-A145-59B0A3A45256} = {5DC32ED2-5C8E-4328-A145-59B0A3A45256}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aml.Editor.Plugin.Theming", "Aml.Editor.Plugin.Theming\Aml.Editor.Plugin.Theming.csproj", "{5DC32ED2-5C8E-4328-A145-59B0A3A45256}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aml.Editor.Plugin.WithToolbar", "Aml.Editor.Plugin.WithToolbar\Aml.Editor.Plugin.WithToolbar.csproj", "{02CE7020-34AA-4E2F-B215-F2ADE16E5353}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aml.Editor.Plugin.MultiView", "Aml.Editor.Plugin.MultiView\Aml.Editor.Plugin.MultiView.csproj", "{47333913-289B-495A-9410-BE68048CF603}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1AA23146-F111-421A-8DEA-07CEBF206549}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AA23146-F111-421A-8DEA-07CEBF206549}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AA23146-F111-421A-8DEA-07CEBF206549}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AA23146-F111-421A-8DEA-07CEBF206549}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DC32ED2-5C8E-4328-A145-59B0A3A45256}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DC32ED2-5C8E-4328-A145-59B0A3A45256}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DC32ED2-5C8E-4328-A145-59B0A3A45256}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DC32ED2-5C8E-4328-A145-59B0A3A45256}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02CE7020-34AA-4E2F-B215-F2ADE16E5353}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02CE7020-34AA-4E2F-B215-F2ADE16E5353}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02CE7020-34AA-4E2F-B215-F2ADE16E5353}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02CE7020-34AA-4E2F-B215-F2ADE16E5353}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47333913-289B-495A-9410-BE68048CF603}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47333913-289B-495A-9410-BE68048CF603}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47333913-289B-495A-9410-BE68048CF603}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47333913-289B-495A-9410-BE68048CF603}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {479CDD3A-7E76-4B42-A62C-6A6C60986A92}
+	EndGlobalSection
+EndGlobal

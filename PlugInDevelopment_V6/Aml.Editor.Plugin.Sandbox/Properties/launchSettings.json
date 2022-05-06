@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Aml.Editor.Plugin.Sandbox": {
+      "commandName": "Project",
+      "commandLineArgs": "$(SolutionDir)build\\Plugins",
+      "workingDirectory": "$(SolutionDir)build"
+    }
+  }
+}
