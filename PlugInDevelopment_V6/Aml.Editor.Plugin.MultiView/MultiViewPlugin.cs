@@ -5,23 +5,19 @@ using Aml.Editor.Plugin.Contracts;
 using Aml.Editor.Plugin.MultiView.ViewModels;
 using Aml.Editor.Plugin.WPFBase;
 using Aml.Engine.CAEX;
-using Aml.Toolkit.View;
-using Aml.Toolkit.ViewModel;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media.Imaging;
 
 namespace Aml.Editor.Plugin.MultiView
 {
     /// <summary>
-    /// An example that shows how a plugin can integrate multiple views 
+    /// An example that shows how a plugin can integrate multiple views
     /// <see cref="IAMLEditorViewCollection"/> into the editor.
     /// </summary>
     [ExportMetadata("Author", "Josef Prinz")]
@@ -30,24 +26,24 @@ namespace Aml.Editor.Plugin.MultiView
     [ExportMetadata("Description",
         "An example that shows how a plugin can integrate multiple views into the editor")]
     [Export(typeof(IAMLEditorViewCollection))]
-    public partial class MultiViewPlugin: PluginViewBase, ISupportsThemes, IList<IAMLEditorView>, IAMLEditorViewCollection, INotifyViewActivation,
+    public partial class MultiViewPlugin : PluginViewBase, ISupportsThemes, IList<IAMLEditorView>, IAMLEditorViewCollection, INotifyViewActivation,
         INotifyAMLDocumentLoad
     {
-        private MultiViewModel _viewModel;
-        private List<IAMLEditorView> _views;
+        private readonly MultiViewModel _viewModel;
+        private readonly List<IAMLEditorView> _views;
+        private ApplicationTheme _currentTheme;
 
         public MultiViewPlugin()
         {
             InitializeComponent();
             _viewModel = new MultiViewModel();
-            _views = new List<IAMLEditorView>();    
+            _views = new List<IAMLEditorView>();
             DisplayName = "Multiple Views";
 
             IsReactive = true;
             PaneImage = new BitmapImage(
                 new Uri("pack://application:,,,/Aml.Editor.Plugin.MultiView;component/Plugin.png"));
         }
-
 
         protected override void TerminateCommandExecute(object arg)
         {
@@ -67,7 +63,7 @@ namespace Aml.Editor.Plugin.MultiView
 
         public bool IsReadOnly => IsReadonly;
 
-        public IAMLEditorView this[int index] { get => _views[index]; set => _views[index]=value; }
+        public IAMLEditorView this[int index] { get => _views[index]; set => _views[index] = value; }
 
         public event EventHandler<IAMLEditorView> ViewAdded;
 
@@ -84,7 +80,7 @@ namespace Aml.Editor.Plugin.MultiView
         public override void PublishAutomationMLFileAndObject(string amlFilePath, CAEXBasicObject selectedObject)
         {
             if (!string.IsNullOrEmpty(amlFilePath) && File.Exists(amlFilePath))
-            { 
+            {
                 base.PublishAutomationMLFileAndObject(amlFilePath, selectedObject);
                 LoadFile(amlFilePath);
             }
@@ -93,13 +89,13 @@ namespace Aml.Editor.Plugin.MultiView
         public override void ChangeAMLFilePath(string amlFilePath)
         {
             // due to a save as file operation when not loaded before
-            if (Count== 0 && !string.IsNullOrEmpty(amlFilePath) && File.Exists(amlFilePath))
+            if (Count == 0 && !string.IsNullOrEmpty(amlFilePath) && File.Exists(amlFilePath))
             {
                 LoadFile(amlFilePath);
             }
         }
 
-        private void LoadFile (string amlFilePath)
+        private void LoadFile(string amlFilePath)
         {
             _viewModel.LoadDocument(amlFilePath);
             if (Count == 0)
@@ -109,6 +105,8 @@ namespace Aml.Editor.Plugin.MultiView
                 {
                     Add(view);
                     ViewAdded?.Invoke(this, view);
+
+                    view.OnThemeChanged(_currentTheme);
                 }
             }
         }
@@ -120,7 +118,7 @@ namespace Aml.Editor.Plugin.MultiView
 
         public void ApplicationClose()
         {
-            //throw new NotImplementedException();
+            // no action
         }
 
         public void DocumentLoaded(CAEXDocument document)
@@ -148,7 +146,7 @@ namespace Aml.Editor.Plugin.MultiView
 
         public void CopyTo(IAMLEditorView[] array, int arrayIndex) => _views.CopyTo(array, arrayIndex);
 
-        public bool Remove(IAMLEditorView item) => _views.Remove(item) ;
+        public bool Remove(IAMLEditorView item) => _views.Remove(item);
 
         public IEnumerator<IAMLEditorView> GetEnumerator() => _views.GetEnumerator();
 
@@ -170,14 +168,15 @@ namespace Aml.Editor.Plugin.MultiView
                 Plugin.Contract.Theming.ThemeManager.ChangeTheme(this.Resources,
                     applicationTheme.BaseColorScheme);
 
+                _currentTheme = theme;
+                // change the theme for the used mahapps.metro ui elements
+                ControlzEx.Theming.ThemeManager.Current.ChangeTheme(this, this.Resources, applicationTheme);
+
                 // propagate theme change to dependent views
                 foreach (var view in this.OfType<PluginView>())
                 {
-                    view.ChangeTheme(applicationTheme.BaseColorScheme);
+                    view.OnThemeChanged(theme);
                 }
-
-                // change the theme for the used mahapps.metro ui elements
-                ControlzEx.Theming.ThemeManager.Current.ChangeTheme(this, this.Resources, applicationTheme);
             }
         }
     }

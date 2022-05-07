@@ -8,10 +8,8 @@ using Aml.Engine.CAEX;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.Composition;
 using System.Windows;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace Aml.Editor.Plugin.CallCommand
@@ -27,9 +25,8 @@ namespace Aml.Editor.Plugin.CallCommand
     [ExportMetadata("Description",
         "This plugin provides commands which are executed by the editor.")]
     [Export(typeof(IAMLEditorView))]
-    public partial class PluginView : PluginViewBase, IEditorCommanding,  ISupportsThemes
+    public partial class PluginView : PluginViewBase, IEditorCommanding, ISupportsThemes
     {
-
         #region Constructors
 
         public PluginView()
@@ -49,6 +46,7 @@ namespace Aml.Editor.Plugin.CallCommand
         public override bool CanClose => true;
         public CommandExecution EditorCommand { get; set; }
         public override DockPositionEnum InitialDockPosition => DockPositionEnum.DockLeft;
+
         /// <summary>
         /// It is recommended to give all plugins a package name with the prefix Aml.Editor.Plugin.
         /// The package name is used as the ID of the plugin and should be unique.
@@ -63,8 +61,6 @@ namespace Aml.Editor.Plugin.CallCommand
         {
             base.ChangeSelectedObject(selectedObject);
         }
-
-
 
         /// <summary>
         /// The method is always called when the display mode is changed
@@ -105,7 +101,7 @@ namespace Aml.Editor.Plugin.CallCommand
 
         private void ImportBtn_Click(object sender, RoutedEventArgs e)
         {
-            this.ImportLibraries("", new List<string>() , false, out var result);
+            this.ImportLibraries("", new List<string>(), false, out var result);
             Info.Text = "not supported";
         }
 

@@ -4,7 +4,6 @@
 using Aml.Editor.Plugin.Contracts;
 using Aml.Engine.CAEX;
 using Aml.Toolkit.ViewModel;
-using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
@@ -15,7 +14,9 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
     public class AMLLibraryViewModel : AMLTreeViewModel
     {
         #region fields
-        private string _contentId = null;
+
+        private readonly string _contentId = null;
+
         #endregion fields
 
         protected override void SelectedElementsChanged(object sender, NotifyCollectionChangedEventArgs e)
@@ -43,13 +44,13 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
             get => base.IsActive;
             set
             {
-                if ( base.IsActive != value )
-                { 
+                if (base.IsActive != value)
+                {
                     base.IsActive = value;
-                    if (value )
+                    if (value)
                     {
-                        PropagateActivationToPlugin (DisplayName);
-                        if (MainModel.ActiveDocument != null)
+                        PropagateActivationToPlugin(DisplayName);
+                        if (MainModel?.ActiveDocument != null)
                             MainModel.ActiveDocument.ActiveHierarchy = this;
                     }
                 }

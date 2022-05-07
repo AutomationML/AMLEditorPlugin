@@ -3,6 +3,7 @@
 // The AutomationML association licenses this file to you under the MIT license.
 using Aml.Editor.Plugin.Contracts;
 using Aml.Editor.Plugin.Contracts.Commanding;
+using Aml.Editor.Plugin.Sandbox.Converter;
 using Aml.Editor.Plugin.Sandbox.ViewModels;
 using Aml.Editor.PlugInManager.Loader;
 using Aml.Engine.CAEX.Extensions;
@@ -22,17 +23,22 @@ namespace Aml.Editor.Plugin.Sandbox
     /// </summary>
     public partial class MainWindow
     {
-        private MainViewModel _mainModel;
+        private readonly MainViewModel _mainModel;
 
         public MainWindow()
         {
             InitializeComponent();
             _mainModel = new MainViewModel();
+            _mainModel.PluginFolderChanged += _mainModel_PluginFolderChanged;
             DataContext = _mainModel;
 
             Loaded += MainWindowLoaded;
         }
 
+        private void _mainModel_PluginFolderChanged(object sender, EventArgs e)
+        {
+            LoadPlugins();
+        }
 
         private void PlugInSelectionHandler(object sender, SelectionEventArgs e)
         {
@@ -49,6 +55,11 @@ namespace Aml.Editor.Plugin.Sandbox
         /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         private void MainWindowLoaded(object sender, RoutedEventArgs e)
         {
+            LoadPlugins();
+        }
+
+        private void LoadPlugins()
+        {
             var pluginLoader = new PluginLoader();
             _mainModel.Plugins.CollectionChanged += PluginsCollectionChanged;
             pluginLoader.LoadPlugIns(PluginViewModel.Folder, _mainModel);
@@ -62,12 +73,12 @@ namespace Aml.Editor.Plugin.Sandbox
         private void MultipleView_ViewAdded(object sender, IAMLEditorView editorView)
         {
             var plugin = _mainModel.Plugins.FirstOrDefault(p => p.Plugin.PackageName == editorView.PackageName);
-            
-            if (plugin== null)
+
+            if (plugin == null)
             {
                 return;
             }
-            plugin.AddView (editorView);
+            plugin.AddView(editorView);
         }
 
         /// <summary>
@@ -82,7 +93,7 @@ namespace Aml.Editor.Plugin.Sandbox
                 var view = sender as IAMLEditorPlugin;
                 if (view is ISupportsThemes theming)
                 {
-                    _mainModel.ChangeThemeForPlugIn ( _mainModel.CurrentTheme, theming);
+                    _mainModel.ChangeThemeForPlugIn(_mainModel.CurrentTheme, theming);
                 }
 
                 if (view is IAMLEditorViewCollection multipleView)
@@ -143,6 +154,7 @@ namespace Aml.Editor.Plugin.Sandbox
         {
             ToolBar tb = new() { Name = MainViewModel.PluginName(toolBarIntegration.DisplayName), HorizontalAlignment = HorizontalAlignment.Left };
 
+            tb.BandIndex = 2;
             tb.ToolTip = toolBarIntegration.DisplayName;
             foreach (var command in toolBarIntegration.ToolBarCommands.OfType<PlugInCommand>())
             {
@@ -343,6 +355,18 @@ namespace Aml.Editor.Plugin.Sandbox
                 catch
                 { }
             }));
+        }
+
+        private void MaximizeLayout(object sender, RoutedEventArgs e)
+        {
+            var layout = new LayoutInitializer();
+            layout.MaximizeLayout(Docking.Layout);
+        }
+
+        private void MinimizeLayout(object sender, RoutedEventArgs e)
+        {
+            var layout = new LayoutInitializer();
+            layout.RestoreLayout(Docking.Layout);
         }
     }
 }

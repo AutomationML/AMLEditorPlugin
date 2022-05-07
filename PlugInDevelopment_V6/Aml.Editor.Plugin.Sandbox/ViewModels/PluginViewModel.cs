@@ -4,7 +4,6 @@
 using Aml.Editor.MVVMBase;
 using Aml.Editor.Plugin.Contract.Commanding;
 using Aml.Editor.Plugin.Contracts;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -25,9 +24,7 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
 
         private SimpleCommand<object> _closeCommand = null;
 
-
         public SimpleCommand<object> CloseCommand => _closeCommand ??= new SimpleCommand<object>(o => true, (o) => IsVisible = false);
-
 
         public bool IsVisible
         {
@@ -44,7 +41,6 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
                 }
             }
         }
-
 
         public IAMLEditorPlugin Plugin { get; }
 
@@ -64,18 +60,18 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
 
             if (Children != null)
             {
-                foreach (var child in Children)
+                foreach (var child in Children.ToList())
                 {
                     child.Terminate();
                 }
             }
         }
 
-        internal bool IsContentPlugin => ( Plugin is IAMLEditorView view ) 
-            && ( view.InitialDockPosition == DockPositionEnum.DockContent ||
-                view.InitialDockPosition == DockPositionEnum.DockContentMaximized ); 
+        internal bool IsContentPlugin => (Plugin is IAMLEditorView view)
+            && (view.InitialDockPosition == DockPositionEnum.DockContent ||
+                view.InitialDockPosition == DockPositionEnum.DockContentMaximized);
 
-        internal List<PluginViewModel> Children { get; private set;}
+        internal List<PluginViewModel> Children { get; private set; }
 
         internal void Activate(string displayName)
         {
@@ -104,13 +100,15 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
             {
                 Children = new List<PluginViewModel>();
             }
-            if (Children.Any(p=>p.Plugin==editorView))
+            if (Children.Any(p => p.Plugin == editorView))
             {
                 return;
             }
-            var plugin = new PluginViewModel(editorView, null);
-            plugin.IsVisible = true;
-            plugin.ContentId = $"{ContentId}.{editorView.DisplayName}";
+            var plugin = new PluginViewModel(editorView, null)
+            {
+                IsVisible = true,
+                ContentId = $"{ContentId}.{editorView.DisplayName}"
+            };
             Children.Add(plugin);
 
             if (plugin.IsContentPlugin)
@@ -127,10 +125,10 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
 
         public bool IsActive
         {
-            get => _isActive; 
+            get => _isActive;
             set
-            { 
-                if ( Set(ref _isActive, value) )
+            {
+                if (Set(ref _isActive, value))
                 {
                     if (value && Plugin is INotifyViewActivation)
                     {
@@ -139,6 +137,5 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
                 }
             }
         }
-
     }
 }

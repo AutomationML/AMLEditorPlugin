@@ -26,7 +26,7 @@ namespace Aml.Editor.PlugInManager.Loader
         /// </summary>
         private CompositionContainer _container;
 
-        private Dispatcher _dispatcher;
+        private readonly Dispatcher _dispatcher;
 
         #endregion Private Fields
 

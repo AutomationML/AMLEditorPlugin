@@ -33,8 +33,6 @@
                     </DrawingGroup>
                 </DrawingImage.Drawing>
             </DrawingImage>
-
-
         </ResourceDictionary>
     </aml:PluginControlBase.Resources>
 
@@ -54,7 +52,7 @@
             Margin="0,5"
             Background="{DynamicResource MahApps.Brushes.Flyout.Background}"
             BorderBrush="{DynamicResource MahApps.Brushes.Flyout.Foreground}"
-            BorderThickness="0,1">
+            BorderThickness="0,1,0,0">
             <TextBlock Margin="20" TextWrapping="Wrap">
                 <Run>This plugin responds to the change of the current theme of the AutomationML editor. This requires the use of a UI library that supports dark and light themes like Mahapps.Metro.</Run>
                 <LineBreak />

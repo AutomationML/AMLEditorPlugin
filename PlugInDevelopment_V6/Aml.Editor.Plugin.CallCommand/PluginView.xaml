@@ -34,7 +34,6 @@
                 </DrawingImage.Drawing>
             </DrawingImage>
 
-
             <DrawingImage x:Key="ImportIcon">
                 <DrawingImage.Drawing>
                     <DrawingGroup>
@@ -50,7 +49,6 @@
             </DrawingImage>
         </ResourceDictionary>
     </aml:PluginControlBase.Resources>
-
 
     <Grid>
         <Grid.RowDefinitions>
@@ -96,7 +94,6 @@
                     Style="{StaticResource MahApps.Styles.Button.ToolBar}"
                     ToolTip="Import libraries into the current document">
                     <Image Source="{StaticResource ImportIcon}"></Image>
-                        
                 </Button>
 
                 <Button
@@ -114,13 +111,12 @@
                 Margin="5"
                 Padding="5"
                 Foreground="{DynamicResource MahApps.Brushes.ThemeForeground}" />
-
         </Border>
         <Border
             Grid.Row="2"
             Background="{DynamicResource MahApps.Brushes.Flyout.Background}"
             BorderBrush="{DynamicResource MahApps.Brushes.Flyout.Foreground}"
-            BorderThickness="1,0,0,0">
+            BorderThickness="0,1,0,0">
             <TextBlock Margin="20" TextWrapping="Wrap">
                 <Run>
                     This plugin is an example of activating methods that are normally triggered by direct interactions in the AutomationML Editor.

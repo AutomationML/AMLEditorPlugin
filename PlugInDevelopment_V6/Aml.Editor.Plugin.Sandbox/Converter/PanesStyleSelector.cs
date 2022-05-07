@@ -7,7 +7,7 @@ using System.Windows.Controls;
 
 namespace Aml.Editor.Plugin.Sandbox.Converter
 {
-    class PanesStyleSelector : StyleSelector
+    internal class PanesStyleSelector : StyleSelector
     {
         public Style LibraryStyle
         {

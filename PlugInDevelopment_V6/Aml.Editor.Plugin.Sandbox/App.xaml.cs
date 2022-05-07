@@ -16,7 +16,8 @@ namespace Aml.Editor.Plugin.Sandbox
         {
             base.OnStartup(e);
 
-            PluginViewModel.Folder = e.Args.FirstOrDefault();
+            PluginViewModel.Folder = e.Args.FirstOrDefault() ??
+                Sandbox.Properties.Settings.Default.PluginFolder;
         }
     }
 }

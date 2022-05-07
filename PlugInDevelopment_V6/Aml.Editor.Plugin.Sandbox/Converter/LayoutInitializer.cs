@@ -9,8 +9,18 @@ using System.Linq;
 
 namespace Aml.Editor.Plugin.Sandbox.Converter
 {
-    class LayoutInitializer : ILayoutUpdateStrategy
+    internal class LayoutInitializer : ILayoutUpdateStrategy
     {
+        #region Methods
+
+        public void AfterInsertAnchorable(LayoutRoot layout, LayoutAnchorable anchorableShown)
+        {
+        }
+
+        public void AfterInsertDocument(LayoutRoot layout, LayoutDocument anchorableShown)
+        {
+        }
+
         public bool BeforeInsertAnchorable(LayoutRoot layout, LayoutAnchorable anchorableToShow, ILayoutContainer destinationContainer)
         {
             anchorableToShow.AutoHideWidth = 256;
@@ -23,8 +33,126 @@ namespace Aml.Editor.Plugin.Sandbox.Converter
                 AddProperty(layout.RightSide, anchorableToShow);
                 return true;
             }
+            else
+            {
+                return DockPlugin(layout, anchorableToShow);
+            }
+        }
 
-            else if (anchorableToShow.Content is PluginViewModel pluginModel &&
+        public bool BeforeInsertDocument(LayoutRoot layout, LayoutDocument anchorableToShow, ILayoutContainer destinationContainer)
+        {
+            if (MainViewModel.IsDocument(anchorableToShow.Content))
+            {
+                GetPanels(layout, out var mainPanel, out var maximizePanel, out var amlPanel);
+                GetDocumentGroups(amlPanel, out var topPanel, out var bottomPanel);
+
+                if (anchorableToShow.Content == ActiveDocumentViewModel.InstanceHierarchy)
+                {
+                    AddDocument(topPanel, anchorableToShow, 0);
+                    return true;
+                }
+                if (anchorableToShow.Content == ActiveDocumentViewModel.SystemUnitClassLib)
+                {
+                    AddDocument(topPanel, anchorableToShow, 1);
+                    return true;
+                }
+                if (anchorableToShow.Content == ActiveDocumentViewModel.RoleClassLib)
+                {
+                    AddDocument(bottomPanel, anchorableToShow, 0);
+                    return true;
+                }
+                if (anchorableToShow.Content == ActiveDocumentViewModel.InterfaceClassLib)
+                {
+                    AddDocument(bottomPanel, anchorableToShow, 1);
+                    return true;
+                }
+                if (anchorableToShow.Content == ActiveDocumentViewModel.AttributeTypeLib)
+                {
+                    AddDocument(bottomPanel, anchorableToShow, 2);
+                    return true;
+                }
+
+                if (anchorableToShow.Content is PluginViewModel p
+                    && p.IsContentPlugin)
+                {
+                    var view = p.Plugin as IAMLEditorView;
+                    LayoutDocumentPane documentPane;
+
+                    if (view.InitialDockPosition == DockPositionEnum.DockContentMaximized)
+                    {
+                        MaximizeLayout(layout);
+                        documentPane = PluginDocumentPane(maximizePanel);
+                    }
+                    else
+                    {
+                        documentPane = PluginDocumentPane(mainPanel);
+                    }
+                    p.IsVisible = true;
+                    documentPane.Children.Add(anchorableToShow);
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        internal void MaximizeLayout(LayoutRoot layout)
+        {
+            GetPanels(layout, out var mainPanel, out var maximizePanel, out var amlPanel);
+
+            if (!amlPanel.Children.Any(p => p is LayoutDocumentPaneGroup g && g.ChildrenCount > 0))
+            {
+                return;
+            }
+
+            var amlDocuments = layout.Descendents().OfType<LayoutDocument>().
+                Where(l => l.Content is AMLLibraryViewModel).ToList();
+
+            var amlProperties = layout.Descendents().OfType<LayoutAnchorable>().
+               Where(l => l.Content is AMLLibraryViewModel).ToList();
+
+            var pluggedDocuments = layout.Descendents().OfType<LayoutDocument>().
+                Where(l => l.Content is PluginViewModel).ToList();
+
+            var pluggedProperties = layout.Descendents().OfType<LayoutAnchorable>().
+                Where(l => l.Content is PluginViewModel).ToList();
+
+            // remove everything from the aml Panel
+            amlPanel.Children.Clear();
+
+            var amlDocumentPane = AddLayoutItem(amlPanel, () => new LayoutDocumentPane()) as LayoutDocumentPane;
+            foreach (var doc in amlDocuments)
+            {
+                doc.Parent?.RemoveChild(doc);
+                amlDocumentPane.Children.Add(doc);
+            }
+
+            foreach (var anchorableToShow in amlProperties)
+            {
+                anchorableToShow.Parent?.RemoveChild(anchorableToShow);
+                AddProperty(layout.RightSide, anchorableToShow);
+            }
+
+            foreach (var anchorableToShow in pluggedProperties)
+            {
+                anchorableToShow.Parent?.RemoveChild(anchorableToShow);
+                DockPlugin(layout, anchorableToShow);
+            }
+
+            if (pluggedDocuments.Count > 0)
+            {
+                var pluggDocumentPane = PluginDocumentPane(maximizePanel);
+                foreach (var doc in pluggedDocuments)
+                {
+                    doc.Parent?.RemoveChild(doc);
+                    pluggDocumentPane.Children.Add(doc);
+                }
+            }
+        }
+
+        private bool DockPlugin(LayoutRoot layout, LayoutAnchorable anchorableToShow)
+        {
+            if (anchorableToShow.Content is PluginViewModel pluginModel &&
                !pluginModel.IsContentPlugin)
             {
                 var view = pluginModel.Plugin as IAMLEditorView;
@@ -54,106 +182,78 @@ namespace Aml.Editor.Plugin.Sandbox.Converter
                         //    break;
                 }
             }
-
             return false;
         }
 
-        public void AfterInsertAnchorable(LayoutRoot layout, LayoutAnchorable anchorableShown)
+        internal void RestoreLayout(LayoutRoot layout)
         {
+            GetPanels(layout, out var mainPanel, out var maximizePanel, out var amlPanel);
 
-        }
-
-        private void MaximizeLayout (LayoutRoot layout)
-        {
-            var documentPanels = layout.Descendents().OfType<LayoutPanel>();
-            var horizontalPanel = documentPanels.First();
-            var verticalPanel = documentPanels.Last();
-
-            var documents = verticalPanel.Descendents().OfType<LayoutDocument>().ToList();
-            while (verticalPanel.ChildrenCount > 0)
+            if (amlPanel.Children.Any(p => p is LayoutDocumentPaneGroup g && g.ChildrenCount > 0))
             {
-                verticalPanel.Children.RemoveAt(0);
+                return;
             }
 
-            var topVertical = AddLayoutItem(verticalPanel, () => new LayoutDocumentPane()) as LayoutDocumentPane;
+            var amlProperties = layout.Descendents().OfType<LayoutAnchorable>().
+                Where(l => l.Content is AMLLibraryViewModel).ToList();
 
-            foreach (var doc in documents)
+            var pluggedProperties = layout.Descendents().OfType<LayoutAnchorable>().
+               Where(l => l.Content is PluginViewModel).ToList();
+
+            var amlDocuments = layout.Descendents().OfType<LayoutDocument>().
+                Where(l => l.Content is AMLLibraryViewModel).ToList();
+
+            var pluggedDocuments = layout.Descendents().OfType<LayoutDocument>().
+                Where(l => l.Content is PluginViewModel).ToList();
+
+            // remove everything from the aml Panel
+            amlPanel.Children.Clear();
+
+            GetDocumentGroups(amlPanel, out var topPanel, out var bottomPanel);
+            foreach (var anchorableToShow in amlDocuments)
             {
-                topVertical.Children.Add(doc);
-            }
-        }
-
-
-        public bool BeforeInsertDocument(LayoutRoot layout, LayoutDocument anchorableToShow, ILayoutContainer destinationContainer)
-        {
-            if (MainViewModel.IsDocument(anchorableToShow.Content))
-            {
-                var documentPanels = layout.Descendents().OfType<LayoutPanel>();
-                var horizontalPanel = documentPanels.First();
-                var verticalPanel = documentPanels.Last();
-
-                var topVertical = (verticalPanel.ChildrenCount > 0)
-                    ? verticalPanel.Children[0] as LayoutDocumentPaneGroup
-                    : AddLayoutItem(verticalPanel, () => new LayoutDocumentPaneGroup()) as LayoutDocumentPaneGroup;
-
-                var bottomVertical = (verticalPanel.ChildrenCount > 1)
-                    ? verticalPanel.Children[1] as LayoutDocumentPaneGroup
-                    : AddLayoutItem(verticalPanel, () => new LayoutDocumentPaneGroup()) as LayoutDocumentPaneGroup;
-
                 if (anchorableToShow.Content == ActiveDocumentViewModel.InstanceHierarchy)
                 {
-                    AddDocument(topVertical, anchorableToShow, 0);
-                    return true;
+                    AddDocument(topPanel, anchorableToShow, 0);
                 }
-                if (anchorableToShow.Content == ActiveDocumentViewModel.SystemUnitClassLib)
+                else if (anchorableToShow.Content == ActiveDocumentViewModel.SystemUnitClassLib)
                 {
-                    AddDocument(topVertical, anchorableToShow, 1);
-                    return true;
+                    AddDocument(topPanel, anchorableToShow, 1);
                 }
-                if (anchorableToShow.Content == ActiveDocumentViewModel.RoleClassLib)
+                else if (anchorableToShow.Content == ActiveDocumentViewModel.RoleClassLib)
                 {
-                    AddDocument(bottomVertical, anchorableToShow, 0);
-                    return true;
+                    AddDocument(bottomPanel, anchorableToShow, 0);
                 }
-                if (anchorableToShow.Content == ActiveDocumentViewModel.InterfaceClassLib)
+                else if (anchorableToShow.Content == ActiveDocumentViewModel.InterfaceClassLib)
                 {
-                    AddDocument(bottomVertical, anchorableToShow, 1);
-                    return true;
+                    AddDocument(bottomPanel, anchorableToShow, 1);
                 }
-                if (anchorableToShow.Content == ActiveDocumentViewModel.AttributeTypeLib)
+                else if (anchorableToShow.Content == ActiveDocumentViewModel.AttributeTypeLib)
                 {
-                    AddDocument(bottomVertical, anchorableToShow, 2);
-                    return true;
-                }
-
-
-                if (anchorableToShow.Content is PluginViewModel p
-                    && p.IsContentPlugin)
-                {
-                    var view = p.Plugin as IAMLEditorView;
-                    if (view.InitialDockPosition == DockPositionEnum.DockContentMaximized)                   
-                    {
-                        MaximizeLayout (layout);
-                    }
-                    p.IsVisible = true;
-                    var pane = horizontalPanel.ChildrenCount > 1
-                        ? horizontalPanel.Children[1] as LayoutDocumentPane
-                        : AddLayoutItem(horizontalPanel, () => new LayoutDocumentPane()) as LayoutDocumentPane;
-                    pane.Children.Add(anchorableToShow);
-                    return true;
+                    AddDocument(bottomPanel, anchorableToShow, 2);
                 }
             }
 
-            return false;
-        }
+            foreach (var anchorableToShow in amlProperties)
+            {
+                anchorableToShow.Parent?.RemoveChild(anchorableToShow);
+                AddProperty(layout.RightSide, anchorableToShow);
+            }
 
+            foreach (var anchorableToShow in pluggedProperties)
+            {
+                anchorableToShow.Parent?.RemoveChild(anchorableToShow);
+                DockPlugin(layout, anchorableToShow);
+            }
 
-        private void AddProperty(LayoutAnchorSide side, LayoutAnchorable content)
-        {
-            var group = (side.ChildrenCount > 0)
-                    ? side.Children[0]
-                    : AddLayoutItem(side, () => new LayoutAnchorGroup()) as LayoutAnchorGroup;
-            group.Children.Add(content);
+            if (pluggedDocuments.Count > 0)
+            {
+                var pluggDocumentPane = PluginDocumentPane(maximizePanel);
+                foreach (var doc in pluggedDocuments)
+                {
+                    pluggDocumentPane.Children.Add(doc);
+                }
+            }
         }
 
         private void AddDocument(LayoutDocumentPaneGroup pane, LayoutDocument content, int childIndex)
@@ -171,9 +271,54 @@ namespace Aml.Editor.Plugin.Sandbox.Converter
             return documentPane;
         }
 
-
-        public void AfterInsertDocument(LayoutRoot layout, LayoutDocument anchorableShown)
+        private void AddProperty(LayoutAnchorSide side, LayoutAnchorable content)
         {
+            var group = (side.ChildrenCount > 0)
+                    ? side.Children[0]
+                    : AddLayoutItem(side, () => new LayoutAnchorGroup());
+            group.Children.Add(content);
         }
+
+        private void GetDocumentGroups(LayoutPanel amlPanel, out LayoutDocumentPaneGroup topPanel,
+            out LayoutDocumentPaneGroup bottomPanel)
+        {
+            topPanel = (amlPanel.ChildrenCount > 0)
+                ? amlPanel.Children[0] as LayoutDocumentPaneGroup
+                : null;
+            topPanel ??= AddLayoutItem(amlPanel, () => new LayoutDocumentPaneGroup()) as LayoutDocumentPaneGroup;
+
+            bottomPanel = (amlPanel.ChildrenCount > 1)
+                ? amlPanel.Children[1] as LayoutDocumentPaneGroup
+                : null;
+            bottomPanel ??= AddLayoutItem(amlPanel, () => new LayoutDocumentPaneGroup()) as LayoutDocumentPaneGroup;
+        }
+
+        private void GetPanels(LayoutRoot layout, out LayoutPanel mainDocumentPanel, out LayoutPanel maximizePanel, out LayoutPanel amlDocumentPanel)
+        {
+            mainDocumentPanel = layout.Children.First() as LayoutPanel;
+            amlDocumentPanel = mainDocumentPanel.Descendents().OfType<LayoutPanel>().FirstOrDefault
+                (p => p.Orientation == System.Windows.Controls.Orientation.Vertical);
+            maximizePanel = mainDocumentPanel;
+
+            if (amlDocumentPanel == null)
+            {
+                amlDocumentPanel = mainDocumentPanel.Descendents().OfType<LayoutPanel>().First();
+            }
+        }
+
+        private LayoutDocumentPane PluginDocumentPane(LayoutPanel layoutPanel)
+        {
+            var documentPanes = layoutPanel.Descendents().OfType<LayoutDocumentPane>();
+            foreach (var documentPane in documentPanes)
+            {
+                if (!documentPane.Children.Any(p => p.Content is AMLLibraryViewModel))
+                {
+                    return documentPane;
+                }
+            }
+            return AddLayoutItem(layoutPanel, () => new LayoutDocumentPane()) as LayoutDocumentPane;
+        }
+
+        #endregion Methods
     }
 }

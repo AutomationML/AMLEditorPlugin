@@ -41,75 +41,89 @@
         </Grid.RowDefinitions>
 
         <Border BorderBrush="{DynamicResource MahApps.Brushes.SubMenu.Border}" BorderThickness="0,0,0,1">
-            <StackPanel
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackPanel
                 Margin="4"
                 HorizontalAlignment="Left"
                 Orientation="Horizontal">
-                <Menu VerticalAlignment="Center">
-                    <MenuItem Header="File">
-                        <MenuItem Command="{Binding NewCommand}" Header="New" />
-                        <MenuItem Command="{Binding LoadCommand}" Header="Open" />
-                        <MenuItem Command="{Binding SaveCommand}" Header="Save" />
-                        <MenuItem Command="{Binding SaveAsCommand}" Header="Save As..." />
-                        <MenuItem Command="{Binding CloseCommand}" Header="Close" />
-                        <MenuItem Command="{Binding ExitCommand}" Header="Exit" />
-                    </MenuItem>
+                    <Menu VerticalAlignment="Center">
+                        <MenuItem Header="File">
+                            <MenuItem Command="{Binding NewCommand}" Header="New" />
+                            <MenuItem Command="{Binding LoadCommand}" Header="Open" />
+                            <MenuItem Command="{Binding SaveCommand}" Header="Save" />
+                            <MenuItem Command="{Binding SaveAsCommand}" Header="Save As..." />
+                            <MenuItem Command="{Binding CloseCommand}" Header="Close" />
+                            <MenuItem Command="{Binding ExitCommand}" Header="Exit" />
+                        </MenuItem>
 
-
-
-
-                    <MenuItem
+                        <MenuItem
                         ContextMenuService.ShowOnDisabled="True"
                         Header="PlugIns"
                         ItemsSource="{Binding Plugins}"
                         Visibility="{Binding HasPlugins, Converter={StaticResource BooleanToVisibilityConverter}}">
 
-                        <MenuItem.ItemContainerStyle>
-                            <Style BasedOn="{StaticResource MahApps.Styles.MenuItem}" TargetType="MenuItem">
-                                <Setter Property="ItemsSource" Value="{Binding Path=Plugin.Commands}" />
-                                <Setter Property="Header" Value="{Binding Plugin.DisplayName}" />
-                                <Setter Property="ItemContainerStyle">
-                                    <Setter.Value>
-                                        <Style BasedOn="{StaticResource MahApps.Styles.MenuItem}" TargetType="MenuItem">
-                                            <Setter Property="Header" Value="{Binding DisplayName}" />
-                                            <Setter Property="Command" Value="{Binding}" />
-                                            <Setter Property="CommandParameter" Value="{Binding ActiveDocument.FilePath}" />
-                                            <Setter Property="IsCheckable" Value="{Binding IsCheckable}" />
-                                            <Setter Property="IsChecked" Value="{Binding IsChecked}" />
-                                            <Setter Property="ToolTip" Value="{Binding CommandToolTip}" />
-                                        </Style>
-                                    </Setter.Value>
-                                </Setter>
-                            </Style>
-                        </MenuItem.ItemContainerStyle>
-                    </MenuItem>
+                            <MenuItem.ItemContainerStyle>
+                                <Style BasedOn="{StaticResource MahApps.Styles.MenuItem}" TargetType="MenuItem">
+                                    <Setter Property="ItemsSource" Value="{Binding Path=Plugin.Commands}" />
+                                    <Setter Property="Header" Value="{Binding Plugin.DisplayName}" />
+                                    <Setter Property="ItemContainerStyle">
+                                        <Setter.Value>
+                                            <Style BasedOn="{StaticResource MahApps.Styles.MenuItem}" TargetType="MenuItem">
+                                                <Setter Property="Header" Value="{Binding DisplayName}" />
+                                                <Setter Property="Command" Value="{Binding}" />
+                                                <Setter Property="CommandParameter" Value="{Binding ActiveDocument.FilePath}" />
+                                                <Setter Property="IsCheckable" Value="{Binding IsCheckable}" />
+                                                <Setter Property="IsChecked" Value="{Binding IsChecked}" />
+                                                <Setter Property="ToolTip" Value="{Binding CommandToolTip}" />
+                                            </Style>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </MenuItem.ItemContainerStyle>
+                        </MenuItem>
+                    </Menu>
 
-                </Menu>
+                    <Separator />
 
-                <Separator />
-
-                <ComboBox
+                    <ComboBox
                     VerticalAlignment="Center"
                     ItemsSource="{Binding Themes}"
                     SelectedItem="{Binding SelectedTheme}"
                     Style="{DynamicResource MahApps.Styles.ComboBox}" />
 
-
-                <ToolBarTray
+                    <ToolBarTray
                     x:Name="ToolBarTray"
                     Margin="4,0"
                     HorizontalAlignment="Stretch">
-                    <ToolBarTray.Resources>
-                        <Style BasedOn="{StaticResource MahApps.Styles.Button.ToolBar}" TargetType="{x:Type Button}" />
+                        <ToolBarTray.Resources>
+                            <Style BasedOn="{StaticResource MahApps.Styles.Button.ToolBar}" TargetType="{x:Type Button}" />
 
-                        <Style BasedOn="{StaticResource MahApps.Styles.ToggleButton.ToolBar}" TargetType="{x:Type ToggleButton}" />
+                            <Style BasedOn="{StaticResource MahApps.Styles.ToggleButton.ToolBar}" TargetType="{x:Type ToggleButton}" />
 
-                        <Style TargetType="{x:Type Image}">
-                            <Setter Property="MaxHeight" Value="22" />
-                        </Style>
-                    </ToolBarTray.Resources>
-                </ToolBarTray>
-            </StackPanel>
+                            <Style TargetType="{x:Type Image}">
+                                <Setter Property="MaxHeight" Value="22" />
+                            </Style>
+                        </ToolBarTray.Resources>
+                    </ToolBarTray>
+
+                    <ToolBar BandIndex="1" x:Name="AMLToolBar">
+                        <Button x:Name="MinimizeBtn" ToolTip="Restore default layout" Click="MinimizeLayout">
+                            <Image Source="{StaticResource RestoreLayoutIcon}"></Image>
+                        </Button>
+                        <Button Click="MaximizeLayout" ToolTip="Maximize layout">
+                            <Image Source="{StaticResource MaximizeLayoutIcon}"></Image>
+                        </Button>
+                    </ToolBar>
+                </StackPanel>
+                <Button Command="{Binding SettingsCommand}"  Style="{StaticResource MahApps.Styles.Button.ToolBar}" Grid.Column="1" HorizontalAlignment="Right">
+                    <Image Source="{StaticResource AMLSettingsIcon}"></Image>
+                </Button>
+            </Grid>
         </Border>
 
         <avalon:DockingManager
@@ -218,7 +232,6 @@
                         </avalon:LayoutAnchorablePaneGroup>
                     </avalon:LayoutAnchorableFloatingWindow>
                 </avalon:LayoutRoot.FloatingWindows>
-
             </avalon:LayoutRoot>
         </avalon:DockingManager>
 
@@ -239,7 +252,6 @@
                         Value="{Binding ZoomFactor, UpdateSourceTrigger=PropertyChanged}" />
                 </StackPanel>
             </StatusBarItem>
-
         </StatusBar>
     </Grid>
 </mah:MetroWindow>

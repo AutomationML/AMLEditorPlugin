@@ -7,7 +7,7 @@ using System.Windows.Controls;
 
 namespace Aml.Editor.Plugin.Sandbox.Converter
 {
-    class PanesTemplateSelector : DataTemplateSelector
+    internal class PanesTemplateSelector : DataTemplateSelector
     {
         public PanesTemplateSelector()
         {
@@ -24,7 +24,6 @@ namespace Aml.Editor.Plugin.Sandbox.Converter
             get;
             set;
         }
-
 
         public override DataTemplate SelectTemplate(object item, DependencyObject container)
         {

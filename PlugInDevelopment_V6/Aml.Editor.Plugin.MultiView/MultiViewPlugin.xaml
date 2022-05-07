@@ -29,7 +29,7 @@
             <Border
                 Background="{DynamicResource MahApps.Brushes.Flyout.Background}"
                 BorderBrush="{DynamicResource MahApps.Brushes.Flyout.Foreground}"
-                BorderThickness="1,0,0,0">
+                BorderThickness="0,1,0,0">
                 <TextBlock Margin="20" TextWrapping="Wrap">
                     <Run>This plugin is an example of how to include multiple views in the editor.  It shows how the current document of the editor is reloaded by the plugin and visualized in duplicated views. The additional views are loaded by the Plugin, whenever a new AutomationML Document is opened. Activation of a view in the editor is recognized and repeated by the duplicated view in the plugin.</Run>
                     <LineBreak /><LineBreak />

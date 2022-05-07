@@ -4,18 +4,14 @@
 using Aml.Editor.Plugin.Contracts;
 using Aml.Editor.Plugin.MultiView.ViewModels;
 using Aml.Editor.Plugin.WPFBase;
-using Aml.Engine.CAEX;
 using Aml.Toolkit.ViewModel;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.Composition;
 using System.Windows;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace Aml.Editor.Plugin.MultiView
 {
-    public partial class PluginView : PluginViewBase, INotifyViewActivation
+    public partial class PluginView : PluginViewBase, INotifyViewActivation, ISupportsThemes
     {
         #region Constructors
 
@@ -42,9 +38,14 @@ namespace Aml.Editor.Plugin.MultiView
             //no action
         }
 
-        internal void ChangeTheme(string theme)
+        public void OnThemeChanged(ApplicationTheme theme)
         {
-            Plugin.Contract.Theming.ThemeManager.ChangeTheme(this.Resources, theme);
+            var applicationTheme = ControlzEx.Theming.ThemeManager.Current.DetectTheme(Application.Current);
+            if (applicationTheme != null)
+            {
+                Plugin.Contract.Theming.ThemeManager.ChangeTheme(this.Resources, applicationTheme.BaseColorScheme);
+                ControlzEx.Theming.ThemeManager.Current.ChangeTheme(this, this.Resources, applicationTheme);
+            }
         }
 
         #endregion Constructors
@@ -52,7 +53,6 @@ namespace Aml.Editor.Plugin.MultiView
         #region Properties
 
         public override DockPositionEnum InitialDockPosition => DockPositionEnum.DockContentMaximized;
-               
 
         public override bool CanClose => false;
 
@@ -62,6 +62,5 @@ namespace Aml.Editor.Plugin.MultiView
         public override string PackageName => "Aml.Editor.Plugin.MultiView";
 
         #endregion Properties
-
     }
 }

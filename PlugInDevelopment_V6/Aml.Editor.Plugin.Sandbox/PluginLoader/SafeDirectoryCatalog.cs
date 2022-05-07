@@ -35,7 +35,6 @@ namespace Aml.Editor.PlugInManager.Loader
                         _catalog.Catalogs.Add(asmCat);
                     }
                 }
-
                 catch (BadImageFormatException)
                 {
                     continue;

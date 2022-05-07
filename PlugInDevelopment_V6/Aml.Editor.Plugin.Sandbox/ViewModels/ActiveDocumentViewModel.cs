@@ -52,7 +52,7 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
         /// <value>The attribute type library.</value>
         public static AMLLibraryViewModel AttributeTree
         {
-            get => Libraries[AR] as AMLLibraryViewModel;
+            get => Libraries[AR];
             set => Libraries[AR] = value;
         }
 
@@ -121,11 +121,11 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
 
         internal static void Activate(string displayName)
         {
-            for (int i=0; i < Libraries.Length; i++)
+            for (int i = 0; i < Libraries.Length; i++)
             {
-                if (Libraries[i].DisplayName==displayName)
+                if (Libraries[i].DisplayName == displayName)
                 {
-                    Libraries[i].IsActive=true;
+                    Libraries[i].IsActive = true;
                 }
                 else
                 {
@@ -198,10 +198,10 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
             foreach (var plugin in MainModel.Plugins)
             {
                 if (plugin.Plugin.IsActive)
-                { 
+                {
                     if (loaded)
-                    { 
-                        plugin.Plugin.PublishAutomationMLFileAndObject(amlFilePath,null);
+                    {
+                        plugin.Plugin.PublishAutomationMLFileAndObject(amlFilePath, null);
                         if (plugin.Plugin is INotifyAMLDocumentLoad iload && Document != null)
                         {
                             iload.DocumentLoaded(Document);
@@ -213,12 +213,11 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
             }
         }
 
-
         internal async Task SaveDocumentAs()
-        {            
-            var dlg = new SaveFileDialog 
+        {
+            var dlg = new SaveFileDialog
             {
-                Filter = "AutomationML Files (.aml)|*.aml", 
+                Filter = "AutomationML Files (.aml)|*.aml",
             };
 
             if (dlg.ShowDialog().GetValueOrDefault())
@@ -226,7 +225,7 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
                 FilePath = dlg.FileName;
 
                 await Document.SaveToFileAsync(FilePath, true, new());
-                PropagateFileOpenEventToPlugins (FilePath, false); 
+                PropagateFileOpenEventToPlugins(FilePath, false);
             }
         }
 
@@ -289,7 +288,6 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
             {
                 DisplayName = ATTRIBUTE_STRING
             });
-
         }
 
         private static AMLLibraryViewModel LibraryViewModel(CAEXObject lib) => lib switch

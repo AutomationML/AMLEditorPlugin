@@ -15,7 +15,7 @@ namespace Aml.Editor.Plugin.WithToolbar
 {
     /// <summary>
     /// An example that shows how plugin methods are bound to buttons added to the editors main
-    /// toolbar.  
+    /// toolbar.
     /// <seealso cref="IToolBarIntegration"/>.
     /// </summary>
     [ExportMetadata("Author", "Josef Prinz")]

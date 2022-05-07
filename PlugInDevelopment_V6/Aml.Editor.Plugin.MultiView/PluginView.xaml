@@ -14,9 +14,9 @@
     <aml:PluginControlBase.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Light.Blue.xaml" />
+                <ResourceDictionary Source="/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="/MahApps.Metro;component/Styles/Themes/Light.Blue.xaml" />
                 <ResourceDictionary Source="/Aml.Skins;component/Themes/Light.Styles.xaml" />
                 <ResourceDictionary Source="/Aml.Toolkit;component/Themes/Generic.xaml" />
                 <ResourceDictionary Source="/Aml.Skins;component/Resources/Icons.xaml" />

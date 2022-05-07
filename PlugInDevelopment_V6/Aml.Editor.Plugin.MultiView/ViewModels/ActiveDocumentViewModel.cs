@@ -5,21 +5,19 @@ using Aml.Editor.MVVMBase;
 using Aml.Engine.CAEX;
 using Aml.Toolkit.ViewModel;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using static Aml.Engine.CAEX.CAEX_CLASSModel_TagNames;
 
 namespace Aml.Editor.Plugin.MultiView.ViewModels
 {
     internal class ActiveDocumentViewModel : ViewModelBase
     {
-
         #region Fields
 
         /// <summary>
         /// The libraries which are available to be edited
         /// </summary>
         public static readonly AMLTreeViewModel[] Libraries = new AMLTreeViewModel[5];
-        
+
         private const short AT = 4;
         private const short IC = 3;
         private const short IH = 0;
@@ -164,15 +162,19 @@ namespace Aml.Editor.Plugin.MultiView.ViewModels
                 case INSTANCEHIERARCHY_STRING:
                     ActiveHierarchy = InstanceHierarchy;
                     break;
+
                 case SYSTEMUNITCLASSLIB_STRING:
                     ActiveHierarchy = SystemUnitClassLib;
                     break;
+
                 case ROLECLASSLIB_STRING:
                     ActiveHierarchy = RoleClassLib;
                     break;
+
                 case INTERFACECLASSLIB_STRING:
                     ActiveHierarchy = InterfaceClassLib;
                     break;
+
                 case ATTRIBUTETYPELIB_STRING:
                     ActiveHierarchy = AttributeTypeLib;
                     break;
@@ -187,6 +189,7 @@ namespace Aml.Editor.Plugin.MultiView.ViewModels
             }
             Document.Unload();
         }
+
         private static void InitLibraries()
         {
             HashSet<string> ihTemplate = new(AMLTreeViewTemplate.CompleteInstanceHierarchyTree);
@@ -211,6 +214,5 @@ namespace Aml.Editor.Plugin.MultiView.ViewModels
         }
 
         #endregion Methods
-
     }
 }

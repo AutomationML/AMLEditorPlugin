@@ -23,7 +23,6 @@ namespace Aml.Editor.Plugin.WithToolbar
             set { _type = value; }
         }
 
-
         private int _deleted;
 
         public int Deleted
@@ -31,7 +30,5 @@ namespace Aml.Editor.Plugin.WithToolbar
             get { return _deleted; }
             set => Set(ref _deleted, value);
         }
-
-
     }
 }

@@ -43,6 +43,8 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
 
         #endregion Fields
 
+        public event EventHandler PluginFolderChanged;
+
         public MainViewModel()
         {
             // populate document collection
@@ -76,6 +78,21 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
         {
             get => _activeDocument;
             private set => Set(ref _activeDocument, value);
+        }
+
+        public SimpleCommand<object> SettingsCommand => _settingsCommand ??= new SimpleCommand<object>(o => true, DoSettings);
+
+        private void DoSettings(object obj)
+        {
+            var dialog = new Ookii.Dialogs.Wpf.VistaFolderBrowserDialog();
+            if (dialog.ShowDialog().GetValueOrDefault())
+            {
+                PluginViewModel.Folder = dialog.SelectedPath;
+                Sandbox.Properties.Settings.Default.PluginFolder = PluginViewModel.Folder;
+                Sandbox.Properties.Settings.Default.Save();
+
+                PluginFolderChanged?.Invoke(this, EventArgs.Empty);
+            }
         }
 
         public SimpleCommand<object> CloseCommand => _closeCommand ??= new SimpleCommand<object>(o => ActiveDocument != null, DoClose);
@@ -137,9 +154,12 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
 
         private void DoClose(object args)
         {
-            ActiveDocument?.Close();
-            ActiveDocument = null;
-            PropagateUnloadEventToPlugins();
+            if (ActiveDocument != null)
+            {
+                ActiveDocument?.Close();
+                ActiveDocument = null;
+                PropagateUnloadEventToPlugins();
+            }
         }
 
         private void DoExit(object args)
@@ -167,6 +187,7 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
 
         private async Task DoLoad()
         {
+            DoClose(null);
             var dlg = new OpenFileDialog
             {
                 Filter = "AutomationML Files (.aml)|*.aml",
@@ -190,6 +211,8 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
 
         private void DoNew(object args)
         {
+            DoClose(args);
+
             var document = CAEXDocument.New_CAEXDocument();
             document.AddAutomationMLBaseRoleClassLib();
             document.AddAutomationMLBaseAttributeTypeLib();
@@ -205,6 +228,8 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
         ///  <see cref="HasPlugins"/>
         /// </summary>
         private bool _hasPlugins;
+
+        private SimpleCommand<object> _settingsCommand;
 
         internal static string PluginName(string name)
         {

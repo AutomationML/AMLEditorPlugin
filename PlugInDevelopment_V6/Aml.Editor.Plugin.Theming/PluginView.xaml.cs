@@ -18,7 +18,7 @@ namespace Aml.Editor.Plugin.Theming
     /// An example that shows how the change of the light-dark display mode can
     /// be transferred from the editor to the plugin. The plugin itself must be
     /// able to rearrange its UI elements, for example by using a UI library like
-    /// mahapps.metro. If UI elements of the <see cref="N:Aml.Toolkit"/> and 
+    /// mahapps.metro. If UI elements of the <see cref="N:Aml.Toolkit"/> and
     /// <see cref="N:Aml.Skins"/>are used, the method
     /// <see cref="Plugin.Contract.Theming.ThemeManager.ChangeTheme"/>
     /// must be called for the update.
@@ -52,7 +52,6 @@ namespace Aml.Editor.Plugin.Theming
 
             PaneImage = new BitmapImage(
                 new Uri("pack://application:,,,/Aml.Editor.Plugin.Theming;component/Plugin.png"));
-
         }
 
         #endregion Constructors
