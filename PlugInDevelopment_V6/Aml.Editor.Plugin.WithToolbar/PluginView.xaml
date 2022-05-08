@@ -24,7 +24,7 @@
         </ResourceDictionary>
     </aml:PluginControlBase.Resources>
 
-    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" >
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
