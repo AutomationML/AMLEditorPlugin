@@ -31,8 +31,14 @@ namespace Aml.Editor.Plugin.Sandbox
             _mainModel = new MainViewModel();
             _mainModel.PluginFolderChanged += _mainModel_PluginFolderChanged;
             DataContext = _mainModel;
-
+            Docking.Layout.FloatingWindows.CollectionChanged += FloatingWindows_CollectionChanged;
             Loaded += MainWindowLoaded;
+        }
+
+        private void FloatingWindows_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            Dispatcher.BeginInvoke ( new Action(() =>
+            _mainModel.RaisePropertyChanged(nameof(MainViewModel.ZoomFactor))));
         }
 
         private void _mainModel_PluginFolderChanged(object sender, EventArgs e)
@@ -94,6 +100,11 @@ namespace Aml.Editor.Plugin.Sandbox
                 if (view is ISupportsThemes theming)
                 {
                     _mainModel.ChangeThemeForPlugIn(_mainModel.CurrentTheme, theming);
+                }
+
+                if (view is ISupportsUIZoom zooming)
+                {
+                    zooming.OnUIZoomChanged (_mainModel.ZoomFactor);
                 }
 
                 if (view is IAMLEditorViewCollection multipleView)

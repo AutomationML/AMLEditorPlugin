@@ -34,13 +34,23 @@
         </DataTemplate>
     </mah:MetroWindow.IconTemplate>
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
+
+
+        <Grid.RowDefinitions>           
             <RowDefinition />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <Border BorderBrush="{DynamicResource MahApps.Brushes.SubMenu.Border}" BorderThickness="0,0,0,1">
+        <Grid>
+
+            <Grid.LayoutTransform>
+                <ScaleTransform ScaleX="{Binding ElementName=LayoutTransformSlider, Path=Value}" ScaleY="{Binding ElementName=LayoutTransformSlider, Path=Value}" />
+            </Grid.LayoutTransform>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Border BorderBrush="{DynamicResource MahApps.Brushes.SubMenu.Border}" BorderThickness="0,0,0,1">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
@@ -129,13 +139,12 @@
         <avalon:DockingManager
             x:Name="Docking"
             Grid.Row="1"
-            Margin="4"
+            Margin="4" 
             AnchorablesSource="{Binding Source={x:Static viewModel:MainViewModel.Properties}}"
             DocumentsSource="{Binding Source={x:Static viewModel:MainViewModel.Documents}}"
             Theme="{Binding SelectedAvalonTheme}">
-            <avalon:DockingManager.LayoutTransform>
-                <ScaleTransform ScaleX="{Binding ElementName=LayoutTransformSlider, Path=Value}" ScaleY="{Binding ElementName=LayoutTransformSlider, Path=Value}" />
-            </avalon:DockingManager.LayoutTransform>
+         
+            
             <DockingManager.LayoutItemTemplateSelector>
                 <converter:PanesTemplateSelector>
                     <converter:PanesTemplateSelector.LibraryViewTemplate>
@@ -187,6 +196,20 @@
             </avalon:DockingManager.LayoutUpdateStrategy>
 
             <avalon:LayoutRoot>
+
+                <avalon:LayoutPanel x:Name="DocumentPanel" Orientation="Horizontal">
+                    <avalon:LayoutPanel x:Name="AMLDocumentPanel" Orientation="Vertical">                       
+                    </avalon:LayoutPanel>
+                </avalon:LayoutPanel>
+                <avalon:LayoutRoot.FloatingWindows>
+                    <avalon:LayoutAnchorableFloatingWindow x:Name="Floating">
+                        <avalon:LayoutAnchorablePaneGroup>
+                            <avalon:LayoutAnchorablePane  x:Name="FloatingPane"  />
+                        </avalon:LayoutAnchorablePaneGroup>
+                    </avalon:LayoutAnchorableFloatingWindow>
+                </avalon:LayoutRoot.FloatingWindows>
+
+
                 <avalon:LayoutRoot.LeftSide>
                     <avalon:LayoutAnchorSide>
                         <avalon:LayoutAnchorGroup x:Name="LeftTabSide" />
@@ -210,32 +233,10 @@
                         <avalon:LayoutAnchorGroup x:Name="BottomTabSide" />
                     </avalon:LayoutAnchorSide>
                 </avalon:LayoutRoot.BottomSide>
-
-                <avalon:LayoutPanel x:Name="DocumentPanel" Orientation="Horizontal">
-                    <avalon:LayoutPanel x:Name="AMLDocumentPanel" Orientation="Vertical">
-                        <avalon:LayoutDocumentPaneGroup x:Name="TopDocumentGroup">
-                            <avalon:LayoutDocumentPane x:Name="IHDocumentPane" />
-                            <avalon:LayoutDocumentPane x:Name="SUCDocumentPane" />
-                            <avalon:LayoutDocumentPane x:Name="DocumentPane" />
-                        </avalon:LayoutDocumentPaneGroup>
-                        <avalon:LayoutDocumentPaneGroup x:Name="BottomDocumentGroup">
-                            <avalon:LayoutDocumentPane x:Name="RCPane" />
-                            <avalon:LayoutDocumentPane x:Name="ICPane" />
-                            <avalon:LayoutDocumentPane x:Name="ATPane" />
-                        </avalon:LayoutDocumentPaneGroup>
-                    </avalon:LayoutPanel>
-                </avalon:LayoutPanel>
-                <avalon:LayoutRoot.FloatingWindows>
-                    <avalon:LayoutAnchorableFloatingWindow x:Name="Floating">
-                        <avalon:LayoutAnchorablePaneGroup>
-                            <avalon:LayoutAnchorablePane x:Name="FloatingPane" />
-                        </avalon:LayoutAnchorablePaneGroup>
-                    </avalon:LayoutAnchorableFloatingWindow>
-                </avalon:LayoutRoot.FloatingWindows>
             </avalon:LayoutRoot>
         </avalon:DockingManager>
-
-        <StatusBar Grid.Row="2">
+        </Grid>
+        <StatusBar Grid.Row="1">
             <StatusBarItem>
 
                 <StackPanel Orientation="Horizontal">
@@ -246,7 +247,7 @@
                         VerticalAlignment="Center"
                         LargeChange="0.1"
                         Maximum="2"
-                        Minimum="0.60"
+                        Minimum="0.80"
                         SmallChange="0.05"
                         Style="{StaticResource MahApps.Styles.Slider}"
                         Value="{Binding ZoomFactor, UpdateSourceTrigger=PropertyChanged}" />

@@ -24,7 +24,7 @@
         </ResourceDictionary>
     </aml:PluginControlBase.Resources>
 
-    <ScrollViewer>
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
         <Grid>
             <Border
                 Background="{DynamicResource MahApps.Brushes.Flyout.Background}"

@@ -39,7 +39,7 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
 
         private string _selectedTheme = "Light";
 
-        private double _zoom = 1;
+        private double _zoom = 1.0;
 
         #endregion Fields
 
@@ -55,7 +55,11 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
             }
             Properties.Add(ActiveDocumentViewModel.AttributeTree);
             SetTheme();
+
+            Instance = this;
         }
+
+        public static MainViewModel Instance { get; set; }
 
         private void SetTheme()
         {
@@ -145,7 +149,22 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
         public double ZoomFactor
         {
             get => _zoom;
-            set => Set(ref _zoom, value);
+            set 
+            {
+                if ( Set(ref _zoom, value) )
+                {
+                    PropagateZoomToPlugins();
+                }
+            }
+        }
+
+
+        internal void PropagateZoomToPlugins()
+        {
+            foreach (var plugin in Plugins.Where(p => p.Plugin is ISupportsUIZoom))
+            {
+                (plugin.Plugin as ISupportsUIZoom).OnUIZoomChanged(ZoomFactor);
+            }
         }
 
         #endregion Properties

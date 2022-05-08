@@ -15,6 +15,7 @@ namespace Aml.Editor.Plugin.Sandbox.Converter
 
         public void AfterInsertAnchorable(LayoutRoot layout, LayoutAnchorable anchorableShown)
         {
+           
         }
 
         public void AfterInsertDocument(LayoutRoot layout, LayoutDocument anchorableShown)
@@ -261,6 +262,7 @@ namespace Aml.Editor.Plugin.Sandbox.Converter
             var panel = (pane.ChildrenCount > childIndex)
                                 ? pane.Children[childIndex] as LayoutDocumentPane
                                 : AddLayoutItem(pane, () => new LayoutDocumentPane()) as LayoutDocumentPane;
+            
             panel.Children.Add(content);
         }
 
@@ -303,8 +305,9 @@ namespace Aml.Editor.Plugin.Sandbox.Converter
             if (amlDocumentPanel == null)
             {
                 amlDocumentPanel = mainDocumentPanel.Descendents().OfType<LayoutPanel>().First();
-            }
+            }   
         }
+
 
         private LayoutDocumentPane PluginDocumentPane(LayoutPanel layoutPanel)
         {
