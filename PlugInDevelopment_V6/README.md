@@ -76,7 +76,8 @@ The examples show different aspects of plug-in development. The plug-in contract
 
     <img src="img\Collada.png" alt="Collada" style="zoom:80%;" />
     
-    
+
+The 3D Viewer is created using the [HelixToolkit.SharpDX](https://github.com/helix-toolkit/helix-toolkit). The used 3D COLLADA Robot models are provided by [COLLADA 1.5 robot repository](https://github.com/rdiankov/collada_robots).
 
 ### Publishing
 
