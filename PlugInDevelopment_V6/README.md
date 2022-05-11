@@ -64,7 +64,7 @@ The examples show different aspects of plug-in development. The plug-in contract
     
 
 - `Aml.Editor.Plugin.Collada`
-  This example shows how a plugin processes the selection of an object that references an external COLLADA file. This plugin das dependencies to other packages which are effected by the <EnableDynamicLoading>true</EnableDynamicLoading> element. The implemented contracts are:
+  This example shows how a plugin processes the selection of an object that references an external COLLADA file. This plugin das dependencies to other packages which are effected by the `<EnableDynamicLoading>true</EnableDynamicLoading>` element. The implemented contracts are:
 
   - `ISupportsThemes`
 
@@ -80,9 +80,9 @@ The examples show different aspects of plug-in development. The plug-in contract
 
 ### Publishing
 
-If you want to share the created plug-in for third party use you need to create a package. In between the `<PropertyGroup>` tags of the project file, the <EnableDynamicLoading>true</EnableDynamicLoading> element has to be added. It prepares the project so that it can be used as a plugin. Among other  things, this will copy all of its dependencies to the output of the  project.
+If you want to share the created plug-in for third party use you need to create a package. In between the `<PropertyGroup>` tags of the project file, the `<EnableDynamicLoading>true</EnableDynamicLoading>` element has to be added. It prepares the project so that it can be used as a plugin. Among other  things, this will copy all of its dependencies to the output of the  project.
 
-Packages referenced by the AutomationML Editor should have the  <ExcludeAssets>runtime</ExcludeAssets> element added to the Package reference tag. This will not include the shared packages into the package.
+Packages referenced by the AutomationML Editor should have the  `<ExcludeAssets>runtime</ExcludeAssets>` element added to the Package reference tag. This will not include the shared packages into the package.
 
 The Tag *AMLEditorPlugin* has to be added to the package tag names. This ensures, that the Package Manager can find the plugin in a provided package repository and can offer it to other users.
 
