@@ -20,12 +20,25 @@
   <ItemGroup>
     <None Remove="AML.png" />
     <None Remove="Plugin.png" />
+    <None Remove="Resources\kr360.dae" />
+    <None Remove="Resources\Robots.aml" />
+    <None Remove="Resources\youbot.dae" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\kr360.dae" />
+    <EmbeddedResource Include="Resources\Robots.aml" />
+    <EmbeddedResource Include="Resources\youbot.dae" />
   </ItemGroup>
 
 		
   <ItemGroup>
-	<PackageReference Include="HelixToolkit.SharpDX.Assimp" Version="2.20.2" GeneratePathProperty="true"  />
-    <PackageReference Include="HelixToolkit.SharpDX.Core.Wpf" Version="2.20.2" GeneratePathProperty="true"/>
+	<PackageReference Include="Aml.Editor.API" Version="1.1.0" >
+		<Private>false</Private>
+		<ExcludeAssets>runtime</ExcludeAssets>
+	</PackageReference>
+	<PackageReference Include="HelixToolkit.SharpDX.Assimp" Version="2.20.2" GeneratePathProperty="true" />
+    <PackageReference Include="HelixToolkit.SharpDX.Core.Wpf" Version="2.20.2" GeneratePathProperty="true" />
 	<PackageReference Include="Aml.Editor.Plugin.Contract" Version="3.0.5">
 		<Private>false</Private>
 		<ExcludeAssets>runtime</ExcludeAssets>

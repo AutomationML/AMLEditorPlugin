@@ -55,7 +55,7 @@ The examples show different aspects of plug-in development. The plug-in contract
     
 
 - `Aml.Editor.Plugin.Window`
-  This plugin creates a separate main window that is not integrated into the UI layout of the editor. this window reacts to the UI scaling of the editor. The implemented contracts are:
+  This plugin creates a separate main window that is not integrated into the UI layout of the editor. This window reacts to the UI scaling of the editor. The implemented contracts are:
 
   - `ISupportsThemes`
 
@@ -72,8 +72,10 @@ The examples show different aspects of plug-in development. The plug-in contract
 
   - `IAMLEditorExternalsPlugin`
 
-  - `IEditorCommanding`
+  - [Aml.Editor.API](https://www.nuget.org/packages/Aml.Editor.API/) is used
 
+    <img src="img\Collada.png" alt="Collada" style="zoom:80%;" />
+    
     
 
 ### Publishing

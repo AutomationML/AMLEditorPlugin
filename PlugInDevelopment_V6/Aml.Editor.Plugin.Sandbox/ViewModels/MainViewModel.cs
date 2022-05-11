@@ -12,6 +12,7 @@ using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
@@ -298,6 +299,8 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
             ? ApplicationTheme.RoyalDark
             : ApplicationTheme.RoyalLight;
 
+        public MainWindow View { get; internal set; }
+
         internal void ChangeThemeForPlugIn(ApplicationTheme name, ISupportsThemes view = null)
         {
             if (view != null)
@@ -353,25 +356,87 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
 
                 if (!string.IsNullOrEmpty(pextern.MIMEType))
                 {
-                    if ((pextern.MIMEType != RelationshipType.PLCopenXml.MimeType ||
-                         !et.IsPLCopenXMLInterface()) &&
-                        (pextern.MIMEType != RelationshipType.Collada.MimeType ||
-                         !et.IsCOLLADAInterface()))
+                    var mimeTypes = pextern.MIMEType.Split(';');
+
+                    // is vali
+                    bool isValid = (mimeTypes.Contains(RelationshipType.PLCopenXml.MimeType) && et.IsPLCopenXMLInterface())
+                                   || (mimeTypes.Contains(RelationshipType.Collada.MimeType) && et.IsCOLLADAInterface());
+
+                    // check for other mime types
+                    if (!isValid)
+                    {
+                        var mimeTypeAt = aml.Attribute.FirstOrDefault(a => a.IsMIMEType());
+                        isValid = (mimeTypeAt != null && mimeTypes.Contains(mimeTypeAt.Value));
+                    }
+
+                    if (!isValid)
                     {
                         continue;
                     }
-
-                    //pextern.ViewExternal(aml.RefURIAttribute, AMLContainerEditor.FilePathFromValue(
-                    //    aml.RefURIAttribute.FilePath,
-                    //    AMLContainerEditor.DocumentUri(CAEXDocument)));
-                }
-                else
-                {
-                    //pextern.ViewExternal(aml.RefURIAttribute, AMLContainerEditor.FilePathFromValue(
-                    //    aml.RefURIAttribute.FilePath,
-                    //    AMLContainerEditor.DocumentUri(CAEXDocument)));
-                }
+                    
+                }                 
+                pextern.ViewExternal(aml.RefURIAttribute, FilePathFromValue(
+                    aml.RefURIAttribute.FilePath,
+                    DocumentUri(ActiveDocument.Document)));
             }
+        }
+
+        private static string FilePathFromValue(string path, Uri documentBaseURI)
+        {
+            if (string.IsNullOrEmpty(path))
+            {
+                return string.Empty;
+            }
+
+            path = path.TrimStart('/');
+
+            if (!Uri.TryCreate(path, UriKind.RelativeOrAbsolute, out Uri fileUri))
+            {
+                return string.Empty;
+            }
+
+            // use the relative path
+            if (!fileUri.IsAbsoluteUri && documentBaseURI != null &&
+                !Uri.TryCreate(Path.GetFullPath(Path.Combine(documentBaseURI.LocalPath, path)),
+                    UriKind.RelativeOrAbsolute, out fileUri))
+            {
+                return string.Empty;
+            }
+
+            if (!fileUri.IsAbsoluteUri || !fileUri.Scheme.Equals("file", StringComparison.InvariantCultureIgnoreCase))
+            {
+                return string.Empty;
+            }
+
+            if (string.IsNullOrEmpty(fileUri.LocalPath))
+            {
+                return string.Empty;
+            }
+
+            return File.Exists(fileUri.LocalPath) ? fileUri.LocalPath : string.Empty;
+        }
+        private static Uri DocumentUri(CAEXDocument document)
+        {
+            string documentPath = document.FilePath;
+            if (string.IsNullOrEmpty(documentPath))
+            {
+                return null;
+            }
+
+            string documentDirectory = Path.GetDirectoryName(documentPath);
+            if (string.IsNullOrEmpty(documentDirectory))
+            {
+                return null;
+            }
+
+            _ = Uri.TryCreate(documentDirectory, UriKind.Absolute, out Uri documentBaseURI);
+
+            if (documentBaseURI == null)
+            {
+                _ = MessageBox.Show($"Could not create a Document URI {documentDirectory}");
+            }
+
+            return documentBaseURI;
         }
 
         internal void OpenDocument(string filePath)

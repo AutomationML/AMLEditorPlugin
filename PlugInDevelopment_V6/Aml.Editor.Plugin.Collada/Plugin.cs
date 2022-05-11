@@ -1,4 +1,5 @@
 ﻿using Aml.Editor.Plugin.Base;
+using Aml.Editor.Plugin.Collada.ViewModels;
 using Aml.Editor.Plugin.Contract.Theming;
 using Aml.Editor.Plugin.Contracts;
 using Aml.Editor.Plugin.Contracts.Commanding;
@@ -12,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using static Aml.Engine.AmlObjects.AutomationMLContainer;
 
 namespace Aml.Editor.Plugin.Window
 {
@@ -24,11 +26,12 @@ namespace Aml.Editor.Plugin.Window
     [ExportMetadata("Description",
         "This plugin does not provide a dockable view but implements its own main window to visualize collada models .")]
     [Export(typeof(IAMLEditorPlugin))]
-    public class Plugin : PluginBase, ISupportsUIZoom, ISupportsThemes, IEditorCommanding, IAMLEditorExternalsPlugin
+    public class Plugin : PluginBase, ISupportsUIZoom, ISupportsThemes, IAMLEditorExternalsPlugin
     {
         private PluginView _mainWindow;
         private ApplicationTheme _currentThem;
         private double _zoom = 1.0;
+        private string _last;
 
         public Plugin()
         {
@@ -38,8 +41,7 @@ namespace Aml.Editor.Plugin.Window
         protected override void ActivateCommandExecute(object parameter)
         {
             base.ActivateCommandExecute(parameter);
-            _mainWindow = new PluginView();
-            _mainWindow.ZoomFactor = _zoom;
+            _mainWindow = new PluginView(_zoom);
             _mainWindow.Closed += OnMainWindowClosed;
             _mainWindow.Show();
             OnThemeChanged (_currentThem);  
@@ -48,6 +50,7 @@ namespace Aml.Editor.Plugin.Window
         protected override void TerminateCommandExecute(object parameter)
         {
             base.TerminateCommandExecute(parameter);
+            _last  =null;
             if (parameter is bool isClosing && isClosing)
             {
                 return;
@@ -69,14 +72,13 @@ namespace Aml.Editor.Plugin.Window
 
         public override string PackageName => "Aml.Editor.Plugin.Window";
 
-        public CommandExecution EditorCommand { get; set; }
+        public bool IsExternalsViewer => true;
 
-        public bool IsExternalsViewer => throw new NotImplementedException();
-
-        public string MIMEType => throw new NotImplementedException();
+        public string MIMEType => RelationshipType.Collada.MimeType;
 
         public override void ChangeAMLFilePath(string amlFilePath)
         {
+            _last = null;
         }
 
         public override void ChangeSelectedObject(CAEXBasicObject selectedObject)
@@ -85,13 +87,14 @@ namespace Aml.Editor.Plugin.Window
 
         public override void PublishAutomationMLFileAndObject(string amlFilePath, CAEXBasicObject selectedObject)
         {
+            _last = null;
         }
 
         public void OnUIZoomChanged(double zoomFactor)
         {
-            if (_mainWindow != null)
+            if (_mainWindow?.DataContext is PluginViewModel vm)
             {
-                _mainWindow.ZoomFactor = zoomFactor;
+                vm.ZoomFactor = zoomFactor;
             }
             _zoom = zoomFactor;
         }
@@ -119,12 +122,20 @@ namespace Aml.Editor.Plugin.Window
 
         public void ViewExternal(RefURIAttributeType attribute, string filePath)
         {
-            throw new NotImplementedException();
+            if (_last == filePath)
+            {
+                return;
+            }
+            _last = filePath;
+            if (_mainWindow?.DataContext is PluginViewModel vm)
+            {
+                vm.ImportGeometry(filePath, _mainWindow.view3D);
+            }
         }
 
         public void ViewExternal(RefURIAttributeType attribute, Stream memoryStream)
         {
-            throw new NotImplementedException();
+            // only supported, when used with AML Editor
         }
     }
 }

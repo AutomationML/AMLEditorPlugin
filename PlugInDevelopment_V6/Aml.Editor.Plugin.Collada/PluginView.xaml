@@ -2,11 +2,11 @@
     x:Class="Aml.Editor.Plugin.Window.PluginView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:hx="http://helix-toolkit.org/wpf/SharpDX"
     xmlns:PresentationOptions="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
     xmlns:aml="http://www.automationml.org/amlPlugin"
     xmlns:amlTree="http://www.automationml.org/amlTool/"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:hx="http://helix-toolkit.org/wpf/SharpDX"
     xmlns:local="clr-namespace:Aml.Editor.Plugin.Window"
     xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -49,26 +49,61 @@
         <ToolBar Grid.Row="0">
             <Button
                 x:Name="LoadBtn"
-                Click="LoadBtn_Click" ToolTip="Load Example File"
-                Style="{StaticResource MahApps.Styles.Button.ToolBar}">
-                <Image Source="{StaticResource AMLFileIcon}" />
+                Click="LoadBtn_Click"
+                Style="{StaticResource MahApps.Styles.Button.ToolBar}"
+                ToolTip="Load Example File">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Foreground="{DynamicResource MahApps.Brushes.ThemeForeground}" Background="Transparent" Padding="1,0" Margin="1,0" Text="Load example"></TextBlock>
+                    <Image  Source="{StaticResource AMLFileIcon}" />
+                    
+                </StackPanel>
+                
             </Button>
         </ToolBar>
 
-        <hx:Viewport3DX Grid.Row="1">
-            
+        <Border  Grid.Row="1">
+        <hx:Viewport3DX
+            x:Name="view3D"
+            Margin="5"
+            Camera="{Binding Camera}"
+            CameraMode="Inspect" ZoomExtentsWhenLoaded="True"
+            CameraRotationMode="Trackball" 
+            EffectsManager="{Binding EffectsManager}"
+            FXAALevel="Low">
+            <hx:Viewport3DX.InputBindings>
+                <KeyBinding Key="B" Command="hx:ViewportCommands.BackView" />
+                <KeyBinding Key="F" Command="hx:ViewportCommands.FrontView" />
+                <KeyBinding Key="U" Command="hx:ViewportCommands.TopView" />
+                <KeyBinding Key="D" Command="hx:ViewportCommands.BottomView" />
+                <KeyBinding Key="L" Command="hx:ViewportCommands.LeftView" />
+                <KeyBinding Key="R" Command="hx:ViewportCommands.RightView" />
+                <KeyBinding Command="hx:ViewportCommands.ZoomExtents" Gesture="Control+E" />
+                <MouseBinding Command="hx:ViewportCommands.Rotate" Gesture="RightClick" />
+                <MouseBinding Command="hx:ViewportCommands.Zoom" Gesture="MiddleClick" />
+                <MouseBinding Command="hx:ViewportCommands.Pan" Gesture="LeftClick" />
+            </hx:Viewport3DX.InputBindings>
+            <hx:AmbientLight3D Color="#363636" />
+            <hx:DirectionalLight3D Direction="{Binding Camera.LookDirection}" Color="#D6D6D6" />
+            <hx:EnvironmentMap3D IsRendering="{Binding RenderEnvironmentMap}" 
+                                 Texture="{Binding EnvironmentMap}" />
+            <hx:Element3DPresenter Content="{Binding GroupModel}" />
+            <hx:PostEffectMeshBorderHighlight EffectName="highlight" />
         </hx:Viewport3DX>
-        <ScrollViewer
-            Grid.Row="2" 
-            VerticalScrollBarVisibility="Auto">
+        </Border>
+        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
 
             <Border
-                Margin="5" MaxHeight="150"
+                MaxHeight="150"
+                Margin="5"
                 Background="{DynamicResource MahApps.Brushes.Flyout.Background}"
                 BorderBrush="{DynamicResource MahApps.Brushes.Flyout.Foreground}"
                 BorderThickness="1">
                 <TextBlock Margin="20" TextWrapping="Wrap">
-                    <Run>This plugin can visualize externally referenced contents of an AutomationML document. Here the reference to a COLLADA document is detected and the 3D geometry is displayed. An example document with the 3D model of a robot can be loaded via the command interface.</Run>
+                    <Run>This plugin can visualize externally referenced contents of an AutomationML document.
+                        Here the reference to a COLLADA document is detected and the 3D geometry is displayed. 
+                        An example document with the 3D model of a robot is embedded and is loaded using the 
+                        Aml.Editor.API package. To display the 3d model, the referencing interface is selected 
+                        by an API method call. To change the model select another collada interface in the editor.</Run>
                     <LineBreak />
                     <LineBreak />
                     <Run>This plugin creates its own main window and is not included in the editor's docking manager. The window is displayed in the same scale as the editor's windows and also reacts to the change of the display style.</Run>

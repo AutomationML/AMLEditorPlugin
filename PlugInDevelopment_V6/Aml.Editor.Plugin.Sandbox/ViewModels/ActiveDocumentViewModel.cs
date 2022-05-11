@@ -4,6 +4,7 @@
 using Aml.Editor.MVVMBase;
 using Aml.Editor.Plugin.Contracts;
 using Aml.Engine.CAEX;
+using Aml.Engine.CAEX.Extensions;
 using Aml.Toolkit.ViewModel;
 using Microsoft.Win32;
 using System.Collections.Generic;
@@ -117,6 +118,36 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
                 }
                 inUse = false;
             }
+        }
+
+        internal AMLNodeViewModel Select(CAEXObject caexObject, bool select=true)
+        {
+            var lib = caexObject.Library();
+            switch (lib)
+            {
+                case InstanceHierarchyType:
+                    return InstanceHierarchy.SelectCaexNode (caexObject.Node, select, true,true);
+                    
+                case RoleClassLibType:
+                    return RoleClassLib.SelectCaexNode(caexObject.Node, select, true, true);
+                    
+                case SystemUnitClassLibType:
+                    return SystemUnitClassLib.SelectCaexNode(caexObject.Node, select, true, true);
+                    
+                case InterfaceClassLibType:
+                    return InterfaceClassLib.SelectCaexNode(caexObject.Node, select, true, true);
+                   
+                case AttributeTypeLibType:
+                    return AttributeTypeLib.SelectCaexNode(caexObject.Node, select, true, true);
+                default:
+                    return null;
+            }
+        }
+
+        internal void Expand(CAEXObject caexObject)
+        {
+            var item = Select (caexObject, false);
+            item?.ExpandAllCommand.Execute (caexObject);
         }
 
         internal static void Activate(string displayName)

@@ -1,6 +1,6 @@
-﻿<CAEXFile SchemaVersion="3.0" FileName="D:\Daten\Git\AMLEditorPlugin\PlugInDevelopment_V6\Aml.Editor.Plugin.Collada\Resources\Robots.aml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.dke.de/CAEX" xsi:schemaLocation="http://www.dke.de/CAEX CAEX_ClassModel_V.3.0.xsd">
+﻿<CAEXFile SchemaVersion="3.0" FileName="Robots.aml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.dke.de/CAEX" xsi:schemaLocation="http://www.dke.de/CAEX CAEX_ClassModel_V.3.0.xsd">
   <SuperiorStandardVersion>AutomationML 2.10</SuperiorStandardVersion>
-  <SourceDocumentInformation OriginName="AutomationML Editor" OriginID="916578CA-FE0D-474E-A4FC-9E1719892369" OriginVersion="6.0.1.0" LastWritingDateTime="2022-05-08T09:00:04.3259926+02:00" OriginProjectID="unspecified" OriginProjectTitle="unspecified" OriginRelease="6.0.1.0" OriginVendor="AutomationML e.V." OriginVendorURL="www.AutomationML.org" />
+  <SourceDocumentInformation OriginName="AutomationML Editor" OriginID="916578CA-FE0D-474E-A4FC-9E1719892369" OriginVersion="6.0.0.0" LastWritingDateTime="2022-05-10T21:54:48.219254+02:00" OriginProjectID="unspecified" OriginProjectTitle="unspecified" OriginRelease="6.0.0.0" OriginVendor="AutomationML e.V." OriginVendorURL="www.AutomationML.org" />
   <InterfaceClassLib Name="AutomationMLInterfaceClassLib">
     <Description>Standard Automation Markup Language Interface Class Library</Description>
     <Version>2.10.0</Version>
@@ -64,6 +64,15 @@
         <ExternalInterface Name="CADModel" ID="a429a490-c4c0-4835-bd03-e6f3f66ed4e0" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/ExternalDataConnector/COLLADAInterface">
           <Attribute Name="refURI" AttributeDataType="xs:anyURI" RefAttributeType="AutomationMLBaseAttributeTypeLib/refURI">
             <Value>kr360.dae</Value>
+          </Attribute>
+        </ExternalInterface>
+      </InternalElement>
+    </SystemUnitClass>
+    <SystemUnitClass Name="Youbot" ID="424cbbdb-e4b1-40f6-b30e-d71279238d36">
+      <InternalElement Name="Robot" ID="2fed2c15-0b42-4f91-9e77-5738d0537976">
+        <ExternalInterface Name="CADModel" ID="7f5e6211-0fd8-473a-821b-efcadf07061b" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/ExternalDataConnector/COLLADAInterface">
+          <Attribute Name="refURI" AttributeDataType="xs:anyURI" RefAttributeType="AutomationMLBaseAttributeTypeLib/refURI">
+            <Value>youbot.dae</Value>
           </Attribute>
         </ExternalInterface>
       </InternalElement>

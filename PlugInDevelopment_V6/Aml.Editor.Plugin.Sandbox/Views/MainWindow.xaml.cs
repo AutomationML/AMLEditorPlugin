@@ -1,6 +1,7 @@
 ﻿// Copyright (c) 2022 AutomationML and Contributors. All rights reserved.
 // Licensed to the AutomationML association under one or more agreements.
 // The AutomationML association licenses this file to you under the MIT license.
+using Aml.Editor.API;
 using Aml.Editor.Plugin.Contracts;
 using Aml.Editor.Plugin.Contracts.Commanding;
 using Aml.Editor.Plugin.Sandbox.Converter;
@@ -10,6 +11,7 @@ using Aml.Engine.CAEX.Extensions;
 using System;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -30,10 +32,18 @@ namespace Aml.Editor.Plugin.Sandbox
             InitializeComponent();
             _mainModel = new MainViewModel();
             _mainModel.PluginFolderChanged += _mainModel_PluginFolderChanged;
+            _mainModel.View = this;
             DataContext = _mainModel;
             Docking.Layout.FloatingWindows.CollectionChanged += FloatingWindows_CollectionChanged;
             Loaded += MainWindowLoaded;
+
+            ViewModels.CommandExecution.InitCommandExecution();
+
         }
+
+        public delegate void CommandInvocationEventHandler(object x, Aml.Editor.API.Commanding.CommandExecutionEventArgs y);
+
+
 
         private void FloatingWindows_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
