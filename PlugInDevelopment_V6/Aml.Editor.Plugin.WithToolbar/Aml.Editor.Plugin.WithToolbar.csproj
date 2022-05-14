@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-	  <PackageReference Include="Aml.Editor.Plugin.Contract" Version="3.0.5">
+	  <PackageReference Include="Aml.Editor.Plugin.Contract" Version="3.0.6">
 		<Private>false</Private>
 		<ExcludeAssets>runtime</ExcludeAssets>
 	  </PackageReference>
@@ -29,7 +29,7 @@
 		<Private>false</Private>
 		<ExcludeAssets>runtime</ExcludeAssets>
 	  </PackageReference>
-	  <PackageReference Include="Aml.Engine.Services" Version="2.0.4" >
+	  <PackageReference Include="Aml.Engine.Services" Version="2.0.4">
 		<Private>false</Private>
 		<ExcludeAssets>runtime</ExcludeAssets>
 	  </PackageReference>

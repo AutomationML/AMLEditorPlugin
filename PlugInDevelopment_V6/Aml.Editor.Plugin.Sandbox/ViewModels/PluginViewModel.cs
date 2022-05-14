@@ -75,16 +75,9 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
 
         internal void Activate(string displayName)
         {
-            if (displayName == Plugin.DisplayName)
+            if (Plugin is INotifyViewActivation iView)
             {
-                IsActive = true;
-            }
-            foreach (var child in Children)
-            {
-                if (child.Plugin.DisplayName == displayName)
-                {
-                    child.IsActive = true;
-                }
+                iView.Activate (displayName);
             }
         }
 
@@ -130,9 +123,9 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
             {
                 if (Set(ref _isActive, value))
                 {
-                    if (value && Plugin is INotifyViewActivation)
+                    if (value && Plugin is INotifyViewActivation iNotify)
                     {
-                        ActiveDocumentViewModel.Activate(Plugin.DisplayName);
+                        iNotify.Activate(Plugin.DisplayName);
                     }
                 }
             }

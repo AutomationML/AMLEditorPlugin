@@ -25,6 +25,8 @@ namespace Aml.Editor.Plugin.MultiView
                 new Uri("pack://application:,,,/Aml.Editor.Plugin.MultiView;component/Plugin.png"));
         }
 
+        public event ViewActivatedEventHandler ViewActivated;
+
         private void PluginView_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (e.NewValue is AMLTreeViewModel model)
@@ -35,7 +37,10 @@ namespace Aml.Editor.Plugin.MultiView
 
         public void Activate(string viewName)
         {
-            //no action
+            if (viewName == DisplayName)
+            {
+                ViewActivated?.Invoke(this, new ViewActivationEventArgs(this.DisplayName));
+            }
         }
 
         public void OnThemeChanged(ApplicationTheme theme)

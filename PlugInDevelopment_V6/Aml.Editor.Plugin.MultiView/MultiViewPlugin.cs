@@ -70,6 +70,8 @@ namespace Aml.Editor.Plugin.MultiView
         // not used
         public event EventHandler<CAEXDocument> IsDocumentLoaded;
 
+        public event ViewActivatedEventHandler ViewActivated;
+
         /// <summary>
         /// The file is reloaded into an AutomationML document which represents a duplicate of the
         /// open document of the editor.
@@ -113,7 +115,15 @@ namespace Aml.Editor.Plugin.MultiView
 
         public void Activate(string viewName)
         {
-            // no action
+           foreach (var view in this)
+           {
+                // local views are defined with identical display names than editor views
+                // the parallel view should be activated by the editor
+                if (view.DisplayName == viewName)
+                {
+                    ViewActivated?.Invoke(view, new ViewActivationEventArgs("") );
+                }
+           }
         }
 
         public void ApplicationClose()
@@ -140,7 +150,11 @@ namespace Aml.Editor.Plugin.MultiView
 
         public void Add(IAMLEditorView item) => _views.Add(item);
 
-        public void Clear() => _views.Clear();
+        public void Clear()
+        { 
+            _views.Clear();
+            _viewModel.ActiveDocument = null;
+        }
 
         public bool Contains(IAMLEditorView item) => _views.Contains(item);
 

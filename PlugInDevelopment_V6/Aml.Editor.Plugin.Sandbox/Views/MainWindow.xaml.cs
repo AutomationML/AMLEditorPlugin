@@ -8,6 +8,7 @@ using Aml.Editor.Plugin.Sandbox.Converter;
 using Aml.Editor.Plugin.Sandbox.ViewModels;
 using Aml.Editor.PlugInManager.Loader;
 using Aml.Engine.CAEX.Extensions;
+using AvalonDock.Layout;
 using System;
 using System.IO;
 using System.Linq;
@@ -95,7 +96,13 @@ namespace Aml.Editor.Plugin.Sandbox
                 return;
             }
             plugin.AddView(editorView);
+
+            if (editorView is INotifyViewActivation iNotify)
+            {
+                iNotify.ViewActivated += INotify_ViewActivated;
+            }
         }
+
 
         /// <summary>
         /// Activation handler for a PlugIn
@@ -133,6 +140,11 @@ namespace Aml.Editor.Plugin.Sandbox
                     }));
                 }
 
+                if (view is INotifyViewActivation iNotify)
+                {
+                    iNotify.ViewActivated += INotify_ViewActivated;
+                }
+
                 if (view is IAMLEditorView editorView)
                 {
                     var plugin = _mainModel.Plugins.FirstOrDefault(p => p.Plugin.PackageName == editorView.PackageName);
@@ -167,6 +179,25 @@ namespace Aml.Editor.Plugin.Sandbox
 
                     if (File.Exists(_mainModel.ActiveDocument.FilePath))
                         view.PublishAutomationMLFileAndObject(_mainModel.ActiveDocument.FilePath, _mainModel.CurrentSelectedObject);
+                }
+            }
+        }
+
+        private void INotify_ViewActivated(object sender, ViewActivationEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(e.SynchronActivation))
+            {
+                ActiveDocumentViewModel.Activate(e.SynchronActivation);
+            }
+            else
+            {
+                var plugIns = Docking.Layout.Descendents().OfType<LayoutContent>().
+                        Where(l => l.Content is PluginViewModel);
+
+                if (plugIns.Select(l => l.Content).FirstOrDefault(p => ((PluginViewModel)p).Plugin == sender) is PluginViewModel plug)
+                {
+                    Docking.ActiveContent = plug;
+                    //plug.IsActive = true;
                 }
             }
         }
@@ -349,7 +380,12 @@ namespace Aml.Editor.Plugin.Sandbox
                         if (tb != null)
                         {
                             ToolBarTray.ToolBars.Remove(tb);
-                        }
+}
+}
+
+                    if (sender is INotifyViewActivation iNotify)
+                    {
+                        iNotify.ViewActivated -= INotify_ViewActivated;
                     }
 
                     if (sender is IAMLEditorPlugin plugin)
@@ -363,14 +399,7 @@ namespace Aml.Editor.Plugin.Sandbox
 
                     if (sender is IAMLEditorViewCollection multiViewPlugin)
                     {
-                        foreach (var pview in multiViewPlugin)
-                        {
-                            //var pluginWindow = this.DockingManager.GetPanes(PaneNavigationOrder.ActivationOrder).OfType<PluginWindow>().Where(p => p.Plugin == pview).FirstOrDefault();
-                            //if (pluginWindow != null)
-                            //{
-                            //    pluginWindow.ExecuteCommand(ContentPaneCommands.Close);
-                            //}
-                        }
+                        multiViewPlugin.ViewAdded -= MultipleView_ViewAdded;
                     }
                 }
                 catch
