@@ -1,6 +1,7 @@
 // Copyright (c) 2022 AutomationML and Contributors. All rights reserved.
 // Licensed to the AutomationML association under one or more agreements.
 // The AutomationML association licenses this file to you under the MIT license.
+
 using Aml.Editor.Plugin.Contracts;
 using Aml.Editor.Plugin.Contracts.Commanding;
 using Aml.Editor.Plugin.WPFBase;
@@ -36,7 +37,7 @@ namespace Aml.Editor.Plugin.CallCommand
             IsReactive = true;
 
             PaneImage = new BitmapImage(
-                new Uri("pack://application:,,,/Aml.Editor.Plugin.WithToolbar;component/Plugin.png"));
+                new Uri("pack://application:,,,/Aml.Editor.Plugin.CallCommand;component/Plugin.png"));
         }
 
         #endregion Constructors

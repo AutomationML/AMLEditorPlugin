@@ -17,8 +17,8 @@
                 <ResourceDictionary Source="/MahApps.Metro;component/Styles/Fonts.xaml" />
                 <ResourceDictionary Source="/MahApps.Metro;component/Styles/Themes/Light.Blue.xaml" />
                 <ResourceDictionary Source="/Aml.Skins;component/Themes/Light.Styles.xaml" />
-                <ResourceDictionary Source="/Aml.Toolkit;component/Themes/Generic.xaml" />
-                <ResourceDictionary Source="/Aml.Skins;component/Resources/Icons.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Aml.Toolkit;component/Themes/Generic.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Aml.Skins;component/Resources/Icons.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <DrawingImage x:Key="CloseDocIcon">

@@ -1,6 +1,7 @@
 ﻿// Copyright (c) 2022 AutomationML and Contributors. All rights reserved.
 // Licensed to the AutomationML association under one or more agreements.
 // The AutomationML association licenses this file to you under the MIT license.
+
 using Aml.Editor.Plugin.Contracts;
 using Aml.Engine.CAEX;
 using Aml.Engine.Services;
@@ -21,7 +22,7 @@ namespace Aml.Editor.Plugin.WithToolbar
         private static CAEXBasicObject? _caexBasicObject;
         private static CAEXDocument? _document;
 
-        private static UndoRedoService _undoRedoService;
+        private static IUndoRedo _undoRedoService;
         private static IUniqueName _uniqueNameService;
 
         internal static CAEXBasicObject? SelectedObject
@@ -73,8 +74,12 @@ namespace Aml.Editor.Plugin.WithToolbar
             commands.Add(_delCommand);
             commands.Add(_undoCommand);
 
-            _undoRedoService = UndoRedoService.Register();
-            _uniqueNameService = UniqueNameService.Register();
+            //
+            // check if already registered before register a new service
+            // necessary to avoid conflicts with registered services from the editor
+            //
+            _undoRedoService   = ServiceLocator.GetService<IUndoRedo>()   ?? UndoRedoService.Register();
+            _uniqueNameService = ServiceLocator.GetService<IUniqueName>() ?? UniqueNameService.Register();
         }
 
         private static void DeleteExecute(object obj)
