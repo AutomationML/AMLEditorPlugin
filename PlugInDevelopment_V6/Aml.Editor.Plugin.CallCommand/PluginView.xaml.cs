@@ -86,7 +86,7 @@ namespace Aml.Editor.Plugin.CallCommand
 
         private void CaptureBtn_Click(object sender, RoutedEventArgs e)
         {
-            this.CaptureCommand(out var result);
+            this.CaptureCommand(out _);
             Info.Text = "not supported";
         }
 
@@ -102,7 +102,7 @@ namespace Aml.Editor.Plugin.CallCommand
 
         private void ImportBtn_Click(object sender, RoutedEventArgs e)
         {
-            this.ImportLibraries("", new List<string>(), false, out var result);
+            this.ImportLibraries("", new List<string>(), false, out _);
             Info.Text = "not supported";
         }
 

@@ -391,10 +391,7 @@ namespace Aml.Editor.Plugin.Sandbox
                     if (sender is IAMLEditorPlugin plugin)
                     {
                         var viewModel = _mainModel.Plugins.FirstOrDefault(p => p.Plugin == plugin);
-                        if (viewModel != null)
-                        {
-                            viewModel.Terminate();
-                        }
+                        viewModel?.Terminate();
                     }
 
                     if (sender is IAMLEditorViewCollection multiViewPlugin)

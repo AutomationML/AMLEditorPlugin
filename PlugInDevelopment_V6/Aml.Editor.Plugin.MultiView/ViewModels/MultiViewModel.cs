@@ -18,10 +18,7 @@ namespace Aml.Editor.Plugin.MultiView.ViewModels
             }
             set
             {
-                if (_activeDocument != null)
-                {
-                    _activeDocument.Unload();
-                }
+                _activeDocument?.Unload();
                 _activeDocument = value;
                 RaisePropertyChanged(nameof(ActiveDocument));
             }
