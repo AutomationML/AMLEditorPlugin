@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0-windows</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>disable</Nullable>
     <UseWPF>true</UseWPF>
 	<EnableDynamicLoading>true</EnableDynamicLoading>
@@ -33,25 +33,25 @@
 
 		
   <ItemGroup>
-	<PackageReference Include="Aml.Editor.API" Version="1.1.0">
+	<PackageReference Include="Aml.Editor.API" Version="2.0.0">
 		<Private>false</Private>
 		<ExcludeAssets>runtime</ExcludeAssets>
 	</PackageReference>
-	<PackageReference Include="HelixToolkit.SharpDX.Assimp" Version="2.20.2" GeneratePathProperty="true" />
-    <PackageReference Include="HelixToolkit.SharpDX.Core.Wpf" Version="2.20.2" GeneratePathProperty="true" />
-	<PackageReference Include="Aml.Editor.Plugin.Contract" Version="3.0.6">
+	<PackageReference Include="HelixToolkit.SharpDX.Assimp" Version="2.23.0" GeneratePathProperty="true" />
+    <PackageReference Include="HelixToolkit.SharpDX.Core.Wpf" Version="2.23.0" GeneratePathProperty="true" />
+	<PackageReference Include="Aml.Editor.Plugin.Contract" Version="4.0.0">
 		<Private>false</Private>
 		<ExcludeAssets>runtime</ExcludeAssets>
 	</PackageReference>
-    <PackageReference Include="Aml.Engine" Version="2.0.7">
+    <PackageReference Include="Aml.Engine" Version="3.0.2">
 		<Private>false</Private>
 		<ExcludeAssets>runtime</ExcludeAssets>
 	</PackageReference>
-    <PackageReference Include="Aml.Skins" Version="1.0.4">
+    <PackageReference Include="Aml.Skins" Version="2.0.0">
 		<Private>false</Private>
 		<ExcludeAssets>runtime</ExcludeAssets>
 	</PackageReference>
-    <PackageReference Include="Aml.Toolkit" Version="3.0.4">
+    <PackageReference Include="Aml.Toolkit" Version="4.0.2">
 		<Private>false</Private>
 		<ExcludeAssets>runtime</ExcludeAssets>
 	</PackageReference>
@@ -59,7 +59,7 @@
 		<Private>false</Private>
 		<ExcludeAssets>runtime</ExcludeAssets>
 	</PackageReference>
-    <PackageReference Include="System.ComponentModel.Composition" Version="6.0.0">
+    <PackageReference Include="System.ComponentModel.Composition" Version="7.0.0">
 		<Private>false</Private>
 		<ExcludeAssets>runtime</ExcludeAssets>
 	</PackageReference>

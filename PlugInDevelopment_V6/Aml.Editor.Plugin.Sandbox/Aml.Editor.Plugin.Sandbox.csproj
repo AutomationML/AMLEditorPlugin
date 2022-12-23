@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net5.0-windows</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
     <BaseOutputPath>$(SolutionDir)build</BaseOutputPath>
     <ApplicationIcon>AMLIcon.ico</ApplicationIcon>
@@ -15,18 +15,18 @@
     <Content Include="AMLIcon.ico" />
   </ItemGroup> 
   <ItemGroup>
-    <PackageReference Include="Aml.Editor.API" Version="1.1.0" />
-    <PackageReference Include="Aml.Editor.Plugin.Contract" Version="3.0.6" />
-    <PackageReference Include="Aml.Engine" Version="2.0.7" />
-    <PackageReference Include="Aml.Engine.Services" Version="2.0.4" />
-    <PackageReference Include="Aml.Skins" Version="1.0.4" />
-    <PackageReference Include="Aml.Toolkit" Version="3.0.4" />
-    <PackageReference Include="Dirkster.AvalonDock" Version="4.70.1" />
-    <PackageReference Include="Dirkster.AvalonDock.Themes.VS2013" Version="4.70.1" />
+    <PackageReference Include="Aml.Editor.API" Version="2.0.0" />
+    <PackageReference Include="Aml.Editor.Plugin.Contract" Version="4.0.0" />
+    <PackageReference Include="Aml.Engine" Version="3.0.2" />
+    <PackageReference Include="Aml.Engine.Services" Version="3.0.2" />
+    <PackageReference Include="Aml.Skins" Version="2.0.0" />
+    <PackageReference Include="Aml.Toolkit" Version="4.0.2" />
+    <PackageReference Include="Dirkster.AvalonDock" Version="4.70.3" />
+    <PackageReference Include="Dirkster.AvalonDock.Themes.VS2013" Version="4.70.3" />
     <PackageReference Include="MahApps.Metro" Version="2.4.9" />
     <PackageReference Include="MahApps.Metro.IconPacks" Version="4.11.0" />
     <PackageReference Include="Ookii.Dialogs.Wpf" Version="5.0.1" />
-    <PackageReference Include="System.ComponentModel.Composition" Version="6.0.0" />
+    <PackageReference Include="System.ComponentModel.Composition" Version="7.0.0" />
   </ItemGroup>
 
   <ItemGroup>
