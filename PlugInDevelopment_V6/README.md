@@ -83,11 +83,12 @@ The 3D Viewer is created using the [HelixToolkit.SharpDX](https://github.com/hel
 
 If you want to share the created plug-in for third party use you need to create a package. In between the `<PropertyGroup>` tags of the project file, the `<EnableDynamicLoading>true</EnableDynamicLoading>` element has to be added. It prepares the project so that it can be used as a plugin. Among other  things, this will copy all of its dependencies to the output of the  project.
 
-Packages referenced by the AutomationML Editor should have the  `<ExcludeAssets>runtime</ExcludeAssets>` element added to the Package reference tag. This will not include the shared packages into the package.
+Packages referenced by the AutomationML Editor should have the  `<ExcludeAssets>runtime</ExcludeAssets>` element added to the Package reference tag. This will not include the shared packages into the package. 
 
-The Tag *AMLEditorPlugin* has to be added to the package tag names. This ensures, that the Package Manager can find the plugin in a provided package repository and can offer it to other users.
+The Tag **AMLEditorPlugin.Core** has to be added to the package tag names. This ensures, that the Package Manager can find the plugin in a provided package repository and can offer it to other users.
 
 The *PackageName* of the Plugin shall be unique.
+
 
 
 
