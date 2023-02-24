@@ -10,7 +10,7 @@
     <Copyright>AutomationML 2022</Copyright>
 	<Version>1.0.0</Version>
     <RepositoryUrl>https://github.com/AutomationML/AMLEditorPlugin</RepositoryUrl>
-	  <PackageTags>AMLEditorPlugin; AutomationML</PackageTags>
+	  <PackageTags>AMLEditor; AMLEditorPlugin.Core; AutomationML</PackageTags>
 	  <PackageIcon>AML.png</PackageIcon>
 	  <BaseOutputPath>$(SolutionDir)build\Plugins\$(MSBuildProjectName)</BaseOutputPath>
 	  <PackageReleaseNotes>First version compatible with AutomationML Editor version 6.0</PackageReleaseNotes>
