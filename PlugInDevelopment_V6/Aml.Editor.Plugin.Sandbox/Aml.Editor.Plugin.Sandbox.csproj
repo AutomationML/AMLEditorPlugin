@@ -12,6 +12,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove=".gitignore" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="AMLIcon.ico" />
   </ItemGroup> 
   <ItemGroup>
