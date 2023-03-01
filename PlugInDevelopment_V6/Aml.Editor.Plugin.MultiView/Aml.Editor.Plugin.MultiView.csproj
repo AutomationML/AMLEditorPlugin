@@ -22,19 +22,19 @@
   </ItemGroup>
 
   <ItemGroup>
-	  <PackageReference Include="Aml.Editor.Plugin.Contract" Version="4.0.0">
+	  <PackageReference Include="Aml.Editor.Plugin.Contract" Version="4.0.2">
 		  <Private>false</Private>
 		  <ExcludeAssets>runtime</ExcludeAssets>
 	  </PackageReference>
-    <PackageReference Include="Aml.Engine" Version="3.0.2">
+    <PackageReference Include="Aml.Engine" Version="3.1.1">
 		<Private>false</Private>
 		<ExcludeAssets>runtime</ExcludeAssets>
 	  </PackageReference>
-    <PackageReference Include="Aml.Skins" Version="2.0.0">
+    <PackageReference Include="Aml.Skins" Version="2.0.1">
 		<Private>false</Private>
 		<ExcludeAssets>runtime</ExcludeAssets>
 	  </PackageReference>
-    <PackageReference Include="Aml.Toolkit" Version="4.0.2">
+    <PackageReference Include="Aml.Toolkit" Version="4.0.6">
 		<Private>false</Private>
 		<ExcludeAssets>runtime</ExcludeAssets>
 	  </PackageReference>
