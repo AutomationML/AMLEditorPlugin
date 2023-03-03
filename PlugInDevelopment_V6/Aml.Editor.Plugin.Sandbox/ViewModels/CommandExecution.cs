@@ -1,4 +1,5 @@
 ﻿using Aml.Editor.API;
+using Aml.Engine.CAEX;
 using Aml.Engine.CAEX.Extensions;
 using System;
 using System.ComponentModel;
@@ -78,6 +79,10 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
 
                 case AMLEditorCommandType.ExpandByID:
                     await MainViewModel.Instance.View?.Dispatcher.BeginInvoke(new Action(() => ExpandByID(ed)));
+                    break;
+
+                case AMLEditorCommandType.EditDocument:
+                    await MainViewModel.Instance.View?.Dispatcher.BeginInvoke(new Action(() => EditDocument(ed)));
                     break;
 
                 default:
@@ -160,6 +165,21 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
            
             MainViewModel.Instance.OpenDocument(filePath);           
             args.Document = new AMLDocument(filePath);
+        }
+
+        private void EditDocument(AMLEditorCommandExecutedEventArgs args) {
+            if (AMLEditor.AMLApplication.CancelExecution(
+                new AMLEditorCommandExecutingEventArgs(args.Command, args.CommandArgument, args.Document))) {
+                return;
+            }
+
+            if ( args.CommandArgument is not CAEXDocument document)
+            {
+                return;
+            }
+
+            MainViewModel.Instance.OpenDocument(document);
+            args.Document = new AMLDocument(document.CAEXFile.FileName);
         }
 
         #endregion Private Methods

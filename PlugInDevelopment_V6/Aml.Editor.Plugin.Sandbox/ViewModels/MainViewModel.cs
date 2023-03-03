@@ -449,6 +449,14 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
             };
         }
 
+        internal void OpenDocument(CAEXDocument document) {
+            ActiveDocument = new() {
+                FilePath = document.CAEXFile.FileName,
+                MainModel = this,
+                Document = document,
+            };
+        }
+
         #endregion Methods
     }
 }
