@@ -32,7 +32,7 @@ namespace Aml.Editor.Plugin.Sandbox
         {
             InitializeComponent();
             _mainModel = new MainViewModel();
-            _mainModel.PluginFolderChanged += _mainModel_PluginFolderChanged;
+            _mainModel.PluginFolderChanged += OnPluginFolderChanged;
             _mainModel.View = this;
             DataContext = _mainModel;
             Docking.Layout.FloatingWindows.CollectionChanged += FloatingWindows_CollectionChanged;
@@ -52,7 +52,7 @@ namespace Aml.Editor.Plugin.Sandbox
             _mainModel.RaisePropertyChanged(nameof(MainViewModel.ZoomFactor))));
         }
 
-        private void _mainModel_PluginFolderChanged(object sender, EventArgs e)
+        private void OnPluginFolderChanged(object sender, EventArgs e)
         {
             LoadPlugins();
         }
@@ -61,7 +61,7 @@ namespace Aml.Editor.Plugin.Sandbox
         {
             if (e.SelectedElement.CAEXDocument() == _mainModel.ActiveDocument.Document)
             {
-                _mainModel.Select(e.SelectedElement, true);
+                MainViewModel.Select(e.SelectedElement);
             }
         }
 
@@ -122,6 +122,11 @@ namespace Aml.Editor.Plugin.Sandbox
                 if (view is ISupportsUIZoom zooming)
                 {
                     zooming.OnUIZoomChanged (_mainModel.ZoomFactor);
+                }
+
+                if (view is ISupportsSelection iSelection)
+                {
+                    iSelection.Selected += PlugInSelectionHandler;
                 }
 
                 if (view is IAMLEditorViewCollection multipleView)
@@ -204,10 +209,12 @@ namespace Aml.Editor.Plugin.Sandbox
 
         private void AddToolBar(IToolBarIntegration toolBarIntegration)
         {
-            ToolBar tb = new() { Name = MainViewModel.PluginName(toolBarIntegration.DisplayName), HorizontalAlignment = HorizontalAlignment.Left };
-
-            tb.BandIndex = 2;
-            tb.ToolTip = toolBarIntegration.DisplayName;
+            ToolBar tb = new() {
+                Name = MainViewModel.PluginName(toolBarIntegration.DisplayName),
+                HorizontalAlignment = HorizontalAlignment.Left,
+                BandIndex = 2,
+                ToolTip = toolBarIntegration.DisplayName
+            };
             foreach (var command in toolBarIntegration.ToolBarCommands.OfType<PlugInCommand>())
             {
                 if (command.IsCheckable)

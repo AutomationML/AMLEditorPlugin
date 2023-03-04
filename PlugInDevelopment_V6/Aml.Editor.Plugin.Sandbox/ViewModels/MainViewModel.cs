@@ -6,6 +6,7 @@ using Aml.Editor.Plugin.Contract.Commanding;
 using Aml.Editor.Plugin.Contracts;
 using Aml.Engine.AmlObjects;
 using Aml.Engine.CAEX;
+using Aml.Engine.CAEX.Extensions;
 using Aml.Skins;
 using ControlzEx.Theming;
 using Microsoft.Win32;
@@ -16,6 +17,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using static Aml.Engine.AmlObjects.AutomationMLContainer;
 
 namespace Aml.Editor.Plugin.Sandbox.ViewModels
@@ -136,9 +138,16 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
             }
         }
 
-        internal void Select(ICAEXWrapper selectedElement, bool v)
-        {
-            throw new NotImplementedException();
+        internal static void Select(ICAEXWrapper selectedElement) {
+            var library = selectedElement.Library();
+            var libView = ActiveDocumentViewModel.Libraries.FirstOrDefault(l => l.CAEXTagNames.Contains(library.TagName));
+
+            if (libView == null)
+            {
+                return;
+            }
+
+            libView.SelectCaexNode(selectedElement.Node, true, true, true, false, true);
         }
 
         public List<string> Themes { get; set; } = new()

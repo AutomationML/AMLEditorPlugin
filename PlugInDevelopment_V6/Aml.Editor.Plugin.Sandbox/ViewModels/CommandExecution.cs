@@ -12,7 +12,7 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
     {
         #region Private Fields
         private static CommandExecution Instance;
-        private AMLEditor _amlEditor;
+        private readonly AMLEditor _amlEditor;
         #endregion Private Fields
 
         #region Private Constructors
@@ -49,7 +49,7 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
             }
         }
 
-        private async Task ExecuteEditorCommandAsync(AMLEditorCommandExecutedEventArgs ed)
+        private static async Task ExecuteEditorCommandAsync(AMLEditorCommandExecutedEventArgs ed)
         {
             switch (ed.Command)
             {
@@ -63,7 +63,7 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
 
 
                 case AMLEditorCommandType.SelectByPath:
-                    await MainViewModel.Instance.View?.Dispatcher.BeginInvoke(new Action(() => SelectByPath (ed)));
+                    await MainViewModel.Instance.View?.Dispatcher.BeginInvoke(new Action(() => SelectByPath(ed)));
                     break;
 
 
@@ -91,7 +91,7 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
             AMLEditor.AMLApplication.EndExecution(ed);
         }
 
-        private void CloseDocument(AMLEditorCommandExecutedEventArgs cmd)
+        private static void CloseDocument(AMLEditorCommandExecutedEventArgs cmd)
         {
             if (MainViewModel.Instance.CloseCommand.CanExecute(cmd.Document))
             { 
@@ -99,7 +99,7 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
             }
         }
 
-        internal void ExpandByPath(AMLEditorCommandExecutedEventArgs cmd)
+        internal static void ExpandByPath(AMLEditorCommandExecutedEventArgs cmd)
         {
             if (cmd.CommandArgument is string path && !string.IsNullOrEmpty(path))
             {
@@ -111,7 +111,7 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
             }
         }
 
-        internal void SelectByPath(AMLEditorCommandExecutedEventArgs cmd)
+        internal static void SelectByPath(AMLEditorCommandExecutedEventArgs cmd)
         {
             if (cmd.CommandArgument is string path && !string.IsNullOrEmpty(path))
             {
@@ -124,7 +124,7 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
         }
 
 
-        internal void SelectByID(AMLEditorCommandExecutedEventArgs cmd)
+        internal static void SelectByID(AMLEditorCommandExecutedEventArgs cmd)
         {
             if (cmd.CommandArgument is string path && !string.IsNullOrEmpty(path))
             {
@@ -136,7 +136,7 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
             }
         }
 
-        internal void ExpandByID(AMLEditorCommandExecutedEventArgs cmd)
+        internal static void ExpandByID(AMLEditorCommandExecutedEventArgs cmd)
         {
             if (cmd.CommandArgument is string path && !string.IsNullOrEmpty(path))
             {
@@ -149,7 +149,7 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
         }
 
 
-        private void OpenDocument(AMLEditorCommandExecutedEventArgs args)
+        private static void OpenDocument(AMLEditorCommandExecutedEventArgs args)
         {
             if (AMLEditor.AMLApplication.CancelExecution(
                 new AMLEditorCommandExecutingEventArgs(args.Command, args.CommandArgument, args.Document)))
@@ -167,7 +167,7 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
             args.Document = new AMLDocument(filePath);
         }
 
-        private void EditDocument(AMLEditorCommandExecutedEventArgs args) {
+        private static void EditDocument(AMLEditorCommandExecutedEventArgs args) {
             if (AMLEditor.AMLApplication.CancelExecution(
                 new AMLEditorCommandExecutingEventArgs(args.Command, args.CommandArgument, args.Document))) {
                 return;
