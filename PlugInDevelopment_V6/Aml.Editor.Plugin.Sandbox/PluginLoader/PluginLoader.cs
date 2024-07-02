@@ -26,7 +26,9 @@ namespace Aml.Editor.PlugInManager.Loader
         /// </summary>
         private CompositionContainer _container;
 
+#pragma warning disable CS0169 // The field 'PluginLoader._dispatcher' is never used
         private readonly Dispatcher _dispatcher;
+#pragma warning restore CS0169 // The field 'PluginLoader._dispatcher' is never used
 
         #endregion Private Fields
 

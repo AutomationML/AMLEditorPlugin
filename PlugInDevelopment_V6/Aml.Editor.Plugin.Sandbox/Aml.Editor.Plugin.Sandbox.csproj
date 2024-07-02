@@ -2,18 +2,14 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
     <BaseOutputPath>$(SolutionDir)build</BaseOutputPath>
     <ApplicationIcon>AMLIcon.ico</ApplicationIcon>
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>aml.snk</AssemblyOriginatorKeyFile>
-	<Version>1.1.0</Version>
+	  <Version>1.1.1</Version>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove=".gitignore" />
-  </ItemGroup>
 
   <ItemGroup>
     <Content Include="AMLIcon.ico" />
@@ -21,21 +17,21 @@
   <ItemGroup>
     <PackageReference Include="Aml.Editor.API" Version="2.0.2" />
     <PackageReference Include="Aml.Editor.Plugin.Contract" Version="4.0.2" />
-    <PackageReference Include="Aml.Engine" Version="3.1.1" />
-    <PackageReference Include="Aml.Engine.Services" Version="3.0.5" />
-    <PackageReference Include="Aml.Skins" Version="2.0.1" />
-    <PackageReference Include="Aml.Toolkit" Version="4.0.6" />
-    <PackageReference Include="Dirkster.AvalonDock" Version="4.71.2" />
-    <PackageReference Include="Dirkster.AvalonDock.Themes.VS2013" Version="4.71.2" />
-    <PackageReference Include="MahApps.Metro" Version="2.4.9" />
-    <PackageReference Include="MahApps.Metro.IconPacks" Version="4.11.0" />
+    <PackageReference Include="Aml.Engine" Version="3.3.1" />
+    <PackageReference Include="Aml.Skins" Version="2.1.0" />
+    <PackageReference Include="Dirkster.AvalonDock" Version="4.72.1" />
+    <PackageReference Include="Dirkster.AvalonDock.Themes.VS2013" Version="4.72.1" />
+    <PackageReference Include="MahApps.Metro" Version="3.0.0-alpha0492" />
+    <PackageReference Include="MahApps.Metro.IconPacks" Version="5.0.0" />
     <PackageReference Include="Ookii.Dialogs.Wpf" Version="5.0.1" />
-    <PackageReference Include="System.ComponentModel.Composition" Version="7.0.0" />
+    <PackageReference Include="System.ComponentModel.Composition" Version="8.0.0" />
+    <PackageReference Include="Aml.Toolkit" Version="5.1.0"/>
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="PluginLoader\" />
   </ItemGroup>
+
 
   <ItemGroup>
     <Compile Update="Properties\Settings.Designer.cs">

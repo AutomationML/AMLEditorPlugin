@@ -88,12 +88,14 @@ namespace Aml.Editor.PlugInManager.Loader
             typeof(Engine.Services.LookupService).Assembly,
             typeof(Skins.AMLApp).Assembly,
             typeof(API.AMLEditor).Assembly,
-            typeof(Engine.Resources.AMLLibraries).Assembly,
+            typeof(Engine.Resources.AMLStandard.AMLLibraries).Assembly,
             typeof(PluginCommand).Assembly
         };
 
         private readonly AggregateCatalog _catalog;
+#pragma warning disable CS0649 // Field 'SafeDirectoryCatalog._pluginPath' is never assigned to, and will always have its default value null
         private readonly string _pluginPath;
+#pragma warning restore CS0649 // Field 'SafeDirectoryCatalog._pluginPath' is never assigned to, and will always have its default value null
 
         #endregion Private Fields
 

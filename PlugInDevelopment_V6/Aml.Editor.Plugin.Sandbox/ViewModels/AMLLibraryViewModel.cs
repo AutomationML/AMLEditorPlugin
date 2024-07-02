@@ -15,7 +15,9 @@ namespace Aml.Editor.Plugin.Sandbox.ViewModels
     {
         #region fields
 
+#pragma warning disable CS0414 // The field 'AMLLibraryViewModel._contentId' is assigned but its value is never used
         private readonly string _contentId = null;
+#pragma warning restore CS0414 // The field 'AMLLibraryViewModel._contentId' is assigned but its value is never used
 
         #endregion fields
 

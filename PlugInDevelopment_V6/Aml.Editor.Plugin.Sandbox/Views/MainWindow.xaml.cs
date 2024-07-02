@@ -1,18 +1,17 @@
 ﻿// Copyright (c) 2022 AutomationML and Contributors. All rights reserved.
 // Licensed to the AutomationML association under one or more agreements.
 // The AutomationML association licenses this file to you under the MIT license.
-using Aml.Editor.API;
 using Aml.Editor.Plugin.Contracts;
 using Aml.Editor.Plugin.Contracts.Commanding;
 using Aml.Editor.Plugin.Sandbox.Converter;
 using Aml.Editor.Plugin.Sandbox.ViewModels;
 using Aml.Editor.PlugInManager.Loader;
 using Aml.Engine.CAEX.Extensions;
+using Aml.Toolkit.ViewModel;
 using AvalonDock.Layout;
 using System;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -215,14 +214,14 @@ namespace Aml.Editor.Plugin.Sandbox
                 BandIndex = 2,
                 ToolTip = toolBarIntegration.DisplayName
             };
-            foreach (var command in toolBarIntegration.ToolBarCommands.OfType<PlugInCommand>())
+            foreach (var command in toolBarIntegration.ToolBarCommands.OfType<PluginCommand>())
             {
                 if (command.IsCheckable)
                 {
                     var button = new ToggleButton
                     {
                         ToolTip = command.CommandToolTip,
-                        Content = new Image { Source = command.CommandIcon }
+                        Content = (command.CommandIcon == null) ? command.CommandButtonContent : new Image { Source = command.CommandIcon }
                     };
                     Binding bd = new("Command") { Source = command };
                     button.SetBinding(ToggleButton.CommandProperty, bd);
@@ -237,7 +236,7 @@ namespace Aml.Editor.Plugin.Sandbox
                     var button = new Button
                     {
                         ToolTip = command.CommandToolTip,
-                        Content = new Image { Source = command.CommandIcon }
+                        Content = (command.CommandIcon == null) ? command.CommandButtonContent : new Image { Source = command.CommandIcon }
                     };
                     Binding bd = new("Command") { Source = command };
                     button.SetBinding(Button.CommandProperty, bd);
