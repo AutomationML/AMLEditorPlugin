@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Description>This plugin responds to the change of theme in AutomationML editor. This requires the use of a UI library that supports dark and light themes like Mahapps.Metro.</Description>
+    <Copyright>AutomationML 2022</Copyright>
+    <Version>1.0.1</Version>
+    <RepositoryUrl>https://github.com/AutomationML/AMLEditorPlugin</RepositoryUrl>
+    <PackageTags>AMLEditor; AMLEditorPlugin.Net; AutomationML</PackageTags>
+    <PackageIcon>AML.png</PackageIcon>
+    <BaseOutputPath>$(SolutionDir)build\Plugins\$(MSBuildProjectName)</BaseOutputPath>
+    <PackageReleaseNotes>First version compatible with AutomationML Editor version 6.0</PackageReleaseNotes>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="AML.png" />
+    <None Remove="Plugin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Aml.Editor.Plugin.Contract" Version="4.2.0" PrivateAssets="all">
+      <ExcludeAssets>runtime</ExcludeAssets>
+      <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Aml.Engine" Version="4.2.2" PrivateAssets="All">
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+    <PackageReference Include="Aml.Skins" Version="2.1.1" PrivateAssets="All">
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+    <PackageReference Include="Aml.Toolkit" Version="5.2.0" PrivateAssets="All">
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+    <PackageReference Include="MahApps.Metro" Version="3.0.0-alpha0513" PrivateAssets="All">
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(OutputPath)$(AssemblyName).deps.json">
+      <Pack>True</Pack>
+      <PackagePath>\lib\$(TargetFramework)</PackagePath>
+    </None>
+    <Resource Include="AML.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </Resource>
+    <Resource Include="Plugin.png" />
+  </ItemGroup>
+</Project>

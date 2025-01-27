@@ -1,18 +1,18 @@
-## Development and deployment of plug-ins for the AutomationML Editor as of version 6.0 up to 6.3
+## Development and deployment of plug-ins for the AutomationML Editor as of version 6.4
 
 ------
 
 ### Prerequisites
 
-- You need AutomationML Editor version 6.0 or higher to use the plug-ins with the editor. For development and testing the sandbox project is sufficient.
+- You need AutomationML Editor version 6.4 or higher to use the plug-ins with the editor. For development and testing the sandbox project is sufficient.
 - You need at least Visual Studio 2019 as your development platform. The projects in this repository were created using Visual Studio 2022. 
-- Install the .NET 5 SDK
+- Install the .NET 8 SDK
 
-### What's new for Version 6.0
+### What's new for Version 6.4
 
-- The example projects are switched to the SDK based **.csproj* format for Visual Studio projects.  
-- The Target Framework has changed to .NET 5. 
-- New Resources, provided for AutomationML Editor Plug-In Development are used. This includes, for example, the possibility of selecting the light or dark display mode.
+- The Target Framework has changed to .NET 8. 
+- The editor uses the [.NET AssemblyLoadContext](https://learn.microsoft.com/en-us/dotnet/api/system.runtime.loader.assemblyloadcontext?view=net-9.0). PlugIns don't need to use the [Microsoft Extensibility Framework (MEF)](https://docs.microsoft.com/en-us/dotnet/framework/mef/) to export the contract implementations.
+- The content of the NuGet Packages has been adapted to be used by the `AssemblyLoadContext`.
 
 ### Examples
 
@@ -85,7 +85,7 @@ If you want to share the created plug-in for third party use you need to create 
 
 Packages referenced by the AutomationML Editor should have the  `<ExcludeAssets>runtime</ExcludeAssets>` element added to the Package reference tag. This will not include the shared packages into the package. 
 
-The Tag **AMLEditorPlugin.Core** has to be added to the package tag names. This ensures, that the Package Manager can find the plugin in a provided package repository and can offer it to other users.
+The Tag **AMLEditorPlugin.NET** has to be added to the package tag names instead of **AMLEditorPlugin.Core** as in the previous version. This ensures, that the Package Manager can find the plugin in a provided package repository and can offer it to other users.
 
 The *PackageName* of the Plugin shall be unique.
 
